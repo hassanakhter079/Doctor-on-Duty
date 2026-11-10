@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <rect width="600" height="360" fill="#0f172a" rx="12"/>
+  <text x="300" y="32" fill="#2dd4bf" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">ACUTE APPENDICITIS: SIGNS & ALVARADO TRIAGE</text>
+  
+  <g transform="translate(40, 60)">
+    <rect width="250" height="260" fill="#1e293b" rx="8" stroke="#334155"/>
+    <text x="125" y="26" fill="#f8fafc" font-size="13" font-weight="bold" text-anchor="middle">Anatomical & Physical Signs</text>
+    
+    <circle cx="125" cy="85" r="30" fill="none" stroke="#64748b" stroke-width="2"/>
+    <circle cx="125" cy="85" r="4" fill="#f59e0b"/>
+    <text x="135" y="88" fill="#f59e0b" font-size="10">Umbilicus</text>
+    <circle cx="65" cy="140" r="4" fill="#38bdf8"/>
+    <text x="35" y="155" fill="#38bdf8" font-size="10">ASIS</text>
+    <line x1="125" y1="85" x2="65" y2="140" stroke="#94a3b8" stroke-dasharray="3"/>
+    
+    <!-- McBurney point -->
+    <circle cx="85" cy="122" r="7" fill="#f43f5e"/>
+    <text x="100" y="125" fill="#f43f5e" font-size="11" font-weight="bold">McBurney's Point</text>
+    <text x="100" y="138" fill="#94a3b8" font-size="9">(Junction lateral 1/3 & medial 2/3)</text>
+    
+    <g transform="translate(15, 160)" font-size="10" fill="#cbd5e1">
+      <text y="15">&bull; <tspan font-weight="bold" fill="#2dd4bf">Rovsing Sign:</tspan> LLQ pressure &rarr; RLQ pain</text>
+      <text y="32">&bull; <tspan font-weight="bold" fill="#2dd4bf">Psoas Sign:</tspan> Hip extension &rarr; pain (retrocecal)</text>
+      <text y="49">&bull; <tspan font-weight="bold" fill="#2dd4bf">Obturator Sign:</tspan> Hip internal rotation &rarr; pain</text>
+      <text y="66">&bull; <tspan font-weight="bold" fill="#2dd4bf">Blumberg Sign:</tspan> Rebound tenderness</text>
+      <text y="83">&bull; <tspan font-weight="bold" fill="#2dd4bf">Ultrasound:</tspan> Target sign, diameter &gt; 6 mm</text>
+    </g>
+  </g>
+
+  <g transform="translate(310, 60)">
+    <rect width="250" height="260" fill="#1e293b" rx="8" stroke="#334155"/>
+    <text x="125" y="26" fill="#f8fafc" font-size="13" font-weight="bold" text-anchor="middle">Alvarado Score (MANTRELS)</text>
+    
+    <g transform="translate(15, 45)" font-size="10.5">
+      <text y="15" fill="#cbd5e1"><strong>M</strong>igration of pain to RLQ ............ <tspan fill="#2dd4bf" font-weight="bold">1</tspan></text>
+      <text y="32" fill="#cbd5e1"><strong>A</strong>norexia ................................... <tspan fill="#2dd4bf" font-weight="bold">1</tspan></text>
+      <text y="49" fill="#cbd5e1"><strong>N</strong>ausea / Vomiting ..................... <tspan fill="#2dd4bf" font-weight="bold">1</tspan></text>
+      <text y="66" fill="#f43f5e" font-weight="bold"><strong>T</strong>enderness in RLQ .................... 2</text>
+      <text y="83" fill="#cbd5e1"><strong>R</strong>ebound tenderness ................. <tspan fill="#2dd4bf" font-weight="bold">1</tspan></text>
+      <text y="100" fill="#cbd5e1"><strong>E</strong>levated temperature (&gt;37.3&deg;C) ... <tspan fill="#2dd4bf" font-weight="bold">1</tspan></text>
+      <text y="117" fill="#f43f5e" font-weight="bold"><strong>L</strong>eukocytosis (&gt;10,000/&mu;L) .......... 2</text>
+      <text y="134" fill="#cbd5e1"><strong>S</strong>hift to left (&ge;75% neutrophils) .. <tspan fill="#2dd4bf" font-weight="bold">1</tspan></text>
+    </g>
+    
+    <rect x="15" y="195" width="220" height="50" fill="#0f172a" rx="6" stroke="#0d9488"/>
+    <text x="125" y="215" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">Score &ge; 7: High Probability (Surgery!)</text>
+    <text x="125" y="232" fill="#94a3b8" font-size="9.5" text-anchor="middle">5–6: Intermediate (CT/Observe) | &le; 4: Low Risk</text>
+  </g>
+</svg>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 03: Diagnostic Approach of Acute Abdomen | Doctor on Duty</title>
+  
+  <!-- Universal HTML Cloud Sync -->
+  <script src="https://hassanakhter079.github.io/After-Salah-Zikr/cloud-sync.js" data-app="doctor-on-duty"></script>
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+
+:root {
+  --bg-body: #0a0f1d;
+  --bg-card: #11192d;
+  --bg-card-subtle: #162038;
+  --bg-elevated: #1a2744;
+  --border: #233354;
+  --border-subtle: #1c2b48;
+  
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  --teal: #14b8a6;
+  --teal-light: #2dd4bf;
+  --teal-glow: rgba(20, 184, 166, 0.15);
+  
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+  --blue-glow: rgba(59, 130, 246, 0.15);
+  
+  --amber: #f59e0b;
+  --amber-light: #fbbf24;
+  --amber-glow: rgba(245, 158, 11, 0.15);
+  
+  --rose: #f43f5e;
+  --rose-light: #fb7185;
+  --rose-glow: rgba(244, 63, 94, 0.15);
+  
+  --emerald: #10b981;
+  --emerald-light: #34d399;
+  --emerald-glow: rgba(16, 185, 129, 0.15);
+  
+  --purple: #8b5cf6;
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Fraunces', Georgia, serif;
+}
+
+[data-theme="light"] {
+  --bg-body: #f4f6fb;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f8fafc;
+  --bg-elevated: #edf2f7;
+  --border: #e2e8f0;
+  --border-subtle: #cbd5e1;
+  
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
+  
+  --teal: #0d9488;
+  --teal-light: #0f766e;
+  --teal-glow: rgba(13, 148, 136, 0.1);
+  
+  --blue: #2563eb;
+  --blue-light: #1d4ed8;
+  --blue-glow: rgba(37, 99, 235, 0.1);
+  
+  --amber: #d97706;
+  --amber-light: #b45309;
+  --amber-glow: rgba(217, 119, 6, 0.1);
+  
+  --rose: #e11d48;
+  --rose-light: #be123c;
+  --rose-glow: rgba(225, 29, 72, 0.1);
+  
+  --emerald: #059669;
+  --emerald-light: #047857;
+  --emerald-glow: rgba(5, 150, 105, 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.5;
+  font-size: 14.5px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sticky Clinical Navigation Header */
+.top-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.brand-text h1 {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+}
+
+.brand-text span {
+  font-size: 11px;
+  color: var(--teal);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.topic-select {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  max-width: 280px;
+  outline: none;
+  cursor: pointer;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--teal);
+  color: var(--teal-light);
+}
+
+.nav-btn.primary {
+  background: var(--teal);
+  color: #ffffff;
+  border-color: var(--teal);
+}
+
+.nav-btn.primary:hover {
+  background: var(--teal-light);
+}
+
+/* Page Layout Container */
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 20px 40px 20px;
+}
+
+/* Compact Banner */
+.topic-banner {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--teal), var(--blue));
+}
+
+.banner-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-emergency { background: var(--rose-glow); color: var(--rose-light); border: 1px solid var(--rose); }
+.badge-urgent { background: var(--amber-glow); color: var(--amber-light); border: 1px solid var(--amber); }
+.badge-routine { background: var(--teal-glow); color: var(--teal-light); border: 1px solid var(--teal); }
+.badge-category { background: var(--blue-glow); color: var(--blue-light); border: 1px solid var(--blue); }
+.badge-page { background: var(--bg-elevated); color: var(--text-muted); border: 1px solid var(--border); }
+
+.topic-title {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.topic-summary {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  max-width: 950px;
+}
+
+/* Two-Column Ultra-Condensed Clinical Grid */
+.condensed-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .condensed-grid { grid-template-columns: 1fr; }
+  .topic-select { max-width: 180px; }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Clinical Panels & Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--teal-light);
+}
+
+.card-title i { font-size: 14px; }
+
+/* Image and Clinical Media Display */
+.media-container {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.media-container img, .media-container svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 340px;
+  object-fit: cover;
+  background: #000;
+}
+
+.media-caption {
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+  line-height: 1.4;
+}
+
+.media-caption strong {
+  color: var(--teal-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Clinical Content Formatting */
+.clinical-section {
+  margin-bottom: 16px;
+}
+
+.clinical-section:last-child {
+  margin-bottom: 0;
+}
+
+.clinical-section h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px dashed var(--border-subtle);
+  padding-bottom: 4px;
+}
+
+.clinical-section p {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  margin-bottom: 8px;
+}
+
+.clinical-section ul, .clinical-section ol {
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+.clinical-section li {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.clinical-section strong {
+  color: var(--text-main);
+}
+
+/* Steps Grid */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.step-card {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 12.5px;
+  position: relative;
+  padding-left: 36px;
+}
+
+.step-num {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+  background: var(--teal);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* Treatment Tables (Pakistani Brands & Dosages) */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.clinical-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+}
+
+.clinical-table th {
+  background: var(--bg-card-subtle);
+  padding: 8px 10px;
+  font-weight: 700;
+  color: var(--teal-light);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.clinical-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.clinical-table tr:hover {
+  background: var(--bg-elevated);
+}
+
+.clinical-table strong {
+  color: var(--text-main);
+}
+
+.clinical-table .brand-tag {
+  display: inline-block;
+  background: var(--amber-glow);
+  color: var(--amber-light);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.clinical-table .dose-tag {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--teal-light);
+}
+
+/* Alerts and Callouts */
+.alert-box {
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 12.5px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.alert-danger {
+  background: var(--rose-glow);
+  border: 1px solid var(--rose);
+  color: #fecdd3;
+}
+
+.alert-warning {
+  background: var(--amber-glow);
+  border: 1px solid var(--amber);
+  color: #fef3c7;
+}
+
+.alert-info {
+  background: var(--blue-glow);
+  border: 1px solid var(--blue);
+  color: #dbeafe;
+}
+
+.alert-success {
+  background: var(--emerald-glow);
+  border: 1px solid var(--emerald);
+  color: #d1fae5;
+}
+
+.alert-box i {
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+/* Footer Controls */
+.bottom-nav {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Alvarado Calculator Widget */
+.calc-card {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--teal);
+  border-radius: 8px;
+  padding: 14px;
+  margin: 12px 0;
+}
+
+.calc-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--teal-light);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.calc-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.calc-score-display {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border-radius: 6px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Print Styles */
+@media print {
+  .top-navbar, .bottom-nav, .nav-btn, .topic-select, #themeToggle { display: none !important; }
+  body { background: #fff !important; color: #000 !important; font-size: 11pt !important; }
+  .card, .topic-banner { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; page-break-inside: avoid; }
+  .condensed-grid { display: block !important; }
+  .media-container img { max-height: 200px !important; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header class="top-navbar">
+    <a href="index.html" class="brand-section">
+      <div class="brand-logo">DoD</div>
+      <div class="brand-text">
+        <h1>Doctor on Duty</h1>
+        <span>Ch. 17: General Surgery</span>
+      </div>
+    </a>
+
+    <div class="nav-actions">
+      <select class="topic-select" onchange="onTopicSelect(this.value)">
+<option value="01-approach-to-acute-abdomen.html" >01. Approach to the Management of Acute Abdomen</option>
+<option value="02-differential-diagnosis-acute-abdomen.html" >02. Differential Diagnosis and Causes of Acute Abdomen</option>
+<option value="03-diagnostic-approach-acute-abdomen.html" selected>03. Diagnostic Approach of Acute Abdomen</option>
+<option value="04-radiological-approach-acute-abdomen.html" >04. Radiological Approach of Acute Abdomen</option>
+<option value="05-stepwise-management-acute-abdomen.html" >05. Stepwise Management of Acute Abdomen</option>
+<option value="06-acute-appendicitis.html" >06. Acute Appendicitis</option>
+<option value="07-acute-cholecystitis.html" >07. Acute Cholecystitis</option>
+<option value="08-cholelithiasis-gallstones.html" >08. Cholelithiasis (Gallstones)</option>
+<option value="09-choledocholithiasis.html" >09. Choledocholithiasis</option>
+<option value="10-acute-cholangitis.html" >10. Acute Cholangitis</option>
+<option value="11-anal-fissure.html" >11. Anal Fissure</option>
+<option value="12-hemorrhoids-piles.html" >12. Hemorrhoids (Piles / بواسیر)</option>
+<option value="13-ano-rectal-abscess.html" >13. Ano-Rectal Abscess</option>
+<option value="14-pilonidal-sinus.html" >14. Pilonidal Sinus</option>
+<option value="15-acute-pancreatitis.html" >15. Acute Pancreatitis</option>
+<option value="16-intestinal-bowel-obstruction.html" >16. Intestinal (Bowel) Obstruction</option>
+<option value="17-spontaneous-bacterial-peritonitis-sbp.html" >17. Spontaneous Bacterial Peritonitis (SBP)</option>
+<option value="18-secondary-bacterial-peritonitis.html" >18. Secondary Bacterial Peritonitis</option>
+<option value="19-pressure-ulcer-bed-sore.html" >19. Pressure Ulcer (Decubitus Ulcer / Bed Sore)</option>
+<option value="20-diabetic-foot-infections.html" >20. Diabetic Foot Infections</option>
+<option value="21-hypertrophic-scar.html" >21. Hypertrophic Scar</option>
+<option value="22-keloids.html" >22. Keloids</option>
+<option value="23-lipoma.html" >23. Lipoma</option>
+<option value="24-skin-tag-acrochordon.html" >24. Skin Tag (Acrochordon)</option>
+<option value="25-ganglion-cyst.html" >25. Ganglion Cyst</option>
+<option value="26-ingrown-toenail-onychocryptosis.html" >26. Ingrown Toe-Nail (Onychocryptosis)</option>
+<option value="27-felon-finger-infection.html" >27. Felon Finger Infection</option>
+<option value="28-acute-paronychia.html" >28. Acute Paronychia</option>
+<option value="29-chronic-paronychia.html" >29. Chronic Paronychia</option>
+      </select>
+
+      <a href="02-differential-diagnosis-acute-abdomen.html" class="nav-btn" title="Previous Topic"><i class="fa-solid fa-arrow-left"></i> Prev</a>
+      <a href="index.html" class="nav-btn"><i class="fa-solid fa-table-cells"></i> Index</a>
+      <a href="04-radiological-approach-acute-abdomen.html" class="nav-btn" title="Next Topic">Next <i class="fa-solid fa-arrow-right"></i></a>
+      
+      <button id="themeToggle" class="nav-btn" title="Toggle Theme"><i class="fa-solid fa-sun"></i></button>
+      <button onclick="window.print()" class="nav-btn" title="Print this Note"><i class="fa-solid fa-print"></i></button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="page-container">
+    
+    <!-- Topic Header Banner -->
+    <section class="topic-banner">
+      <div class="banner-meta">
+        <span class="badge badge-Laboratory Workup"><i class="fa-solid fa-triangle-exclamation"></i> CLINICAL GUIDE</span>
+        <span class="badge badge-category"><i class="fa-solid fa-folder-open"></i> Acute Abdomen</span>
+        <span class="badge badge-page"><i class="fa-solid fa-book-medical"></i> Book Page p. 416</span>
+        <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 03 of 29</span>
+      </div>
+      <h2 class="topic-title">03. Diagnostic Approach of Acute Abdomen</h2>
+      <p class="topic-summary">Evidence-guided laboratory investigations for acute abdomen, test interpretations, sensitivity/specificity, and pre-test probability management.</p>
+    </section>
+
+    <!-- Condensed Split Clinical Grid -->
+    <div class="condensed-grid">
+      
+      <!-- Left Column: Media & Diagnostics -->
+      <div class="column">
+        
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title"><i class="fa-solid fa-image"></i> Clinical Photo & Radiodiagnosis</span>
+        <span class="badge badge-category">Internet Clinical Resource</span>
+      </div>
+      <div class="media-container">
+        <img src="img/clinical_topic_03.jpg" alt="Clinical Examination & Palpation" loading="lazy">
+        <div class="media-caption">
+          <strong>Clinical Examination & Palpation</strong>
+          Systematic physical examination: inspection, gentle superficial to deep palpation, peritonitis signs (guarding and rebound tenderness).
+        </div>
+      </div>
+    </div>
+        
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-stethoscope"></i> Clinical Assessment & Evaluation</span>
+          </div>
+          
+<div class="clinical-section">
+  <p class="lead-text">The diagnostic laboratory workup must be guided by pre-test probability, vital signs stability, and specific diagnostic hypotheses:</p>
+
+  <div class="lab-grid">
+    <div class="lab-card">
+      <div class="lab-card-title"><i class="fa-solid fa-vial"></i> Complete Blood Count (CBC)</div>
+      <ul>
+        <li><strong>Leukocytosis (WBC &gt; 11,000/&mu;L) with left shift (&ge; 75% neutrophils):</strong> Highly suggestive of acute bacterial inflammation (appendicitis, cholecystitis, diverticulitis, abscess).</li>
+        <li><strong>Hematocrit (Hct):</strong> Elevated Hct (hemoconcentration) signifies intravascular volume depletion (severe dehydration, bowel obstruction, pancreatitis third-spacing). Low Hct signifies acute occult hemorrhage (ruptured AAA, ectopic pregnancy, splenic rupture, hemorrhagic pancreatitis).</li>
+      </ul>
+    </div>
+
+    <div class="lab-card">
+      <div class="lab-card-title"><i class="fa-solid fa-kidneys"></i> Renal Profile & Electrolytes (UCE)</div>
+      <ul>
+        <li><strong>Blood Urea Nitrogen (BUN) & Serum Creatinine:</strong> Evaluates dehydration, prerenal azotemia, acute kidney injury (AKI), or hepatorenal syndrome.</li>
+        <li><strong>Serum Electrolytes (Na+, K+, Cl-, HCO3-):</strong> Detects severe hypokalemia/hypochloremic metabolic alkalosis from persistent vomiting, or hyperkalemia from bowel necrosis and tissue breakdown.</li>
+      </ul>
+    </div>
+
+    <div class="lab-card">
+      <div class="lab-card-title"><i class="fa-solid fa-liver"></i> Liver Function Tests (LFTs)</div>
+      <ul>
+        <li><strong>Cholestatic Markers:</strong> Elevated Total & Direct Bilirubin, Alkaline Phosphatase (ALP), and Gamma-Glutamyl Transferase (GGT) strongly indicate biliary obstruction (choledocholithiasis, cholangitis, extrinsic compression).</li>
+        <li><strong>Aminotransferases (ALT, AST):</strong> Extreme elevations (&gt; 1,000 U/L) suggest acute viral/toxic hepatitis or acute ischemic hepatic injury; ALT &gt; 150 U/L in pancreatitis suggests gallstone etiology.</li>
+      </ul>
+    </div>
+
+    <div class="lab-card">
+      <div class="lab-card-title"><i class="fa-solid fa-fire-flame-curved"></i> Pancreatic Enzymes</div>
+      <ul>
+        <li><strong>Serum Lipase:</strong> The investigation of choice for acute pancreatitis. Highly specific and remains elevated for 8–14 days. Value &gt; 3&times; upper limit of normal is diagnostic.</li>
+        <li><strong>Serum Amylase:</strong> Rises quickly (within 2–12 hours) but normalizes in 3–5 days. Less specific (can rise in perforated ulcer, bowel ischemia, ruptured ectopic, renal failure, salivary disease).</li>
+      </ul>
+    </div>
+
+    <div class="lab-card">
+      <div class="lab-card-title"><i class="fa-solid fa-shield-halved"></i> Inflammatory Markers & Sepsis</div>
+      <ul>
+        <li><strong>C-Reactive Protein (CRP):</strong> Levels &gt; 150 mg/L at 48–72 hours correlate strongly with severe/necrotizing pancreatitis or deep intra-abdominal sepsis.</li>
+        <li><strong>Serum Procalcitonin:</strong> Excellent marker for systemic bacterial infection, septic shock, and infected pancreatic necrosis.</li>
+        <li><strong>Arterial Blood Gas (ABG) & Serum Lactate:</strong> Elevated lactate (&gt; 2 mmol/L) with metabolic acidosis is a critical red flag for mesenteric ischemia, bowel gangrene, or septic shock.</li>
+      </ul>
+    </div>
+
+    <div class="lab-card">
+      <div class="lab-card-title"><i class="fa-solid fa-person-dress"></i> Mandatory Urinalysis & Pregnancy Test</div>
+      <ul>
+        <li><strong>Urine Pregnancy Test (&beta;-hCG):</strong> <em>MANDATORY in EVERY woman of reproductive age</em> presenting with acute abdominal or pelvic pain regardless of sexual or menstrual history, to rule out life-threatening ruptured ectopic pregnancy.</li>
+        <li><strong>Urine Routine Examination (R/E):</strong> Hematuria suggests renal/ureteric stones; pyuria/nitrites indicate UTI. (Microscopic pyuria may occur in appendicitis if adjacent to ureter/bladder).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Quick Reference, High-Yield Pearls & Prescribing Summary -->
+      <div class="column">
+        
+        <!-- Red Flags Alert Box -->
+        <div class="alert-box alert-danger">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <div>
+            <strong>Emergency Red Flags:</strong>
+            Immediate surgical consult if signs of peritonitis (rigidity, guarding, rebound), hemodynamic shock (BP &lt; 90/60, HR &gt; 110), rising WBC &gt; 15,000/uL, or free gas under diaphragm.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-kit-medical"></i> Quick On-Duty Clinical Checklist</span>
+          </div>
+          <ul style="padding-left: 20px; font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+            <li><strong>Immediate Vitability Check:</strong> Pulse, BP, Resp Rate, SpO2, and Abdominal Girth.</li>
+            <li><strong>Line Placement:</strong> 2x wide-bore IV cannulae (16G grey or 18G green).</li>
+            <li><strong>Urgent Bloods:</strong> CBC (TLC, Neutrophils), LFTs, Serum Amylase/Lipase, Urea, Creatinine, Electrolytes, Blood Group & Cross-match.</li>
+            <li><strong>Bedside Urine:</strong> Pregnancy test (U-hCG) in all females of reproductive age with lower abdominal pain.</li>
+            <li><strong>Emergency Fasting:</strong> Keep strict <code>NPO</code> until surgical evaluation is complete.</li>
+            <li><strong>Analgesia Caution:</strong> Titrate analgesia promptly; relieving pain does not obscure signs of peritonitis.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-pills"></i> Pakistani Brand Formulary Reference</span>
+          </div>
+          <div class="table-responsive">
+            <table class="clinical-table">
+              <thead>
+                <tr>
+                  <th>Drug Class</th>
+                  <th>Generic Name</th>
+                  <th>Common Local Brands</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>3rd Gen Cephalosporin</strong></td>
+                  <td>Ceftriaxone 1g/2g IV</td>
+                  <td><span class="brand-tag">Rocephin</span> <span class="brand-tag">Oxidil</span> <span class="brand-tag">Epicephin</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Anti-Anaerobic</strong></td>
+                  <td>Metronidazole 500mg IV</td>
+                  <td><span class="brand-tag">Flagyl</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Fluoroquinolone</strong></td>
+                  <td>Ciprofloxacin 400mg IV</td>
+                  <td><span class="brand-tag">Novidate</span> <span class="brand-tag">Ciproxin</span></td>
+                </tr>
+                <tr>
+                  <td><strong>IV PPI</strong></td>
+                  <td>Omeprazole 40mg IV</td>
+                  <td><span class="brand-tag">Risek</span> <span class="brand-tag">Omega</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Antipyretic / Analgesic</strong></td>
+                  <td>Paracetamol 1g IV Infusion</td>
+                  <td><span class="brand-tag">Provas</span> <span class="brand-tag">Panadol</span></td>
+                </tr>
+                <tr>
+                  <td><strong>NSAID Analgesic</strong></td>
+                  <td>Ketorolac 30mg IV / IM</td>
+                  <td><span class="brand-tag">Toradol</span> <span class="brand-tag">Kinz</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Antiemetic</strong></td>
+                  <td>Dimenhydrinate 50mg / Ondansetron 8mg</td>
+                  <td><span class="brand-tag">Gravinate</span> <span class="brand-tag">Onset</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Antispasmodic</strong></td>
+                  <td>Drotaverine 40mg / Phloroglucinol</td>
+                  <td><span class="brand-tag">Nospa</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <div>
+        <a href="02-differential-diagnosis-acute-abdomen.html" class="nav-btn"><i class="fa-solid fa-arrow-left"></i> Previous: Topic 02</a>
+      </div>
+      <div>
+        <a href="index.html" class="nav-btn primary"><i class="fa-solid fa-book-open"></i> Full Chapter Index (29 Topics)</a>
+      </div>
+      <div>
+        <a href="04-radiological-approach-acute-abdomen.html" class="nav-btn">Next: Topic 04 <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </nav>
+
+  </main>
+
+  <script>
+
+// Dark / Light Theme Toggle with Persistence
+function initTheme() {
+  const saved = localStorage.getItem('dod_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  updateThemeIcon(saved);
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('dod_theme', next);
+  updateThemeIcon(next);
+}
+
+function updateThemeIcon(theme) {
+  const btn = document.getElementById('themeToggle');
+  if (btn) {
+    btn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    btn.title = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+  }
+}
+
+// Quick Jump Dropdown
+function onTopicSelect(val) {
+  if (val) {
+    window.location.href = val;
+  }
+}
+
+// Interactive Alvarado Score Calculator
+function updateAlvarado() {
+  const checkboxes = document.querySelectorAll('.alv-check');
+  let score = 0;
+  checkboxes.forEach(cb => {
+    if (cb.checked) score += parseInt(cb.dataset.points, 10);
+  });
+  const scoreEl = document.getElementById('alvScore');
+  const verdictEl = document.getElementById('alvVerdict');
+  if (scoreEl && verdictEl) {
+    scoreEl.innerText = score + ' / 10';
+    if (score <= 4) {
+      verdictEl.innerText = 'Unlikely Appendicitis (Discharge / Observe)';
+      verdictEl.style.color = 'var(--emerald-light)';
+    } else if (score <= 6) {
+      verdictEl.innerText = 'Compatible (Admission & Ultrasound / CT)';
+      verdictEl.style.color = 'var(--amber-light)';
+    } else {
+      verdictEl.innerText = 'High Probability (Surgical Appendectomy)';
+      verdictEl.style.color = 'var(--rose-light)';
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+});
+
+  </script>
+</body>
+</html>

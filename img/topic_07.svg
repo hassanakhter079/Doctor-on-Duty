@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <rect width="600" height="360" fill="#0f172a" rx="12"/>
+  <text x="300" y="32" fill="#2dd4bf" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">ACUTE CHOLECYSTITIS & BILIARY CALCULI</text>
+  
+  <g transform="translate(40, 60)">
+    <rect width="250" height="260" fill="#1e293b" rx="8" stroke="#334155"/>
+    <text x="125" y="26" fill="#f8fafc" font-size="13" font-weight="bold" text-anchor="middle">Ultrasound Hallmark Signs</text>
+    
+    <path d="M 60,80 C 40,110 50,170 90,190 C 130,200 160,180 170,140 C 180,100 130,60 90,70 Z" fill="#064e3b" stroke="#10b981" stroke-width="4"/>
+    <!-- Gallbladder lumen -->
+    <path d="M 70,90 C 55,115 65,160 95,175 C 125,185 145,165 155,135 C 160,105 125,75 95,80 Z" fill="#022c22"/>
+    <!-- Gallstone with acoustic shadow -->
+    <circle cx="110" cy="145" r="14" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+    <polygon points="100,160 85,230 135,230 120,160" fill="rgba(0,0,0,0.6)"/>
+    <text x="110" y="220" fill="#94a3b8" font-size="9" text-anchor="middle">Acoustic Shadow</text>
+    
+    <text x="125" y="248" fill="#38bdf8" font-size="10.5" font-weight="bold" text-anchor="middle">Thickened Wall &gt; 4mm + Stone</text>
+  </g>
+
+  <g transform="translate(310, 60)">
+    <rect width="250" height="260" fill="#1e293b" rx="8" stroke="#334155"/>
+    <text x="125" y="26" fill="#f8fafc" font-size="13" font-weight="bold" text-anchor="middle">Tokyo Guidelines (TG18)</text>
+    
+    <rect x="15" y="45" width="220" height="50" fill="#0f172a" rx="6" stroke="#38bdf8"/>
+    <text x="25" y="65" fill="#38bdf8" font-size="11" font-weight="bold">A. Local Signs:</text>
+    <text x="25" y="82" fill="#cbd5e1" font-size="10">Murphy's sign, RUQ pain, tender mass</text>
+    
+    <rect x="15" y="105" width="220" height="50" fill="#0f172a" rx="6" stroke="#f59e0b"/>
+    <text x="25" y="125" fill="#f59e0b" font-size="11" font-weight="bold">B. Systemic Signs:</text>
+    <text x="25" y="142" fill="#cbd5e1" font-size="10">Fever, Leukocytosis (WBC &gt; 10k), &uarr;CRP</text>
+    
+    <rect x="15" y="165" width="220" height="50" fill="#0f172a" rx="6" stroke="#10b981"/>
+    <text x="25" y="185" fill="#10b981" font-size="11" font-weight="bold">C. Imaging Confirmation:</text>
+    <text x="25" y="202" fill="#cbd5e1" font-size="10">US: wall &gt; 4mm, pericholecystic fluid</text>
+    
+    <text x="125" y="245" fill="#f43f5e" font-size="10.5" font-weight="bold" text-anchor="middle">&bull; Definite Diagnosis: A + B + C &bull;</text>
+  </g>
+</svg>
