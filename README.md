@@ -5,7 +5,7 @@
 
 🌐 **Live Web Application:** [https://hassanakhter079.github.io/Doctor-on-Duty/](https://hassanakhter079.github.io/Doctor-on-Duty/)  
 ☁️ **Universal Cloud Sync:** Integrated with automatic cross-device progress and bookmark persistence.  
-🔒 **Repository Status:** Strictly Private.
+🔒 **Repository Status:** Public (GitHub Pages Active).
 
 ---
 
