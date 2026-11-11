@@ -165,7 +165,7 @@ body {
   border-radius: 6px;
   font-size: 13px;
   font-weight: 600;
-  max-width: 280px;
+  max-width: 320px;
   outline: none;
   cursor: pointer;
 }
@@ -258,10 +258,9 @@ body {
 .badge-page { background: var(--bg-elevated); color: var(--text-muted); border: 1px solid var(--border); }
 
 .topic-title {
-  font-family: var(--font-sans);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.4px;
   line-height: 1.25;
   margin-bottom: 6px;
 }
@@ -275,7 +274,7 @@ body {
 /* Two-Column Ultra-Condensed Clinical Grid */
 .condensed-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 16px;
   align-items: start;
 }
@@ -317,8 +316,6 @@ body {
   color: var(--teal-light);
 }
 
-.card-title i { font-size: 14px; }
-
 /* Image and Clinical Media Display */
 .media-container {
   background: var(--bg-card-subtle);
@@ -332,7 +329,7 @@ body {
   width: 100%;
   height: auto;
   display: block;
-  max-height: 340px;
+  max-height: 320px;
   object-fit: cover;
   background: #000;
 }
@@ -353,258 +350,179 @@ body {
 }
 
 /* Clinical Content Formatting */
-.clinical-section {
-  margin-bottom: 16px;
-}
-
-.clinical-section:last-child {
-  margin-bottom: 0;
-}
+.clinical-section { margin-bottom: 16px; }
+.clinical-section:last-child { margin-bottom: 0; }
 
 .clinical-section h4 {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px dashed var(--border-subtle);
-  padding-bottom: 4px;
-}
-
-.clinical-section p {
-  color: var(--text-muted);
-  font-size: 13.5px;
-  margin-bottom: 8px;
-}
-
-.clinical-section ul, .clinical-section ol {
-  padding-left: 20px;
-  margin-bottom: 8px;
-  color: var(--text-muted);
-}
-
-.clinical-section li {
-  margin-bottom: 4px;
-  font-size: 13px;
-}
-
-.clinical-section strong {
-  color: var(--text-main);
-}
-
-/* Steps Grid */
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 8px;
-  margin: 10px 0;
-}
-
-.step-card {
-  background: var(--bg-card-subtle);
-  border: 1px solid var(--border-subtle);
-  border-radius: 6px;
-  padding: 10px;
-  font-size: 12.5px;
-  position: relative;
-  padding-left: 36px;
-}
-
-.step-num {
-  position: absolute;
-  left: 8px;
-  top: 8px;
-  width: 20px;
-  height: 20px;
-  background: var(--teal);
-  color: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 800;
-}
-
-/* Treatment Tables (Pakistani Brands & Dosages) */
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-  margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-}
-
-.clinical-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-  text-align: left;
-}
-
-.clinical-table th {
-  background: var(--bg-card-subtle);
-  padding: 8px 10px;
+  font-size: 14.5px;
   font-weight: 700;
   color: var(--teal-light);
-  border-bottom: 1px solid var(--border);
-  white-space: nowrap;
-}
-
-.clinical-table td {
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--border-subtle);
-  color: var(--text-muted);
-}
-
-.clinical-table tr:hover {
-  background: var(--bg-elevated);
-}
-
-.clinical-table strong {
-  color: var(--text-main);
-}
-
-.clinical-table .brand-tag {
-  display: inline-block;
-  background: var(--amber-glow);
-  color: var(--amber-light);
-  padding: 1px 6px;
-  border-radius: 3px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.clinical-table .dose-tag {
-  font-family: var(--font-mono);
-  font-weight: 600;
-  color: var(--teal-light);
-}
-
-/* Alerts and Callouts */
-.alert-box {
-  border-radius: 6px;
-  padding: 10px 14px;
-  margin: 10px 0;
-  font-size: 12.5px;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.alert-danger {
-  background: var(--rose-glow);
-  border: 1px solid var(--rose);
-  color: #fecdd3;
-}
-
-.alert-warning {
-  background: var(--amber-glow);
-  border: 1px solid var(--amber);
-  color: #fef3c7;
-}
-
-.alert-info {
-  background: var(--blue-glow);
-  border: 1px solid var(--blue);
-  color: #dbeafe;
-}
-
-.alert-success {
-  background: var(--emerald-glow);
-  border: 1px solid var(--emerald);
-  color: #d1fae5;
-}
-
-.alert-box i {
-  font-size: 16px;
-  margin-top: 2px;
-}
-
-/* Footer Controls */
-.bottom-nav {
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-/* Alvarado Calculator Widget */
-.calc-card {
-  background: var(--bg-card-subtle);
-  border: 1px solid var(--teal);
-  border-radius: 8px;
-  padding: 14px;
-  margin: 12px 0;
-}
-
-.calc-title {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--teal-light);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.calc-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+.clinical-section p {
+  font-size: 13.5px;
+  color: var(--text-main);
+  line-height: 1.5;
+  margin-bottom: 8px;
 }
 
-.calc-item {
+.med-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin: 8px 0 12px 0;
+}
+
+.med-table th, .med-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border: 1px solid var(--border);
+}
+
+.med-table th {
+  background: var(--bg-elevated);
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.med-table td { background: var(--bg-card); }
+.med-table tr:hover td { background: var(--bg-card-subtle); }
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 8px 0 12px 0;
+}
+
+.step-card {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.step-num {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.alert {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  margin: 10px 0;
+  border-left: 4px solid;
+}
+
+.alert-danger { background: rgba(244, 63, 94, 0.1); border-color: var(--rose); color: var(--rose-light); }
+.alert-warning { background: rgba(245, 158, 11, 0.1); border-color: var(--amber); color: var(--amber-light); }
+.alert-info { background: rgba(59, 130, 246, 0.1); border-color: var(--blue); color: var(--blue-light); }
+.alert-success { background: rgba(16, 185, 129, 0.1); border-color: var(--emerald); color: var(--emerald-light); }
+
+.bullet-list, .sub-list {
+  padding-left: 18px;
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.bullet-list li, .sub-list li { margin-bottom: 4px; }
+
+/* Interactive Clinical Calculators */
+.calc-box {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 10px;
+}
+
+.calc-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  cursor: pointer;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 13px;
 }
+
+.calc-row:last-child { border-bottom: none; }
 
 .calc-score-display {
-  margin-top: 10px;
-  padding: 8px 12px;
-  background: var(--bg-card);
-  border-radius: 6px;
-  font-weight: 700;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-top: 10px;
+  font-weight: 700;
 }
 
-/* Print Styles */
+.score-num {
+  font-size: 18px;
+  color: var(--teal);
+  font-family: var(--font-mono);
+}
+
+.bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
 @media print {
-  .top-navbar, .bottom-nav, .nav-btn, .topic-select, #themeToggle { display: none !important; }
-  body { background: #fff !important; color: #000 !important; font-size: 11pt !important; }
-  .card, .topic-banner { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; page-break-inside: avoid; }
-  .condensed-grid { display: block !important; }
-  .media-container img { max-height: 200px !important; }
+  .top-navbar, .bottom-nav, .nav-actions { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .card, .topic-banner { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; }
 }
 
   </style>
 </head>
 <body>
 
-  <!-- Top Sticky Navigation Bar -->
+  <!-- Sticky Top Navigation Bar -->
   <header class="top-navbar">
     <a href="index.html" class="brand-section">
       <div class="brand-logo">DoD</div>
       <div class="brand-text">
         <h1>Doctor on Duty</h1>
-        <span>Ch. 17: General Surgery</span>
+        <span>General Surgery</span>
       </div>
     </a>
 
     <div class="nav-actions">
-      <select class="topic-select" onchange="onTopicSelect(this.value)">
+      <select id="topic-quick-jump" class="topic-select">
+<optgroup label="Chapter 17: General Surgery">
 <option value="01-approach-to-acute-abdomen.html" >01. Approach to the Management of Acute Abdomen</option>
 <option value="02-differential-diagnosis-acute-abdomen.html" >02. Differential Diagnosis and Causes of Acute Abdomen</option>
 <option value="03-diagnostic-approach-acute-abdomen.html" >03. Diagnostic Approach of Acute Abdomen</option>
@@ -615,11 +533,11 @@ body {
 <option value="08-cholelithiasis-gallstones.html" >08. Cholelithiasis (Gallstones)</option>
 <option value="09-choledocholithiasis.html" selected>09. Choledocholithiasis</option>
 <option value="10-acute-cholangitis.html" >10. Acute Cholangitis</option>
+<option value="15-acute-pancreatitis.html" >15. Acute Pancreatitis</option>
 <option value="11-anal-fissure.html" >11. Anal Fissure</option>
 <option value="12-hemorrhoids-piles.html" >12. Hemorrhoids (Piles / بواسیر)</option>
 <option value="13-ano-rectal-abscess.html" >13. Ano-Rectal Abscess</option>
 <option value="14-pilonidal-sinus.html" >14. Pilonidal Sinus</option>
-<option value="15-acute-pancreatitis.html" >15. Acute Pancreatitis</option>
 <option value="16-intestinal-bowel-obstruction.html" >16. Intestinal (Bowel) Obstruction</option>
 <option value="17-spontaneous-bacterial-peritonitis-sbp.html" >17. Spontaneous Bacterial Peritonitis (SBP)</option>
 <option value="18-secondary-bacterial-peritonitis.html" >18. Secondary Bacterial Peritonitis</option>
@@ -634,56 +552,85 @@ body {
 <option value="27-felon-finger-infection.html" >27. Felon Finger Infection</option>
 <option value="28-acute-paronychia.html" >28. Acute Paronychia</option>
 <option value="29-chronic-paronychia.html" >29. Chronic Paronychia</option>
+</optgroup>
+<optgroup label="Chapter 18: Ophthalmology">
+<option value="ch18-01-hordeolum-chalazion.html" >101. Hordeolum (Stye) & Chalazion (Meibomian Cyst)</option>
+<option value="ch18-02-blepharitis.html" >102. Blepharitis (Anterior & Posterior MGD)</option>
+<option value="ch18-03-bacterial-conjunctivitis.html" >103. Acute Bacterial Conjunctivitis</option>
+<option value="ch18-04-viral-conjunctivitis.html" >104. Viral Conjunctivitis (Epidemic Keratoconjunctivitis)</option>
+<option value="ch18-05-allergic-conjunctivitis.html" >105. Allergic Conjunctivitis & Vernal Keratoconjunctivitis</option>
+<option value="ch18-06-chlamydial-conjunctivitis.html" >106. Chlamydial Conjunctivitis & Trachoma</option>
+<option value="ch18-07-corneal-abrasion.html" >107. Corneal Abrasion & Traumatic Epithelial Defect</option>
+<option value="ch18-08-chemical-burns.html" >108. Ocular Chemical Burns (Acid vs Alkali Emergency)</option>
+<option value="ch18-09-corneal-foreign-body.html" >109. Corneal & Subtarsal Foreign Bodies</option>
+<option value="ch18-10-acute-angle-closure-glaucoma.html" >110. Acute Angle-Closure Glaucoma (AACG Emergency)</option>
+<option value="ch18-11-anterior-uveitis-iritis.html" >111. Anterior Uveitis (Acute Iritis)</option>
+<option value="ch18-12-ophthalmic-drug-formulary.html" >112. Comprehensive Ophthalmic Drug Formulary & Eye Drops</option>
+</optgroup>
+<optgroup label="Chapter 19: Ear, Nose & Throat (ENT)">
+<option value="ch19-01-chronic-rhinosinusitis.html" >201. Chronic Rhinosinusitis (CRS with/without Polyps)</option>
+<option value="ch19-02-deviated-nasal-septum.html" >202. Deviated Nasal Septum (DNS) & Turbinate Hypertrophy</option>
+<option value="ch19-03-epistaxis-management.html" >203. Epistaxis (Anterior vs Posterior Nasal Bleeding)</option>
+<option value="ch19-04-acute-tonsillitis-pharyngitis.html" >204. Acute Tonsillitis & Pharyngitis (Centor Score)</option>
+<option value="ch19-05-peritonsillar-abscess-quinsy.html" >205. Peritonsillar Abscess (Quinsy)</option>
+<option value="ch19-06-acute-otitis-media.html" >206. Acute Otitis Media (AOM)</option>
+<option value="ch19-07-csom-tubotympanic-atticoantral.html" >207. CSOM: Tubotympanic (Safe) vs Atticoantral (Unsafe)</option>
+<option value="ch19-08-otomycosis.html" >208. Otomycosis (Fungal Otitis Externa)</option>
+<option value="ch19-09-otitis-externa.html" >209. Diffuse Otitis Externa & Malignant Otitis Externa</option>
+<option value="ch19-10-bppv-vertigo-epley.html" >210. BPPV: Benign Paroxysmal Positional Vertigo & Epley</option>
+<option value="ch19-11-menieres-disease.html" >211. Ménière's Disease (Endolymphatic Hydrops)</option>
+<option value="ch19-12-bells-palsy-facial-paralysis.html" >212. Bell's Palsy (Acute Lower Motor Neuron Facial Paralysis)</option>
+</optgroup>
+<optgroup label="Chapter 23: Emergency Medicine & Poisoning">
+<option value="ch23-01-acls-cardiac-arrest.html" >301. ACLS Cardiac Arrest Algorithm & Resuscitation</option>
+<option value="ch23-02-anaphylaxis-emergency.html" >302. Anaphylaxis Emergency Management & Adrenaline Protocol</option>
+<option value="ch23-03-sepsis-septic-shock.html" >303. Sepsis & Septic Shock (Surviving Sepsis Hour-1 Bundle)</option>
+<option value="ch23-04-organophosphate-poisoning.html" >304. Organophosphate & Carbamate Poisoning (Atropinization)</option>
+<option value="ch23-05-paracetamol-toxicity.html" >305. Paracetamol Toxicity & N-Acetylcysteine (NAC Protocol)</option>
+<option value="ch23-06-snake-bite-envenomation.html" >306. Snake Bite Envenomation (ASV & 20WBCT Protocol)</option>
+<option value="ch23-07-burn-injury-parkland.html" >307. Thermal Burn Injury & Parkland Fluid Resuscitation</option>
+<option value="ch23-08-acute-poisoning-approach.html" >308. General Approach to the Poisoned Patient (Toxidromes)</option>
+<option value="ch23-09-acute-pain-management.html" >309. Emergency Acute Pain Management & WHO Ladder</option>
+</optgroup>
       </select>
 
-      <a href="08-cholelithiasis-gallstones.html" class="nav-btn" title="Previous Topic"><i class="fa-solid fa-arrow-left"></i> Prev</a>
-      <a href="index.html" class="nav-btn"><i class="fa-solid fa-table-cells"></i> Index</a>
-      <a href="10-acute-cholangitis.html" class="nav-btn" title="Next Topic">Next <i class="fa-solid fa-arrow-right"></i></a>
-      
-      <button id="themeToggle" class="nav-btn" title="Toggle Theme"><i class="fa-solid fa-sun"></i></button>
-      <button onclick="window.print()" class="nav-btn" title="Print this Note"><i class="fa-solid fa-print"></i></button>
+      <a href="08-cholelithiasis-gallstones.html" class="nav-btn" title="Previous Topic"><i class="fa-solid fa-chevron-left"></i> Prev</a>
+      <a href="10-acute-cholangitis.html" class="nav-btn" title="Next Topic">Next <i class="fa-solid fa-chevron-right"></i></a>
+
+      <button onclick="toggleTheme()" class="nav-btn" title="Toggle Dark/Light Mode">
+        <i id="theme-icon" class="fa-solid fa-moon"></i>
+      </button>
+
+      <a href="index.html" class="nav-btn primary" title="Back to Master Portal">
+        <i class="fa-solid fa-house"></i> Portal
+      </a>
     </div>
   </header>
 
-  <!-- Main Content Container -->
+  <!-- Main Container -->
   <main class="page-container">
-    
-    <!-- Topic Header Banner -->
-    <section class="topic-banner">
-      <div class="banner-meta">
-        <span class="badge badge-CBD Calculi"><i class="fa-solid fa-triangle-exclamation"></i> CLINICAL GUIDE</span>
-        <span class="badge badge-category"><i class="fa-solid fa-folder-open"></i> HPB & Appendix</span>
-        <span class="badge badge-page"><i class="fa-solid fa-book-medical"></i> Book Page p. 423</span>
-        <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 09 of 29</span>
-      </div>
-      <h2 class="topic-title">09. Choledocholithiasis</h2>
-      <p class="topic-summary">Common bile duct stones, cholestatic jaundice, MRCP vs ERCP diagnostics, laparoscopic bile duct exploration, and full antibiotic/analgesic regimens.</p>
-    </section>
 
-    <!-- Condensed Split Clinical Grid -->
+    <!-- Topic Header Banner -->
+    <div class="topic-banner">
+      <div class="banner-meta">
+        <span class="badge badge-category"><i class="fa-solid fa-book-medical"></i> Ch. 17: General Surgery</span>
+        <span class="badge badge-emergency"><i class="fa-solid fa-tag"></i> HPB & Appendix</span>
+        <span class="badge badge-page"><i class="fa-solid fa-bookmark"></i> Book p. 423</span>
+        <span class="badge badge-routine"><i class="fa-solid fa-hashtag"></i> Topic #09</span>
+      </div>
+      <h2 class="topic-title">Choledocholithiasis</h2>
+      <p class="topic-summary">Common bile duct stones, cholestatic jaundice, MRCP vs ERCP diagnostics, laparoscopic bile duct exploration, and full antibiotic/analgesic regimens.</p>
+    </div>
+
+    <!-- 2-Column Condensed Grid -->
     <div class="condensed-grid">
       
-      <!-- Left Column: Media & Diagnostics -->
+      <!-- Left Column: Primary Clinical Protocol & Formularies -->
       <div class="column">
-        
-    <div class="card">
-      <div class="card-header">
-        <span class="card-title"><i class="fa-solid fa-image"></i> Clinical Photo & Radiodiagnosis</span>
-        <span class="badge badge-category">Internet Clinical Resource</span>
-      </div>
-      <div class="media-container">
-        <img src="img/clinical_topic_09.jpg" alt="ERCP Extraction of Choledocholithiasis" loading="lazy">
-        <div class="media-caption">
-          <strong>ERCP Extraction of Choledocholithiasis</strong>
-          Fluoroscopic ERCP image displaying balloon-assisted extraction of impacted common bile duct stones.
-        </div>
-      </div>
-    </div>
-        
-        
         <div class="card">
           <div class="card-header">
-            <span class="card-title"><i class="fa-solid fa-stethoscope"></i> Clinical Assessment & Evaluation</span>
+            <span class="card-title"><i class="fa-solid fa-notes-medical"></i> Clinical Management & Pharmacotherapy</span>
+            <span style="font-size:11px; color:var(--text-muted); font-weight:600;"><i class="fa-solid fa-shield-halved"></i> Pakistani Standards</span>
           </div>
           
 <div class="clinical-section">
@@ -769,91 +716,23 @@ body {
         </div>
       </div>
 
-      <!-- Right Column: Quick Reference, High-Yield Pearls & Prescribing Summary -->
+      <!-- Right Column: Visual Diagnostics, Real Clinical Image & Quick Scores -->
       <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-image"></i> Clinical Pathology & Radiodiagnostics</span>
+            <span style="font-size:11px; color:var(--teal); font-weight:600;">Verified Visual</span>
+          </div>
+          <div class="media-container">
+            <img src="img/clinical_topic_09.jpg" alt="ERCP Extraction of Choledocholithiasis" loading="lazy">
+            <div class="media-caption">
+              <strong>ERCP Extraction of Choledocholithiasis</strong>
+              Fluoroscopic ERCP image displaying balloon-assisted extraction of impacted common bile duct stones.
+            </div>
+          </div>
+        </div>
+
         
-        <!-- Red Flags Alert Box -->
-        <div class="alert-box alert-danger">
-          <i class="fa-solid fa-circle-exclamation"></i>
-          <div>
-            <strong>Emergency Red Flags:</strong>
-            Immediate surgical consult if signs of peritonitis (rigidity, guarding, rebound), hemodynamic shock (BP &lt; 90/60, HR &gt; 110), rising WBC &gt; 15,000/uL, or free gas under diaphragm.
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title"><i class="fa-solid fa-kit-medical"></i> Quick On-Duty Clinical Checklist</span>
-          </div>
-          <ul style="padding-left: 20px; font-size: 13px; color: var(--text-muted); line-height: 1.6;">
-            <li><strong>Immediate Vitability Check:</strong> Pulse, BP, Resp Rate, SpO2, and Abdominal Girth.</li>
-            <li><strong>Line Placement:</strong> 2x wide-bore IV cannulae (16G grey or 18G green).</li>
-            <li><strong>Urgent Bloods:</strong> CBC (TLC, Neutrophils), LFTs, Serum Amylase/Lipase, Urea, Creatinine, Electrolytes, Blood Group & Cross-match.</li>
-            <li><strong>Bedside Urine:</strong> Pregnancy test (U-hCG) in all females of reproductive age with lower abdominal pain.</li>
-            <li><strong>Emergency Fasting:</strong> Keep strict <code>NPO</code> until surgical evaluation is complete.</li>
-            <li><strong>Analgesia Caution:</strong> Titrate analgesia promptly; relieving pain does not obscure signs of peritonitis.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title"><i class="fa-solid fa-pills"></i> Pakistani Brand Formulary Reference</span>
-          </div>
-          <div class="table-responsive">
-            <table class="clinical-table">
-              <thead>
-                <tr>
-                  <th>Drug Class</th>
-                  <th>Generic Name</th>
-                  <th>Common Local Brands</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>3rd Gen Cephalosporin</strong></td>
-                  <td>Ceftriaxone 1g/2g IV</td>
-                  <td><span class="brand-tag">Rocephin</span> <span class="brand-tag">Oxidil</span> <span class="brand-tag">Epicephin</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Anti-Anaerobic</strong></td>
-                  <td>Metronidazole 500mg IV</td>
-                  <td><span class="brand-tag">Flagyl</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Fluoroquinolone</strong></td>
-                  <td>Ciprofloxacin 400mg IV</td>
-                  <td><span class="brand-tag">Novidate</span> <span class="brand-tag">Ciproxin</span></td>
-                </tr>
-                <tr>
-                  <td><strong>IV PPI</strong></td>
-                  <td>Omeprazole 40mg IV</td>
-                  <td><span class="brand-tag">Risek</span> <span class="brand-tag">Omega</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Antipyretic / Analgesic</strong></td>
-                  <td>Paracetamol 1g IV Infusion</td>
-                  <td><span class="brand-tag">Provas</span> <span class="brand-tag">Panadol</span></td>
-                </tr>
-                <tr>
-                  <td><strong>NSAID Analgesic</strong></td>
-                  <td>Ketorolac 30mg IV / IM</td>
-                  <td><span class="brand-tag">Toradol</span> <span class="brand-tag">Kinz</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Antiemetic</strong></td>
-                  <td>Dimenhydrinate 50mg / Ondansetron 8mg</td>
-                  <td><span class="brand-tag">Gravinate</span> <span class="brand-tag">Onset</span></td>
-                </tr>
-                <tr>
-                  <td><strong>Antispasmodic</strong></td>
-                  <td>Drotaverine 40mg / Phloroglucinol</td>
-                  <td><span class="brand-tag">Nospa</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -861,13 +740,13 @@ body {
     <!-- Bottom Navigation Bar -->
     <nav class="bottom-nav">
       <div>
-        <a href="08-cholelithiasis-gallstones.html" class="nav-btn"><i class="fa-solid fa-arrow-left"></i> Previous: Topic 08</a>
+        <a href="08-cholelithiasis-gallstones.html" class="nav-btn"><i class="fa-solid fa-arrow-left"></i> Previous Topic</a>
       </div>
       <div>
-        <a href="index.html" class="nav-btn primary"><i class="fa-solid fa-book-open"></i> Full Chapter Index (29 Topics)</a>
+        <a href="index.html" class="nav-btn primary"><i class="fa-solid fa-book-open"></i> Full Clinical Portal (All Chapters)</a>
       </div>
       <div>
-        <a href="10-acute-cholangitis.html" class="nav-btn">Next: Topic 10 <i class="fa-solid fa-arrow-right"></i></a>
+        <a href="10-acute-cholangitis.html" class="nav-btn">Next Topic <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </nav>
 
@@ -875,7 +754,6 @@ body {
 
   <script>
 
-// Dark / Light Theme Toggle with Persistence
 function initTheme() {
   const saved = localStorage.getItem('dod_theme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
@@ -883,7 +761,7 @@ function initTheme() {
 }
 
 function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  const current = document.documentElement.getAttribute('data-theme');
   const next = current === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('dod_theme', next);
@@ -891,48 +769,23 @@ function toggleTheme() {
 }
 
 function updateThemeIcon(theme) {
-  const btn = document.getElementById('themeToggle');
-  if (btn) {
-    btn.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
-    btn.title = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
-  }
-}
-
-// Quick Jump Dropdown
-function onTopicSelect(val) {
-  if (val) {
-    window.location.href = val;
-  }
-}
-
-// Interactive Alvarado Score Calculator
-function updateAlvarado() {
-  const checkboxes = document.querySelectorAll('.alv-check');
-  let score = 0;
-  checkboxes.forEach(cb => {
-    if (cb.checked) score += parseInt(cb.dataset.points, 10);
-  });
-  const scoreEl = document.getElementById('alvScore');
-  const verdictEl = document.getElementById('alvVerdict');
-  if (scoreEl && verdictEl) {
-    scoreEl.innerText = score + ' / 10';
-    if (score <= 4) {
-      verdictEl.innerText = 'Unlikely Appendicitis (Discharge / Observe)';
-      verdictEl.style.color = 'var(--emerald-light)';
-    } else if (score <= 6) {
-      verdictEl.innerText = 'Compatible (Admission & Ultrasound / CT)';
-      verdictEl.style.color = 'var(--amber-light)';
-    } else {
-      verdictEl.innerText = 'High Probability (Surgical Appendectomy)';
-      verdictEl.style.color = 'var(--rose-light)';
-    }
+  const icon = document.getElementById('theme-icon');
+  if (icon) {
+    icon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
-  const themeBtn = document.getElementById('themeToggle');
-  if (themeBtn) themeBtn.addEventListener('click', toggleTheme);
+  
+  const select = document.getElementById('topic-quick-jump');
+  if (select) {
+    select.addEventListener('change', (e) => {
+      if (e.target.value) {
+        window.location.href = e.target.value;
+      }
+    });
+  }
 });
 
   </script>

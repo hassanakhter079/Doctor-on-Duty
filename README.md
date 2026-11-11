@@ -1,102 +1,96 @@
 # 🩺 Doctor on Duty — System-Wise Clinical Notes
 
 > **Comprehensive, Interactive, System-by-System Clinical Reference & Treatment Guide**  
-> Based on **Doctor on Duty (3rd Edition)** by Dr. Hassan Akhtar and clinical surgery standards.
+> Based on **Doctor on Duty (3rd Edition)** by Dr. Hassan Akhtar and modern evidence-based clinical standards.
 
 🌐 **Live Web Application:** [https://hassanakhter079.github.io/Doctor-on-Duty/](https://hassanakhter079.github.io/Doctor-on-Duty/)  
-☁️ **Universal Cloud Sync:** Integrated with automatic cross-device progress and bookmark persistence.
+☁️ **Universal Cloud Sync:** Integrated with automatic cross-device progress and bookmark persistence.  
+🔒 **Repository Status:** Strictly Private.
 
 ---
 
 ## 📖 Project Overview
 
-This repository hosts interactive, high-fidelity HTML clinical notes organized system-by-system from the renowned medical guide **Doctor on Duty (3rd Edition)**. Each chapter provides:
-- **Comprehensive Clinical Presentations:** Signs, symptoms, red flags, and diagnostic criteria.
-- **Evidence-Based Diagnostic Workups:** Laboratory markers, imaging hierarchy (US, CT, MRI/MRCP), and pre-test probability.
-- **Standardized Inpatient & Outpatient Protocols:** Stepwise resuscitation (ABCD&E), goal-directed fluid therapy, pain management, and surgical decision thresholds.
-- **Authentic Pharmacotherapy (Rx):** Specific drug dosages, dosing intervals, routes of administration, and localized Pakistani brand names (e.g., *Rocephin, Flagyl, Novidate, Risek, Provas, Toradol, Kinz, Gravinate, Daflon, Nospa, Augmentin*).
-- **Interactive Scoring Calculators:** Embedded clinical calculators (e.g., Alvarado Score for Appendicitis, Tokyo Guidelines TG18 for Cholecystitis & Cholangitis, Ranson & CTSI for Pancreatitis).
+This repository hosts interactive, high-fidelity HTML clinical notes organized system-by-system from the medical handbook **Doctor on Duty (3rd Edition)**. Each standalone page provides:
+- **Comprehensive Clinical Presentations:** Key symptoms, pathognomonic physical signs, red flags, and diagnostic thresholds.
+- **Evidence-Based Diagnostic Workups:** Laboratory markers, imaging hierarchy (Plain X-ray, Ultrasound, CT, MRCP, Tonometry, Pure-Tone Audiometry), and pre-test probability.
+- **Standardized Emergency & Ward Protocols:** Stepwise resuscitation (ABCD&E, ACLS 2023, Surviving Sepsis Hour-1 bundle, Parkland formula), goal-directed fluid therapy, and definitive surgical/medical decision pathways.
+- **Authentic Localized Pharmacotherapy (Rx):** Exact dosages, administration routes, infusion schedules, and localized Pakistani brand names (*Rocephin, Flagyl, Novidate, Risek, Provas, Toradol, Kinz, Gravinate, Daflon, Nospa, Augmentin, Maxidex, Tobradex, Ciprotic, Otosporin, Canesten, Serc, Sibelium, PAM, Atropine, NAC, ASV*).
+- **Interactive Clinical Calculators:** Dynamic Alvarado score for appendicitis, Centor criteria for sore throat, Parkland burn fluid resuscitator, and Acute Angle-Closure Glaucoma emergency protocol.
+- **Embedded Clinical Photos:** Real clinical photographs and diagnostic scans embedded locally for every single topic (all 62 topics).
 
 ---
 
-## 🔪 Chapter 17: General Surgery (All 29 Topics)
+## 🗂️ Completed Chapters & Clinical Systems (62 Standalone Topics)
 
-Chapter 17 spans **Pages 409 to 444** of *Doctor on Duty 3rd Edition* and encompasses **29 complete topics** organized into 7 clinical modules:
-
-### Module 1: Acute Abdomen Core Approach (Topics 1–5)
-1. **Approach to Management of Acute Abdomen** (pp. 409–414) — SOCRATES pain history, review of systems, pain character, diagnostic gestures, physical exam, and ruling out the 8 critical life-threatening emergencies (ACS, mesenteric ischemia, ruptured AAA, perforation, dissection, appendicitis, bowel obstruction, PUD).
-2. **Differential Diagnosis & Causes of Acute Abdomen** (p. 415) — Master anatomical quadrant matrix (RUQ, Epigastrium, LUQ, RLQ, LLQ, Suprapubic, Diffuse) classifying gastrointestinal vs non-gastrointestinal causes.
-3. **Diagnostic Approach of Acute Abdomen** (p. 416) — Laboratory workup (CBC, renal profile, LFTs, lipase/amylase, inflammatory markers, ABG/lactate, mandatory urine β-hCG).
-4. **Radiological Approach of Acute Abdomen** (p. 417) — Selection criteria for plain erect CXR (free air under diaphragm), abdominal X-rays (air-fluid levels, volvulus), abdominal/pelvic ultrasound, contrast CT, and MRCP.
-5. **Stepwise Management of Acute Abdomen** (p. 418) — 11-step resuscitation protocol: ABCD&E, wide-bore venous access, goal-directed fluid resuscitation, strict NPO, NG tube decompression, Foley catheterization, early titrated analgesia, empiric IV antibiotics, and operating theatre indications.
-
-### Module 2: Hepatobiliary, Pancreas & Appendix (Topics 6–10, 15)
-6. **Acute Appendicitis** (p. 419) — Visceral-to-somatic pain migration, McBurney, Rovsing, Psoas, and Obturator signs; **Interactive Alvarado (MANTRELS) 10-Point Score**; ultrasound/CT; preoperative resuscitation and appendectomy protocol.
-7. **Acute Cholecystitis** (pp. 420–421) — 6 Fs risk factors, Murphy's sign, Boas sign; **Tokyo Guidelines (TG18)** diagnostic criteria and severity grading (Grades I–III); *critical Ceftriaxone avoidance warning (pseudolithiasis)*; emergency cholecystostomy.
-8. **Cholelithiasis (Gallstones)** (p. 422) — Cholesterol vs black/brown pigment stones; biliary colic presentation; acoustic shadowing on ultrasound; elective laparoscopic cholecystectomy.
-9. **Choledocholithiasis** (p. 423) — Common bile duct stones; extrahepatic cholestatic jaundice; MRCP vs ERCP diagnostics; laparoscopic bile duct exploration (LCBDE); endoscopic stone extraction.
-10. **Acute Cholangitis** (pp. 424–425) — Ascending biliary sepsis; Charcot's Triad & Reynolds' Pentad; TG18 severity grading; emergency resuscitation and urgent biliary drainage (ERCP).
-15. **Acute Pancreatitis** (pp. 429–431) — *I GET SMASHED* etiologies; Revised Atlanta classification (mild, moderate, severe); CTSI/MCTSI scoring; Ranson's criteria and BISAP score; goal-directed Ringer's Lactate fluid therapy; sterile vs infected necrosis management.
-
-### Module 3: Colorectal, Anorectal & Bowel Obstruction (Topics 11–14, 16)
-11. **Anal Fissure** (p. 426) — Posterior midline tears; severe post-defecation pain; sentinel pile; conservative fiber/lactulose; GTN 0.2% / diltiazem chemical sphincterotomy; Medicated Sitz Bath technique; Lateral Internal Sphincterotomy (LIS).
-12. **Hemorrhoids (Piles / بواسیر)** (p. 427) — Internal vs external hemorrhoids; 1st to 4th degree classification; conservative care, Daflon (MPFF 500mg) flavonoid therapy; rubber band ligation, sclerotherapy, and open/closed/stapled hemorrhoidectomy.
-13. **Ano-Rectal Abscess** (p. 428) — Cryptoglandular infection; anatomical subtypes (perianal, ischiorectal, submucous, pelvirectal); fundamental surgical rule of prompt Incision & Drainage (I&D); perioperative antibiotics; fistula-in-ano sequelae.
-14. **Pilonidal Sinus (Jeep Disease)** (p. 428) — Natal cleft loose hair granuloma; acute abscess drainage; conservative shaving/hygiene; Bascom's cleft lift / pit picking; Limberg and Karydakis flap reconstructions.
-16. **Intestinal (Bowel) Obstruction** (p. 432) — Small bowel (adhesions/hernias) vs large bowel (malignancy/volvulus); 4 cardinal symptoms (colic, vomiting, obstipation, distension); "keyboard sign" on ultrasound; multiple air-fluid levels on X-ray; "drip and suck" decompression; emergency laparotomy indications.
-
-### Module 4: Peritoneal Sepsis & Peritonitis (Topics 17–18)
-17. **Spontaneous Bacterial Peritonitis (SBP)** (p. 433) — Pathogenesis in cirrhosis and ascites; diagnostic paracentesis (PMN ≥ 250 cells/mm³); *life-saving IV Human Albumin infusion* (prevents hepatorenal syndrome); IV Ceftriaxone; lifetime secondary prophylaxis.
-18. **Secondary Bacterial Peritonitis** (p. 434) — Peritoneal contamination from hollow viscus perforation; board-like abdominal rigidity; differentiating criteria from SBP; free air under diaphragm; emergency exploratory laparotomy.
-
-### Module 5: Chronic Wounds, Ulcers & Diabetic Surgery (Topics 19–20)
-19. **Pressure Ulcer (Decubitus Ulcer / Bed Sore)** (pp. 435–436) — External pressure > 32 mmHg; anatomical predilection (ischium, trochanter, sacrum, heel); NPUAP Stages 1 to 4 and unstageable; pressure redistribution (2-hour turning); saline cleansing vs antiseptic toxicity; hydrocolloid/alginate dressings; NPWT (VAC); reconstructive tissue flaps.
-20. **Diabetic Foot Infections** (p. 437) — Neuropathy, vasculopathy (PAD), and polymicrobial infection; IDSA/IWGDF severity grades (mild, moderate, severe); Probe-to-Bone test (osteomyelitis); deep tissue cultures; MCR offloading footwear; oral/IV antibiotics; surgical debridement and amputation thresholds.
-
-### Module 6: Scars, Soft Tissue & Minor Outpatient Surgery (Topics 21–25)
-21. **Hypertrophic Scar** (p. 438) — Organized parallel type-III collagen confined strictly within wound borders; spontaneous regression within 1 year; topical silicone gel/sheets; intralesional Triamcinolone (K-Cort); pressure garments; surgical revision after 12 months.
-22. **Keloids** (p. 439) — Disorganized type-I and III collagen invading beyond wound boundaries; presternal triangle predilection; claw-like borders; intralesional Triamcinolone + 5-FU; *prohibition of surgical excision alone (50–100% recurrence)*; adjuvant superficial radiotherapy (SRT).
-23. **Lipoma** (p. 440) — Universal subcutaneous benign tumor; lobulated mature adipocytes; pathognomonic "slipping sign"; differential with well-differentiated liposarcoma; minor surgical enucleation.
-24. **Skin Tag (Acrochordon)** (p. 440) — Pedunculated fibroepithelial polyps in friction creases; associations with obesity, T2DM, insulin resistance, acanthosis nigricans; snip excision with iris scissors, cryotherapy, and electrodesiccation.
-25. **Ganglion Cyst** (p. 441) — Most common benign mass of hand/wrist; positive transillumination test; dorsal vs volar cysts (*danger to radial artery during volar aspiration*); spontaneous resolution; needle aspiration + Kenacort; surgical excision.
-
-### Module 7: Hand, Nail & Digital Infections (Topics 26–29)
-26. **Ingrown Toe-Nail (Onychocryptosis)** (p. 442) — Improper curved trimming; hallux predilection; foreign body granulation; gutter splint technique; digital ring block (*NO adrenaline!*); partial nail plate avulsion with chemical 88% phenol matrixectomy.
-27. **Felon Finger Infection** (p. 442) — Distal digital pulp closed space infection; vertical fibrous septa; S. aureus etiology; risk of ischemic pulp necrosis and osteomyelitis; unilateral mid-axial incision & drainage; anti-staphylococcal antibiotics.
-28. **Acute Paronychia** (p. 443) — Periungual fold infection (< 6 weeks); hangnail/manicure triggers; warm water soaks; atraumatic eponychium elevation without skin incisions; topical Bactroban/Fucidin; oral Augmentin/Cephalexin.
-29. **Chronic Paronychia** (pp. 443–444) — Occupational irritant contact dermatitis (> 6 weeks) in wet workers (dishwashers, bartenders); loss of cuticle; Candida as secondary colonizer; high-potency topical corticosteroids / tacrolimus; moisture avoidance; eponychial marsupialization.
+### 🔪 Chapter 17: General Surgery (29 Topics)
+Spans pp. 409–444 of *Doctor on Duty*:
+- **Module 1: Acute Abdomen Core Approach (Topics 1–5):** Approach to Acute Abdomen, Differential Diagnosis Matrix, Diagnostic Laboratory Approach, Radiological Imaging Hierarchy, Stepwise Resuscitation Protocol.
+- **Module 2: Hepatobiliary, Pancreas & Appendix (Topics 6–10, 15):** Acute Appendicitis (Alvarado score), Acute Cholecystitis (Tokyo Guidelines TG18), Cholelithiasis, Choledocholithiasis, Acute Cholangitis (Charcot/Reynolds), Acute Pancreatitis (Atlanta/Ranson/CTSI).
+- **Module 3: Colorectal, Anorectal & Bowel Obstruction (Topics 11–14, 16):** Anal Fissure, Hemorrhoids (Grades 1–4, Daflon), Ano-Rectal Abscess (I&D), Pilonidal Sinus (Bascom/Limberg), Intestinal Bowel Obstruction.
+- **Module 4: Peritoneal Sepsis & Secondary Peritonitis (Topics 17–18):** Spontaneous Bacterial Peritonitis (SBP, PMN > 250), Secondary Bacterial Peritonitis (perforation).
+- **Module 5: Chronic Wounds & Pressure Ulcers (Topics 19–20):** Pressure Ulcers (NPUAP Stages 1–4, debridement), Diabetic Foot Infections (Wagner/IDSA classification, offloading).
+- **Module 6: Soft Tissue Masses & Minor Surgery (Topics 21–25):** Hypertrophic Scar, Keloids (Kenacort intralesional triamcinolone), Lipoma (slipping sign), Skin Tag / Acrochordon, Ganglion Cyst.
+- **Module 7: Hand, Nail & Digital Infections (Topics 26–29):** Ingrown Toenail (Phenolization), Felon Finger Pulp Abscess, Acute Paronychia, Chronic Paronychia (Candida / occupational).
 
 ---
 
-## ⚡ Technical Features
-
-- **Universal Cloud Sync:** Persistent cross-device state using GitHub API and localStorage.
-- **Fast Client-Side Search:** Instant fuzzy filtering across all 29 topics, medical terms, drug brands, and signs.
-- **Interactive Clinical Calculators:** Dynamic Alvarado score calculator with live risk interpretation.
-- **Mobile-Responsive & Tablet-Optimized:** Custom sidebar drawer, smooth touch navigation, and AMOLED Dark Mode.
-- **Print & PDF Export Optimized:** CSS `@media print` rules for clean clinical handouts.
+### 👁️ Chapter 18: Ophthalmology (12 Topics)
+Spans pp. 445–458 of *Doctor on Duty*:
+1. **Hordeolum (Stye) & Chalazion:** External vs internal hordeolum (Zeis/Moll vs Meibomian), warm compresses, Tobradex, incision & curettage.
+2. **Blepharitis (Anterior & Posterior MGD):** Staphylococcal collarettes, seborrheic dandruff, Meibomian gland dysfunction, baby shampoo lid scrubs, oral Doxycycline.
+3. **Acute Bacterial Conjunctivitis:** Mucopurulent discharge, "glued eyes", S. aureus/S. pneumoniae, Moxifloxacin/Tobramycin drops.
+4. **Viral Conjunctivitis (EKC):** Watery discharge, preauricular lymphadenopathy, subconjunctival petechiae, pseudomembranes, cold compresses.
+5. **Allergic Conjunctivitis & VKC:** Cobblestone papillae, Trantas dots, intense pruritus, Olopatadine / Zaditen, topical mast-cell stabilizers.
+6. **Chlamydial Conjunctivitis & Trachoma:** WHO SAFE strategy, follicular conjunctivitis, Herbert pits, oral Azithromycin 1g stat.
+7. **Corneal Abrasion:** Ice-hockey-stick sign on fluorescein, cyclopentolate cycloplegia, antibiotic ointment, *strict contraindication of local anesthetic eye drops for outpatient use*.
+8. **Ocular Chemical Burns:** Emergency immediate irrigation with 1–2L normal saline to pH 7.0–7.4, alkali liquefactive necrosis vs acid coagulative necrosis, limbal ischemia grading, Ascorbate, topical steroids.
+9. **Corneal & Subtarsal Foreign Bodies:** Eversion of upper lid, 25G needle extraction under slit lamp, rust ring burr removal.
+10. **Acute Angle-Closure Glaucoma (AACG Emergency):** Mid-dilated fixed pupil, stony hard eye (IOP > 50 mmHg), halos around lights; emergency 4-drug pressure drop: IV Mannitol 20%, oral Acetazolamide (Diamox), topical Timolol 0.5%, Pilocarpine 2% intensive miosis; Nd:YAG laser peripheral iridotomy.
+11. **Anterior Uveitis (Acute Iritis):** Ciliary flush (pericorneal injection), keratic precipitates (KPs), hypopyon, irregular pupil (posterior synechiae), high-potency topical Dexamethasone (Maxidex) + Atropine 1%.
+12. **Comprehensive Ophthalmic Formulary:** Systematized reference of all Pakistani commercial ophthalmic formulations (Fluoroquinolones, Aminoglycosides, Steroids, Carbonic Anhydrase Inhibitors, Prostaglandin analogs, Artificial tears).
 
 ---
 
-## 🚀 Future Systems Roadmap
+### 👂 Chapter 19: Ear, Nose & Throat (ENT) (12 Topics)
+Spans pp. 459–482 of *Doctor on Duty*:
+1. **Chronic Rhinosinusitis (CRS):** EPOS criteria (>= 12 weeks), nasal obstruction, facial pressure, nasal polyps, high-volume saline douching, intranasal fluticasone/mometasone spray.
+2. **Deviated Nasal Septum (DNS):** C-shaped, S-shaped, caudal dislocation, septal spur causing contact headache, Submucous Resection (SMR) vs Septoplasty.
+3. **Epistaxis (Nasal Bleed):** Little's area / Kiesselbach's plexus (anterior) vs Woodruff's plexus (posterior / sphenopalatine artery); Trotter's posture, anterior ribbon gauze packing, Rapid Rhino, Foley catheter posterior pack.
+4. **Acute Tonsillitis & Pharyngitis:** Centor / McIsaac 4-point score for Group A Streptococcus (GAS); penicillin V / Amoxicillin 10-day course; Rheumatic fever & PSGN prevention.
+5. **Peritonsillar Abscess (Quinsy):** "Hot potato" voice, trismus, uvular deviation to contralateral side, superior pole fullness, needle aspiration / drainage, IV Co-Amoxiclav.
+6. **Acute Otitis Media (AOM):** Bulging hyperemic tympanic membrane, loss of cone of light, Eustachian tube dysfunction, high-dose Amoxicillin 80-90 mg/kg/day, myringotomy indications.
+7. **CSOM: Tubotympanic (Safe) vs Atticoantral (Unsafe):** Central kidney-shaped perforation vs attic/marginal perforation with cholesteatoma; bone erosion, intracranial abscess risk; aural toilet, topical ciprofloxacin (Ciprotic), Tympanoplasty vs Modified Radical Mastoidectomy.
+8. **Otomycosis (Fungal Otitis Externa):** Aspergillus niger (black heads / wet blotting paper), Candida albicans (curdy white exudate); intense itching, gentle suction clearance, Clotrimazole 1% (Canesten ear drops) / Econazole.
+9. **Diffuse Otitis Externa & Malignant Otitis:** Swimmer's ear, severe tragal tenderness, P. aeruginosa; ear wick with Otosporin/Ciprotic; Necrotizing/Malignant otitis in elderly diabetics (skull base osteomyelitis, facial nerve palsy, IV Ciprofloxacin 750mg BD / Meropenem).
+10. **BPPV (Benign Paroxysmal Positional Vertigo):** Posterior semicircular canal canalithiasis; Dix-Hallpike diagnostic maneuver with torsional upbeating nystagmus; Epley particle repositioning maneuver; avoidance of vestibular sedatives for long term.
+11. **Ménière's Disease (Endolymphatic Hydrops):** Diagnostic tetrad: episodic rotatory vertigo (20m–12h), fluctuating low-frequency SNHL, roaring tinnitus, aural fullness; low-salt diet (<2g/day), Betahistine (Serc 16–24mg TDS).
+12. **Bell's Palsy (Acute Idiopathic LMN Facial Paralysis):** Complete unilateral facial weakness including forehead wrinkling (differentiating from stroke sparing forehead); Bell's phenomenon, hyperacusis; early oral Prednisolone 60mg taper, eye protection (lacri-lube, taping at night).
 
-As requested, other clinical systems from *Doctor on Duty* will be added sequentially:
-- [x] **Chapter 17:** General Surgery (29 Topics)
-- [ ] **Chapter 18:** Ophthalmology (Eye Diseases)
-- [ ] **Chapter 19:** ENT (Ear, Nose & Throat)
-- [ ] **Chapter 20:** Neuro-Spine Surgery
-- [ ] **Chapter 7:** Cardiovascular Diseases (CVS)
-- [ ] **Chapter 8:** Pulmonology & Respiratory
-- [ ] **Chapter 9:** Gastroenterology
-- [ ] **Chapter 10:** Hepatology
-- [ ] **Chapter 11:** Endocrinology
-- [ ] **Chapter 12:** Nephrology & Urology
-- [ ] **Chapter 13:** Rheumatology
-- [ ] **Chapter 14:** Neurology
-- [ ] **Chapter 15:** Psychiatry
-- [ ] **Chapter 16:** Dermatology
-- [ ] **Chapter 5:** Infectious Diseases
-- [ ] **Chapter 21:** Gynaecology & Obstetrics
+---
+
+### 🚨 Chapter 23: Emergency Medicine & Poisoning (9 Topics)
+Spans pp. 673–712 of *Doctor on Duty*:
+1. **ACLS Cardiac Arrest Algorithm:** Shockable (VF / Pulseless VT) vs Non-Shockable (PEA / Asystole); high-quality CPR (100–120 bpm, 5–6 cm depth), biphasic defibrillation 200J; Adrenaline 1mg every 3–5 min, Amiodarone 300mg / 150mg; Reversible 5Hs & 5Ts.
+2. **Anaphylaxis Emergency Management:** Immediate IM Adrenaline 1:1,000 (0.5 mg in anterolateral thigh); high-flow O2, 20 mL/kg crystalloid bolus, IV Hydrocortisone 200mg, IV Chlorpheniramine 10mg; biphasic reaction monitoring.
+3. **Sepsis & Septic Shock (Surviving Sepsis Hour-1 Bundle):** Sepsis-3 criteria (SOFA / qSOFA); Measure lactate, blood cultures prior to antibiotics, broad-spectrum IV antimicrobials (Meropenem/Ceftriaxone), 30 mL/kg crystalloids for MAP < 65 or lactate >= 4 mmol/L; Noradrenaline first-line vasopressor.
+4. **Organophosphate & Carbamate Poisoning:** SLUDGEM / DUMBELS cholinergic toxidrome (bradycardia, pinpoint pupils, bronchorrhea, fasciculations); emergency Atropinization endpoints (clear chest, HR > 80, dry axillae, pupils dilated); Pralidoxime (PAM) cholinesterase reactivator protocol.
+5. **Paracetamol (Acetaminophen) Toxicity:** Toxic dose (> 150 mg/kg), NAPQI accumulation and glutathione depletion; Rumack-Matthew nomogram; 3-bag IV N-Acetylcysteine (NAC) infusion protocol (150 mg/kg over 1h -> 50 mg/kg over 4h -> 100 mg/kg over 16h).
+6. **Snake Bite Envenomation:** Viperidae (vasculotoxic / hemotoxic) vs Elapidae (neurotoxic: cobra/krait); 20-Minute Whole Blood Clotting Test (20WBCT); Polyvalent Anti-Snake Venom (ASV) titration, Neostigmine + Atropine for cobra neurotoxicity; tourniquet avoidance.
+7. **Thermal Burn Injury & Parkland Resuscitation:** Wallace Rule of Nines for TBSA; Parkland Formula: `4 mL × kg × %TBSA` (50% in first 8 hours, 50% in next 16 hours); urine output target 0.5–1.0 mL/kg/h; escharotomy for circumferential deep burns.
+8. **General Approach to the Poisoned Patient:** Coma cocktail (Dextrose, Thiamine, Naloxone); physical toxidrome matrix (Cholinergic, Anticholinergic, Sympathomimetic, Opioid, Sedative-Hypnotic); gastric lavage indications (< 1 hour), activated charcoal contraindications (PHAILS).
+9. **Emergency Acute Pain Management & WHO Analgesic Ladder:** Multimodal analgesia: Step 1 non-opioids (IV Paracetamol 1g, IV Ketorolac 30mg), Step 2 weak opioids (Tramadol 50–100mg), Step 3 strong opioids (Morphine 0.1 mg/kg IV titrated, Fentanyl 1–2 mcg/kg); neuropathic adjuvants (Gabapentin/Pregabalin).
+
+---
+
+## ⚡ Technical Architecture
+
+- **Universal Cloud Sync:** Persistent cross-device state using GitHub API and localStorage across phone, tablet, and PC.
+- **Fast Client-Side Search:** Instant fuzzy search across all 62 topics, symptoms, differential diagnoses, and localized trade brand names.
+- **Dynamic Multi-Chapter Filter:** Real-time filter tabs separating Surgery, Ophthalmology, ENT, and Emergency Medicine with dynamic counter badges.
+- **Offline First & CDN Fallbacks:** Zero dependencies on external runtime scripts except Google Fonts, FontAwesome, and cloud sync; all images and logic self-contained.
+- **Interactive Calculators:** Alvarado appendicitis calculator, Centor strep score, Parkland burn formula, and AACG emergency glaucoma drug timer.
+- **Dark/Light Mode:** Dual themes with automatic persistence and print-ready stylesheets (`@media print`).
 
 ---
 

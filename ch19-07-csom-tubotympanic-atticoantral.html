@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topic 207: CSOM: Tubotympanic (Safe) vs Atticoantral (Unsafe) | Doctor on Duty</title>
+  
+  <!-- Universal HTML Cloud Sync -->
+  <script src="https://hassanakhter079.github.io/After-Salah-Zikr/cloud-sync.js" data-app="doctor-on-duty"></script>
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+
+:root {
+  --bg-body: #0a0f1d;
+  --bg-card: #11192d;
+  --bg-card-subtle: #162038;
+  --bg-elevated: #1a2744;
+  --border: #233354;
+  --border-subtle: #1c2b48;
+  
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  --teal: #14b8a6;
+  --teal-light: #2dd4bf;
+  --teal-glow: rgba(20, 184, 166, 0.15);
+  
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+  --blue-glow: rgba(59, 130, 246, 0.15);
+  
+  --amber: #f59e0b;
+  --amber-light: #fbbf24;
+  --amber-glow: rgba(245, 158, 11, 0.15);
+  
+  --rose: #f43f5e;
+  --rose-light: #fb7185;
+  --rose-glow: rgba(244, 63, 94, 0.15);
+  
+  --emerald: #10b981;
+  --emerald-light: #34d399;
+  --emerald-glow: rgba(16, 185, 129, 0.15);
+  
+  --purple: #8b5cf6;
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Fraunces', Georgia, serif;
+}
+
+[data-theme="light"] {
+  --bg-body: #f4f6fb;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f8fafc;
+  --bg-elevated: #edf2f7;
+  --border: #e2e8f0;
+  --border-subtle: #cbd5e1;
+  
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
+  
+  --teal: #0d9488;
+  --teal-light: #0f766e;
+  --teal-glow: rgba(13, 148, 136, 0.1);
+  
+  --blue: #2563eb;
+  --blue-light: #1d4ed8;
+  --blue-glow: rgba(37, 99, 235, 0.1);
+  
+  --amber: #d97706;
+  --amber-light: #b45309;
+  --amber-glow: rgba(217, 119, 6, 0.1);
+  
+  --rose: #e11d48;
+  --rose-light: #be123c;
+  --rose-glow: rgba(225, 29, 72, 0.1);
+  
+  --emerald: #059669;
+  --emerald-light: #047857;
+  --emerald-glow: rgba(5, 150, 105, 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.5;
+  font-size: 14.5px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sticky Clinical Navigation Header */
+.top-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.brand-text h1 {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+}
+
+.brand-text span {
+  font-size: 11px;
+  color: var(--teal);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.topic-select {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  max-width: 320px;
+  outline: none;
+  cursor: pointer;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--teal);
+  color: var(--teal-light);
+}
+
+.nav-btn.primary {
+  background: var(--teal);
+  color: #ffffff;
+  border-color: var(--teal);
+}
+
+.nav-btn.primary:hover {
+  background: var(--teal-light);
+}
+
+/* Page Layout Container */
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 20px 40px 20px;
+}
+
+/* Compact Banner */
+.topic-banner {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--teal), var(--blue));
+}
+
+.banner-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-emergency { background: var(--rose-glow); color: var(--rose-light); border: 1px solid var(--rose); }
+.badge-urgent { background: var(--amber-glow); color: var(--amber-light); border: 1px solid var(--amber); }
+.badge-routine { background: var(--teal-glow); color: var(--teal-light); border: 1px solid var(--teal); }
+.badge-category { background: var(--blue-glow); color: var(--blue-light); border: 1px solid var(--blue); }
+.badge-page { background: var(--bg-elevated); color: var(--text-muted); border: 1px solid var(--border); }
+
+.topic-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.topic-summary {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  max-width: 950px;
+}
+
+/* Two-Column Ultra-Condensed Clinical Grid */
+.condensed-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .condensed-grid { grid-template-columns: 1fr; }
+  .topic-select { max-width: 180px; }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Clinical Panels & Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--teal-light);
+}
+
+/* Image and Clinical Media Display */
+.media-container {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.media-container img, .media-container svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 320px;
+  object-fit: cover;
+  background: #000;
+}
+
+.media-caption {
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+  line-height: 1.4;
+}
+
+.media-caption strong {
+  color: var(--teal-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Clinical Content Formatting */
+.clinical-section { margin-bottom: 16px; }
+.clinical-section:last-child { margin-bottom: 0; }
+
+.clinical-section h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--teal-light);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.clinical-section p {
+  font-size: 13.5px;
+  color: var(--text-main);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.med-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin: 8px 0 12px 0;
+}
+
+.med-table th, .med-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border: 1px solid var(--border);
+}
+
+.med-table th {
+  background: var(--bg-elevated);
+  color: var(--text-main);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.med-table td { background: var(--bg-card); }
+.med-table tr:hover td { background: var(--bg-card-subtle); }
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin: 8px 0 12px 0;
+}
+
+.step-card {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.step-num {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.alert {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  margin: 10px 0;
+  border-left: 4px solid;
+}
+
+.alert-danger { background: rgba(244, 63, 94, 0.1); border-color: var(--rose); color: var(--rose-light); }
+.alert-warning { background: rgba(245, 158, 11, 0.1); border-color: var(--amber); color: var(--amber-light); }
+.alert-info { background: rgba(59, 130, 246, 0.1); border-color: var(--blue); color: var(--blue-light); }
+.alert-success { background: rgba(16, 185, 129, 0.1); border-color: var(--emerald); color: var(--emerald-light); }
+
+.bullet-list, .sub-list {
+  padding-left: 18px;
+  margin: 6px 0;
+  font-size: 13px;
+}
+
+.bullet-list li, .sub-list li { margin-bottom: 4px; }
+
+/* Interactive Clinical Calculators */
+.calc-box {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 10px;
+}
+
+.calc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 13px;
+}
+
+.calc-row:last-child { border-bottom: none; }
+
+.calc-score-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.score-num {
+  font-size: 18px;
+  color: var(--teal);
+  font-family: var(--font-mono);
+}
+
+.bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+@media print {
+  .top-navbar, .bottom-nav, .nav-actions { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  .card, .topic-banner { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Top Navigation Bar -->
+  <header class="top-navbar">
+    <a href="index.html" class="brand-section">
+      <div class="brand-logo">DoD</div>
+      <div class="brand-text">
+        <h1>Doctor on Duty</h1>
+        <span>Ear, Nose & Throat (ENT)</span>
+      </div>
+    </a>
+
+    <div class="nav-actions">
+      <select id="topic-quick-jump" class="topic-select">
+<optgroup label="Chapter 17: General Surgery">
+<option value="01-approach-to-acute-abdomen.html" >01. Approach to the Management of Acute Abdomen</option>
+<option value="02-differential-diagnosis-acute-abdomen.html" >02. Differential Diagnosis and Causes of Acute Abdomen</option>
+<option value="03-diagnostic-approach-acute-abdomen.html" >03. Diagnostic Approach of Acute Abdomen</option>
+<option value="04-radiological-approach-acute-abdomen.html" >04. Radiological Approach of Acute Abdomen</option>
+<option value="05-stepwise-management-acute-abdomen.html" >05. Stepwise Management of Acute Abdomen</option>
+<option value="06-acute-appendicitis.html" >06. Acute Appendicitis</option>
+<option value="07-acute-cholecystitis.html" >07. Acute Cholecystitis</option>
+<option value="08-cholelithiasis-gallstones.html" >08. Cholelithiasis (Gallstones)</option>
+<option value="09-choledocholithiasis.html" >09. Choledocholithiasis</option>
+<option value="10-acute-cholangitis.html" >10. Acute Cholangitis</option>
+<option value="15-acute-pancreatitis.html" >15. Acute Pancreatitis</option>
+<option value="11-anal-fissure.html" >11. Anal Fissure</option>
+<option value="12-hemorrhoids-piles.html" >12. Hemorrhoids (Piles / بواسیر)</option>
+<option value="13-ano-rectal-abscess.html" >13. Ano-Rectal Abscess</option>
+<option value="14-pilonidal-sinus.html" >14. Pilonidal Sinus</option>
+<option value="16-intestinal-bowel-obstruction.html" >16. Intestinal (Bowel) Obstruction</option>
+<option value="17-spontaneous-bacterial-peritonitis-sbp.html" >17. Spontaneous Bacterial Peritonitis (SBP)</option>
+<option value="18-secondary-bacterial-peritonitis.html" >18. Secondary Bacterial Peritonitis</option>
+<option value="19-pressure-ulcer-bed-sore.html" >19. Pressure Ulcer (Decubitus Ulcer / Bed Sore)</option>
+<option value="20-diabetic-foot-infections.html" >20. Diabetic Foot Infections</option>
+<option value="21-hypertrophic-scar.html" >21. Hypertrophic Scar</option>
+<option value="22-keloids.html" >22. Keloids</option>
+<option value="23-lipoma.html" >23. Lipoma</option>
+<option value="24-skin-tag-acrochordon.html" >24. Skin Tag (Acrochordon)</option>
+<option value="25-ganglion-cyst.html" >25. Ganglion Cyst</option>
+<option value="26-ingrown-toenail-onychocryptosis.html" >26. Ingrown Toe-Nail (Onychocryptosis)</option>
+<option value="27-felon-finger-infection.html" >27. Felon Finger Infection</option>
+<option value="28-acute-paronychia.html" >28. Acute Paronychia</option>
+<option value="29-chronic-paronychia.html" >29. Chronic Paronychia</option>
+</optgroup>
+<optgroup label="Chapter 18: Ophthalmology">
+<option value="ch18-01-hordeolum-chalazion.html" >101. Hordeolum (Stye) & Chalazion (Meibomian Cyst)</option>
+<option value="ch18-02-blepharitis.html" >102. Blepharitis (Anterior & Posterior MGD)</option>
+<option value="ch18-03-bacterial-conjunctivitis.html" >103. Acute Bacterial Conjunctivitis</option>
+<option value="ch18-04-viral-conjunctivitis.html" >104. Viral Conjunctivitis (Epidemic Keratoconjunctivitis)</option>
+<option value="ch18-05-allergic-conjunctivitis.html" >105. Allergic Conjunctivitis & Vernal Keratoconjunctivitis</option>
+<option value="ch18-06-chlamydial-conjunctivitis.html" >106. Chlamydial Conjunctivitis & Trachoma</option>
+<option value="ch18-07-corneal-abrasion.html" >107. Corneal Abrasion & Traumatic Epithelial Defect</option>
+<option value="ch18-08-chemical-burns.html" >108. Ocular Chemical Burns (Acid vs Alkali Emergency)</option>
+<option value="ch18-09-corneal-foreign-body.html" >109. Corneal & Subtarsal Foreign Bodies</option>
+<option value="ch18-10-acute-angle-closure-glaucoma.html" >110. Acute Angle-Closure Glaucoma (AACG Emergency)</option>
+<option value="ch18-11-anterior-uveitis-iritis.html" >111. Anterior Uveitis (Acute Iritis)</option>
+<option value="ch18-12-ophthalmic-drug-formulary.html" >112. Comprehensive Ophthalmic Drug Formulary & Eye Drops</option>
+</optgroup>
+<optgroup label="Chapter 19: Ear, Nose & Throat (ENT)">
+<option value="ch19-01-chronic-rhinosinusitis.html" >201. Chronic Rhinosinusitis (CRS with/without Polyps)</option>
+<option value="ch19-02-deviated-nasal-septum.html" >202. Deviated Nasal Septum (DNS) & Turbinate Hypertrophy</option>
+<option value="ch19-03-epistaxis-management.html" >203. Epistaxis (Anterior vs Posterior Nasal Bleeding)</option>
+<option value="ch19-04-acute-tonsillitis-pharyngitis.html" >204. Acute Tonsillitis & Pharyngitis (Centor Score)</option>
+<option value="ch19-05-peritonsillar-abscess-quinsy.html" >205. Peritonsillar Abscess (Quinsy)</option>
+<option value="ch19-06-acute-otitis-media.html" >206. Acute Otitis Media (AOM)</option>
+<option value="ch19-07-csom-tubotympanic-atticoantral.html" selected>207. CSOM: Tubotympanic (Safe) vs Atticoantral (Unsafe)</option>
+<option value="ch19-08-otomycosis.html" >208. Otomycosis (Fungal Otitis Externa)</option>
+<option value="ch19-09-otitis-externa.html" >209. Diffuse Otitis Externa & Malignant Otitis Externa</option>
+<option value="ch19-10-bppv-vertigo-epley.html" >210. BPPV: Benign Paroxysmal Positional Vertigo & Epley</option>
+<option value="ch19-11-menieres-disease.html" >211. Ménière's Disease (Endolymphatic Hydrops)</option>
+<option value="ch19-12-bells-palsy-facial-paralysis.html" >212. Bell's Palsy (Acute Lower Motor Neuron Facial Paralysis)</option>
+</optgroup>
+<optgroup label="Chapter 23: Emergency Medicine & Poisoning">
+<option value="ch23-01-acls-cardiac-arrest.html" >301. ACLS Cardiac Arrest Algorithm & Resuscitation</option>
+<option value="ch23-02-anaphylaxis-emergency.html" >302. Anaphylaxis Emergency Management & Adrenaline Protocol</option>
+<option value="ch23-03-sepsis-septic-shock.html" >303. Sepsis & Septic Shock (Surviving Sepsis Hour-1 Bundle)</option>
+<option value="ch23-04-organophosphate-poisoning.html" >304. Organophosphate & Carbamate Poisoning (Atropinization)</option>
+<option value="ch23-05-paracetamol-toxicity.html" >305. Paracetamol Toxicity & N-Acetylcysteine (NAC Protocol)</option>
+<option value="ch23-06-snake-bite-envenomation.html" >306. Snake Bite Envenomation (ASV & 20WBCT Protocol)</option>
+<option value="ch23-07-burn-injury-parkland.html" >307. Thermal Burn Injury & Parkland Fluid Resuscitation</option>
+<option value="ch23-08-acute-poisoning-approach.html" >308. General Approach to the Poisoned Patient (Toxidromes)</option>
+<option value="ch23-09-acute-pain-management.html" >309. Emergency Acute Pain Management & WHO Ladder</option>
+</optgroup>
+      </select>
+
+      <a href="ch19-06-acute-otitis-media.html" class="nav-btn" title="Previous Topic"><i class="fa-solid fa-chevron-left"></i> Prev</a>
+      <a href="ch19-08-otomycosis.html" class="nav-btn" title="Next Topic">Next <i class="fa-solid fa-chevron-right"></i></a>
+
+      <button onclick="toggleTheme()" class="nav-btn" title="Toggle Dark/Light Mode">
+        <i id="theme-icon" class="fa-solid fa-moon"></i>
+      </button>
+
+      <a href="index.html" class="nav-btn primary" title="Back to Master Portal">
+        <i class="fa-solid fa-house"></i> Portal
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="page-container">
+
+    <!-- Topic Header Banner -->
+    <div class="topic-banner">
+      <div class="banner-meta">
+        <span class="badge badge-category"><i class="fa-solid fa-book-medical"></i> Ch. 19: Ear, Nose & Throat (ENT)</span>
+        <span class="badge badge-emergency"><i class="fa-solid fa-tag"></i> Otology & Ear</span>
+        <span class="badge badge-page"><i class="fa-solid fa-bookmark"></i> Book pp. 474–475</span>
+        <span class="badge badge-routine"><i class="fa-solid fa-hashtag"></i> Topic #207</span>
+      </div>
+      <h2 class="topic-title">CSOM: Tubotympanic (Safe) vs Atticoantral (Unsafe)</h2>
+      <p class="topic-summary">Longstanding chronic inflammation of the middle ear and mastoid cavity with recurrent otorrhea (> 2–6 weeks) through a persistent tympanic membrane perforation; master comparison table of Tubotympanic ('Safe' central) vs Atticoantral ('Unsafe' marginal with cholesteatoma), dry ear protocols, and surgical reconstruction.</p>
+    </div>
+
+    <!-- 2-Column Condensed Grid -->
+    <div class="condensed-grid">
+      
+      <!-- Left Column: Primary Clinical Protocol & Formularies -->
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-notes-medical"></i> Clinical Management & Pharmacotherapy</span>
+            <span style="font-size:11px; color:var(--text-muted); font-weight:600;"><i class="fa-solid fa-shield-halved"></i> Pakistani Standards</span>
+          </div>
+          
+<div class="clinical-section">
+  <h4><i class="fa-solid fa-scale-balanced"></i> 1. The Definitive Clinical Comparison</h4>
+  <p>Chronic Suppurative Otitis Media (CSOM) is categorized into two clinically distinct entities with radically different prognoses and management strategies:</p>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Clinical Feature</th><th>Tubotympanic Type ("Safe" / Benign)</th><th>Atticoantral Type ("Unsafe" / Dangerous)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Anatomical Site</strong></td>
+          <td>Involves anteroinferior middle ear cleft (Eustachian tube & mesotympanum).</td>
+          <td>Involves posterosuperior middle ear cleft (attic, antrum, and mastoid air cells).</td>
+        </tr>
+        <tr>
+          <td><strong>Perforation Site</strong></td>
+          <td><strong>Central Perforation:</strong> Confined strictly to the pars tensa; surrounded entirely by a rim of remnant drum tissue. Never reaches bony annulus.</td>
+          <td><strong>Attic or Marginal Perforation:</strong> Located in the pars flaccida (attic) or posterosuperior pars tensa touching the bony sulcus.</td>
+        </tr>
+        <tr>
+          <td><strong>Discharge Character</strong></td>
+          <td><strong>Profuse, mucoid or mucopurulent, non-offensive / odorless</strong>. Episodic, precipitated by water entry or URI.</td>
+          <td><strong>Scanty, thick, yellowish, persistently foul-smelling (fetid)</strong> due to bone destruction. Continuous without remission.</td>
+        </tr>
+        <tr>
+          <td><strong>Pathology</strong></td>
+          <td>Hyperplastic middle ear mucosa, non-bone eroding, pale edematous polyps.</td>
+          <td><strong>Cholesteatoma:</strong> Destructive keratinizing squamous epithelial cyst that elaborates osteolytic enzymes (collagenase, acid phosphatase), destroying ossicles and bony walls.</td>
+        </tr>
+        <tr>
+          <td><strong>Complication Risk</strong></td>
+          <td>Rarely causes intracranial complications. Primarily conductive hearing loss.</td>
+          <td><strong>Extremely High:</strong> Meningitis, temporal lobe / cerebellar brain abscess, lateral sinus thrombophlebitis, facial nerve palsy, labyrinthitis.</td>
+        </tr>
+        <tr>
+          <td><strong>Treatment Principle</strong></td>
+          <td>Conservative medical therapy to achieve a "dry ear", followed by elective <strong>Tympanoplasty</strong>.</td>
+          <td><strong>Mandatory Surgical Intervention:</strong> Modified Radical Mastoidectomy to surgically eradicate cholesteatoma.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><i class="fa-solid fa-water"></i> 2. The 3 Golden "Dry Ear" Rules</h4>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="step-num">Rule 1</span>
+      <strong>Strict Water Precautions:</strong> Water must NEVER enter the ear during bathing, washing, or showering. Place a cotton ball coated thoroughly with Vaseline (petroleum jelly) at the canal entrance. No swimming.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Rule 2</span>
+      <strong>Aural Toilet (Microsuction / Dry Mopping):</strong> The ear canal and perforation must be thoroughly cleaned under direct vision with suction or cotton wicks before instilling drops. Antibiotic drops cannot penetrate through a canal plugged with thick pus.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Rule 3</span>
+      <strong>Gentle Nose Blowing:</strong> Avoid violent, forceful nose blowing which forces infected nasopharyngeal secretions retrograde through the Eustachian tube into the middle ear.
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-prescription-bottle-medical"></i> 3. Antimicrobial Therapy (Pakistani Brands)</h4>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="step-num">First-Line</span>
+      <strong>Topical Fluoroquinolone Drops (Non-Ototoxic):</strong>
+      <p><strong>Ciprofloxacin 0.3%</strong> (<em>Eye/Ear Drop Ciprotic</em>) or <strong>Ofloxacin 0.3%</strong> (<em>Flox</em>): 4 to 5 drops into affected ear TDS x 10–14 days. Highly effective against <em>Pseudomonas aeruginosa</em> and <em>Proteus mirabilis</em>. <em>Safe across perforated tympanic membranes without inner ear ototoxicity.</em></p>
+    </div>
+    <div class="step-card">
+      <span class="step-num">Ototoxicity Warning</span>
+      <strong>Strict Prohibition of Aminoglycoside Drops:</strong>
+      <p>Do NOT prescribe drops containing Gentamicin, Neomycin, Polymyxin, or Framycetin (e.g. <em>Otosporin, Sofradex, Betnesol-N</em>) when a TM perforation is present, as trans-round window absorption destroys cochlear hair cells causing irreversible sensorineural deafness.</p>
+    </div>
+    <div class="step-card">
+      <span class="step-num">Systemic</span>
+      <strong>Oral Systemic Antibiotic (During Active Flare):</strong>
+      <p><strong>Ciprofloxacin</strong> (<em>Tab Novidate 500mg</em>) 1 tablet BD PO x 7–10 days in adults for heavy pseudomonal drainage.</p>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Visual Diagnostics, Real Clinical Image & Quick Scores -->
+      <div class="column">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-image"></i> Clinical Pathology & Radiodiagnostics</span>
+            <span style="font-size:11px; color:var(--teal); font-weight:600;">Verified Visual</span>
+          </div>
+          <div class="media-container">
+            <img src="img/clinical_ch19_07.jpg" alt="Atticoantral CSOM & Cholesteatoma" loading="lazy">
+            <div class="media-caption">
+              <strong>Atticoantral CSOM & Cholesteatoma</strong>
+              Posterosuperior attic perforation filled with white flaky keratin debris and granulation tissue.
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+      <div>
+        <a href="ch19-06-acute-otitis-media.html" class="nav-btn"><i class="fa-solid fa-arrow-left"></i> Previous Topic</a>
+      </div>
+      <div>
+        <a href="index.html" class="nav-btn primary"><i class="fa-solid fa-book-open"></i> Full Clinical Portal (All Chapters)</a>
+      </div>
+      <div>
+        <a href="ch19-08-otomycosis.html" class="nav-btn">Next Topic <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </nav>
+
+  </main>
+
+  <script>
+
+function initTheme() {
+  const saved = localStorage.getItem('dod_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+  updateThemeIcon(saved);
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('dod_theme', next);
+  updateThemeIcon(next);
+}
+
+function updateThemeIcon(theme) {
+  const icon = document.getElementById('theme-icon');
+  if (icon) {
+    icon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  
+  const select = document.getElementById('topic-quick-jump');
+  if (select) {
+    select.addEventListener('change', (e) => {
+      if (e.target.value) {
+        window.location.href = e.target.value;
+      }
+    });
+  }
+});
+
+  </script>
+</body>
+</html>
