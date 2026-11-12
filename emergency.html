@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 23: Emergency Medicine & Poisoning (9 Topics) | Doctor on Duty</title>
+  
+  <!-- Universal HTML Cloud Sync -->
+  <script src="https://hassanakhter079.github.io/After-Salah-Zikr/cloud-sync.js" data-app="doctor-on-duty"></script>
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+
+:root {
+  --bg-body: #0a0f1d;
+  --bg-card: #11192d;
+  --bg-card-subtle: #162038;
+  --bg-elevated: #1a2744;
+  --border: #233354;
+  --border-subtle: #1c2b48;
+  
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  --teal: #14b8a6;
+  --teal-light: #2dd4bf;
+  --teal-glow: rgba(20, 184, 166, 0.15);
+  
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+  --blue-glow: rgba(59, 130, 246, 0.15);
+  
+  --amber: #f59e0b;
+  --amber-light: #fbbf24;
+  --amber-glow: rgba(245, 158, 11, 0.15);
+  
+  --rose: #f43f5e;
+  --rose-light: #fb7185;
+  --rose-glow: rgba(244, 63, 94, 0.15);
+  
+  --emerald: #10b981;
+  --emerald-light: #34d399;
+  --emerald-glow: rgba(16, 185, 129, 0.15);
+  
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Fraunces', Georgia, serif;
+}
+
+[data-theme="light"] {
+  --bg-body: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f1f5f9;
+  --bg-elevated: #e2e8f0;
+  --border: #cbd5e1;
+  --border-subtle: #e2e8f0;
+  
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #64748b;
+  
+  --teal: #0d9488;
+  --teal-light: #0f766e;
+  --teal-glow: rgba(13, 148, 136, 0.12);
+  
+  --blue: #2563eb;
+  --blue-light: #1d4ed8;
+  --blue-glow: rgba(37, 99, 235, 0.12);
+  
+  --amber: #d97706;
+  --amber-light: #b45309;
+  --amber-glow: rgba(217, 119, 6, 0.12);
+  
+  --rose: #e11d48;
+  --rose-light: #be123c;
+  --rose-glow: rgba(225, 29, 72, 0.12);
+  
+  --emerald: #059669;
+  --emerald-light: #047857;
+  --emerald-glow: rgba(5, 150, 105, 0.12);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.5;
+  font-size: 14.5px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── STICKY CLINICAL NAVBAR ── */
+.top-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-logo {
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.brand-text h1 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+}
+
+.brand-text span {
+  font-size: 11px;
+  color: var(--teal);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chapter-switcher {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.nav-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--teal);
+  color: var(--teal-light);
+}
+
+.nav-btn.primary {
+  background: var(--teal);
+  color: #ffffff;
+  border-color: var(--teal);
+}
+
+.nav-btn.primary:hover {
+  background: var(--teal-light);
+}
+
+.sidebar-toggle-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* ── LAYOUT: SIDEBAR + CONTENT ── */
+.layout-wrapper {
+  display: flex;
+  min-height: calc(100vh - 51px);
+}
+
+.sidebar-drawer {
+  width: 320px;
+  background: var(--bg-card);
+  border-right: 1px solid var(--border);
+  height: calc(100vh - 51px);
+  position: sticky;
+  top: 51px;
+  overflow-y: auto;
+  padding: 16px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-search-box {
+  position: sticky;
+  top: 0;
+  background: var(--bg-card);
+  padding-bottom: 8px;
+  z-index: 10;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sidebar-search-input {
+  width: 100%;
+  padding: 8px 12px 8px 32px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+  font-size: 13px;
+  outline: none;
+}
+
+.sidebar-search-input:focus {
+  border-color: var(--teal);
+}
+
+.sidebar-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.sidebar-topic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-topic-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  line-height: 1.35;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.sidebar-topic-link:hover {
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+}
+
+.sidebar-topic-link.active {
+  background: var(--teal-glow);
+  color: var(--teal-light);
+  border-left-color: var(--teal);
+  font-weight: 700;
+}
+
+.sidebar-topic-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teal);
+  background: var(--bg-elevated);
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.content-area {
+  flex: 1;
+  padding: 24px 28px 60px 28px;
+  max-width: 1300px;
+  overflow-x: hidden;
+}
+
+/* ── CHAPTER HERO BANNER ── */
+.chapter-hero {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.chapter-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--teal), var(--blue));
+}
+
+.chapter-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.chapter-hero h2 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.chapter-hero p {
+  color: var(--text-muted);
+  font-size: 14px;
+  max-width: 900px;
+}
+
+/* ── INDIVIDUAL TOPIC CARD ── */
+.topic-section {
+  scroll-margin-top: 70px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 32px;
+}
+
+.topic-section:last-child {
+  border-bottom: none;
+}
+
+.topic-banner {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--teal), var(--blue));
+}
+
+.banner-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-emergency { background: var(--rose-glow); color: var(--rose-light); border: 1px solid var(--rose); }
+.badge-urgent { background: var(--amber-glow); color: var(--amber-light); border: 1px solid var(--amber); }
+.badge-routine { background: var(--teal-glow); color: var(--teal-light); border: 1px solid var(--teal); }
+.badge-category { background: var(--blue-glow); color: var(--blue-light); border: 1px solid var(--blue); }
+.badge-page { background: var(--bg-elevated); color: var(--text-muted); border: 1px solid var(--border); }
+
+.topic-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.topic-summary {
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+/* Two-Column Ultra-Condensed Clinical Grid */
+.condensed-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Clinical Panels & Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--teal-light);
+}
+
+/* Image and Clinical Media Display */
+.media-container {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.media-container:hover {
+  transform: translateY(-2px);
+  border-color: var(--teal);
+}
+
+.media-container img, .media-container svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 320px;
+  object-fit: cover;
+  background: #000;
+}
+
+.media-caption {
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.media-caption strong {
+  color: var(--text-main);
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Clinical Callout Boxes */
+.callout {
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 12px;
+  border-left: 4px solid;
+}
+
+.callout:last-child { margin-bottom: 0; }
+.callout-emergency { background: var(--rose-glow); border-color: var(--rose); color: var(--rose-light); }
+.callout-urgent { background: var(--amber-glow); border-color: var(--amber); color: var(--amber-light); }
+.callout-pearl { background: var(--teal-glow); border-color: var(--teal); color: var(--teal-light); }
+.callout-info { background: var(--blue-glow); border-color: var(--blue); color: var(--blue-light); }
+
+.callout-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+/* Clinical Lists & Steps */
+.clinical-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.clinical-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 13.5px;
+}
+
+.clinical-list li::before {
+  content: '•';
+  position: absolute;
+  left: 4px;
+  color: var(--teal);
+  font-weight: bold;
+}
+
+/* Treatment Tables & Brand Rx */
+.rx-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin-top: 8px;
+}
+
+.rx-table th, .rx-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.rx-table th {
+  background: var(--bg-card-subtle);
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.brand-pill {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--teal-glow);
+  color: var(--teal-light);
+  font-weight: 600;
+  font-size: 11.5px;
+}
+
+/* Interactive Calculators */
+.calc-box {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.calc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border-subtle);
+  font-size: 12.5px;
+}
+
+.calc-row label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calc-score-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 2px solid var(--border);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.score-num {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--teal-light);
+  background: var(--bg-elevated);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.steps-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.step-card {
+  display: flex;
+  gap: 10px;
+  background: var(--bg-card-subtle);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  align-items: flex-start;
+}
+
+.step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+/* Modal Lightbox */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightbox-modal.active { display: flex; }
+
+.lightbox-content {
+  max-width: 900px;
+  max-height: 90vh;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.lightbox-content img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  background: #000;
+}
+
+.lightbox-caption {
+  padding: 14px 18px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Back to top */
+#topBtn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 100;
+  transition: all 0.2s;
+}
+
+#topBtn:hover { transform: translateY(-3px); }
+
+/* Backdrop for Mobile Sidebar */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .condensed-grid { grid-template-columns: 1fr; }
+  .sidebar-toggle-btn { display: flex; }
+  .sidebar-drawer {
+    position: fixed;
+    left: -330px;
+    top: 0;
+    height: 100vh;
+    z-index: 2000;
+    transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.3);
+  }
+  .sidebar-drawer.open {
+    left: 0;
+  }
+  .sidebar-backdrop.active {
+    display: block;
+  }
+  .content-area {
+    padding: 16px;
+  }
+  .chapter-switcher {
+    max-width: 150px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Backdrop for mobile drawer -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+  <!-- Top Sticky Navigation -->
+  <nav class="top-navbar">
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button class="sidebar-toggle-btn" onclick="toggleSidebar()" title="Toggle Topic Directory">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <a href="index.html" class="brand-section">
+        <div class="brand-logo"><i class="fa-solid fa-truck-medical"></i></div>
+        <div class="brand-text">
+          <h1>Doctor on Duty</h1>
+          <span>Ch 23: Emergency Medicine & Poisoning</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="nav-actions">
+      <select class="chapter-switcher" onchange="location.href=this.value">
+        <option value="chapter-17-general-surgery.html" >Ch 17: General Surgery (29)</option><option value="chapter-18-ophthalmology.html" >Ch 18: Ophthalmology (12)</option><option value="chapter-19-ent.html" >Ch 19: Ear, Nose & Throat (ENT) (12)</option><option value="chapter-23-emergency-medicine.html" selected>Ch 23: Emergency Medicine & Poisoning (9)</option><option value="index.html">🏠 Master Portal</option>
+      </select>
+
+      <a href="index.html" class="nav-btn"><i class="fa-solid fa-house"></i> Portal</a>
+      <button class="nav-btn" onclick="toggleTheme()" id="themeBtn"><i class="fa-solid fa-moon"></i></button>
+    </div>
+  </nav>
+
+  <!-- Main Layout -->
+  <div class="layout-wrapper">
+    <!-- Sidebar Topic Drawer -->
+    <aside class="sidebar-drawer" id="sidebarDrawer">
+      <div class="sidebar-search-box">
+        <i class="fa-solid fa-magnifying-glass sidebar-search-icon"></i>
+        <input type="text" class="sidebar-search-input" id="sidebarSearch" placeholder="Filter this chapter..." oninput="filterSidebarTopics()">
+      </div>
+      <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-dim); padding:4px 6px; letter-spacing:0.5px;">
+        Chapter Topics (9)
+      </div>
+      <div class="sidebar-topic-list" id="sidebarTopicList">
+        
+        <a href="#topic-301" class="sidebar-topic-link" data-topic-id="topic-301">
+          <span class="sidebar-topic-num">301</span>
+          <span>ACLS Cardiac Arrest Algorithm & Resuscitation</span>
+        </a>
+        
+        <a href="#topic-302" class="sidebar-topic-link" data-topic-id="topic-302">
+          <span class="sidebar-topic-num">302</span>
+          <span>Anaphylaxis Emergency Management & Adrenaline Protocol</span>
+        </a>
+        
+        <a href="#topic-303" class="sidebar-topic-link" data-topic-id="topic-303">
+          <span class="sidebar-topic-num">303</span>
+          <span>Sepsis & Septic Shock (Surviving Sepsis Hour-1 Bundle)</span>
+        </a>
+        
+        <a href="#topic-304" class="sidebar-topic-link" data-topic-id="topic-304">
+          <span class="sidebar-topic-num">304</span>
+          <span>Organophosphate & Carbamate Poisoning (Atropinization)</span>
+        </a>
+        
+        <a href="#topic-305" class="sidebar-topic-link" data-topic-id="topic-305">
+          <span class="sidebar-topic-num">305</span>
+          <span>Paracetamol Toxicity & N-Acetylcysteine (NAC Protocol)</span>
+        </a>
+        
+        <a href="#topic-306" class="sidebar-topic-link" data-topic-id="topic-306">
+          <span class="sidebar-topic-num">306</span>
+          <span>Snake Bite Envenomation (ASV & 20WBCT Protocol)</span>
+        </a>
+        
+        <a href="#topic-307" class="sidebar-topic-link" data-topic-id="topic-307">
+          <span class="sidebar-topic-num">307</span>
+          <span>Thermal Burn Injury & Parkland Fluid Resuscitation</span>
+        </a>
+        
+        <a href="#topic-308" class="sidebar-topic-link" data-topic-id="topic-308">
+          <span class="sidebar-topic-num">308</span>
+          <span>General Approach to the Poisoned Patient (Toxidromes)</span>
+        </a>
+        
+        <a href="#topic-309" class="sidebar-topic-link" data-topic-id="topic-309">
+          <span class="sidebar-topic-num">309</span>
+          <span>Emergency Acute Pain Management & WHO Ladder</span>
+        </a>
+        
+      </div>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="content-area">
+      <!-- Chapter Hero Banner -->
+      <div class="chapter-hero">
+        <div class="chapter-hero-meta">
+          <span class="badge badge-emergency"><i class="fa-solid fa-truck-medical"></i> Chapter 23</span>
+          <span class="badge badge-page"><i class="fa-solid fa-book-bookmark"></i> pp. 673–712</span>
+          <span class="badge badge-category"><i class="fa-solid fa-list-check"></i> 9 Clinical Topics</span>
+          <span class="badge badge-routine"><i class="fa-solid fa-shield-halved"></i> Pakistani Brand Rx</span>
+        </div>
+        <h2>Emergency Medicine & Poisoning</h2>
+        <p>ACLS 2023 resuscitation protocols, anaphylaxis adrenaline dosing, Surviving Sepsis Hour-1 bundle, organophosphate atropinization endpoints, paracetamol NAC 3-bag protocol, snakebite ASV, Parkland burn fluid, toxidromes, and WHO pain ladder.</p>
+      </div>
+
+      <!-- Topics Content List -->
+      <div id="topicsContainer">
+        
+    <section class="topic-section" id="topic-301">
+      <div class="topic-banner">
+        <div class="banner-meta">
+          <span class="badge badge-page"><i class="fa-solid fa-book-open"></i> pp. 673–676</span>
+          <span class="badge badge-routine"><i class="fa-solid fa-circle-exclamation"></i> Life Support</span>
+          <span class="badge badge-category"><i class="fa-solid fa-folder"></i> Emergency Resuscitation</span>
+          <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 301</span>
+        </div>
+        <h3 class="topic-title">ACLS Cardiac Arrest Algorithm & Resuscitation</h3>
+        <p class="topic-summary">Advanced Cardiovascular Life Support (ACLS) algorithmic management of adult cardiac arrest; shockable (VF / pVT) vs non-shockable (PEA / Asystole) pathways, high-quality chest compressions, early defibrillation, adrenaline & amiodarone protocols, and reversing the 5Hs and 5Ts.</p>
+      </div>
+
+      <div class="condensed-grid">
+        <div class="column">
+          
+<div class="clinical-section">
+  <h4><i class="fa-solid fa-heart-pulse"></i> 1. The Core Resuscitation Pathways</h4>
+  <p>Survival in sudden cardiac arrest hinges upon immediate recognition, high-quality cardiopulmonary resuscitation (CPR), and rapid rhythm differentiation into shockable vs non-shockable rhythms:</p>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Rhythm Category</th><th>ECG Rhythms</th><th>Immediate Energy & Defibrillation</th><th>Drug Therapy Pipeline</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Shockable (VF / pVT)</strong></td>
+          <td><strong>Ventricular Fibrillation (VF)</strong> or <strong>Pulseless Ventricular Tachycardia (pVT)</strong>.</td>
+          <td><strong>Immediate unsynchronized shock:</strong> Biphasic: <strong>120–200 Joules</strong> (or maximum device output); Monophasic: <strong>360 Joules</strong>. Resume CPR immediately for 2 minutes without checking pulse!</td>
+          <td>&bull; <strong>Adrenaline (Epinephrine 1:10,000):</strong> 1 mg IV/IO after 2nd shock, repeat every 3 to 5 minutes.<br>&bull; <strong>Amiodarone:</strong> First dose <strong>300 mg IV/IO bolus</strong> after 3rd shock; second dose <strong>150 mg IV/IO</strong> after 5th shock.<br>(Alternative: Lidocaine 1–1.5 mg/kg IV).</td>
+        </tr>
+        <tr>
+          <td><strong>Non-Shockable (PEA / Asystole)</strong></td>
+          <td><strong>Asystole</strong> (flatline confirmed in &ge; 2 leads) or <strong>Pulseless Electrical Activity (PEA)</strong> (organized rhythm without palpable pulse).</td>
+          <td><strong>DO NOT SHOCK!</strong> Defibrillation is completely futile and causes myocardial damage. Focus 100% on uninterrupted CPR and reversible causes.</td>
+          <td>&bull; <strong>Adrenaline (Epinephrine):</strong> 1 mg IV/IO <strong>as early as possible</strong>, then repeat every 3 to 5 minutes.<br>&bull; Identify and treat underlying <strong>5Hs and 5Ts</strong> aggressively.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><i class="fa-solid fa-hand-holding-heart"></i> 2. High-Quality CPR Metrics</h4>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="step-num">Rate</span>
+      <strong>100 to 120 Compressions/Minute:</strong> Fast, rhythmic compression on lower half of sternum.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Depth</span>
+      <strong>At Least 5 to 6 cm (2 to 2.4 inches):</strong> In adults, avoiding excessive depths (&gt; 6 cm).
+    </div>
+    <div class="step-card">
+      <span class="step-num">Recoil</span>
+      <strong>Full Chest Recoil:</strong> Allow the chest to re-expand completely between compressions to allow ventricular filling. Do not lean on the chest!
+    </div>
+    <div class="step-card">
+      <span class="step-num">Min. Pauses</span>
+      <strong>Minimize Interruptions:</strong> Keep pauses for rhythm checks and shock delivery strictly &lt; 10 seconds. Switch compressors every 2 minutes to prevent fatigue.
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-list-check"></i> 3. Reversible Etiologies: The 5Hs and 5Ts</h4>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>The 5 H's (Metabolic / Fluid)</th><th>Targeted Emergency Interventions</th><th>The 5 T's (Mechanical / Vascular)</th><th>Targeted Emergency Interventions</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Hypovolemia</strong></td>
+          <td>Rapid IV crystalloid boluses (Ringer's lactate) or O-negative uncrossed blood.</td>
+          <td><strong>Tension Pneumothorax</strong></td>
+          <td>Immediate needle thoracocentesis (2nd ICS MCL or 5th ICS AAL) followed by chest tube.</td>
+        </tr>
+        <tr>
+          <td><strong>Hypoxia</strong></td>
+          <td>100% FiO2 via bag-valve-mask, secure endotracheal airway.</td>
+          <td><strong>Tamponade (Cardiac)</strong></td>
+          <td>Emergent ultrasound-guided pericardiocentesis.</td>
+        </tr>
+        <tr>
+          <td><strong>Hydrogen Ion (Acidosis)</strong></td>
+          <td>Adequate ventilation; IV Sodium Bicarbonate (8.4% 50–100 mmol) in prolonged arrest.</td>
+          <td><strong>Toxins (Poisoning)</strong></td>
+          <td>Specific antidotes (Naloxone for opioids, Atropine for organophosphates, Calcium/DigiFab).</td>
+        </tr>
+        <tr>
+          <td><strong>Hypo- / Hyperkalemia</strong></td>
+          <td>Hyperkalemia: IV 10% Calcium Gluconate (10 mL) + Insulin/Dextrose + Sodium Bicarb.</td>
+          <td><strong>Thrombosis (Pulmonary PE)</strong></td>
+          <td>Emergency systemic thrombolysis (Alteplase 50mg IV bolus) during CPR.</td>
+        </tr>
+        <tr>
+          <td><strong>Hypothermia</strong></td>
+          <td>Active internal core rewarming (warmed IV fluids, warm humidified oxygen).</td>
+          <td><strong>Thrombosis (Coronary ACS)</strong></td>
+          <td>Immediate transfer for emergency primary PCI / cath lab upon ROSC.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        </div>
+        <div class="column">
+          
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-camera"></i> Diagnostic / Clinical Imaging</span>
+          </div>
+          <div class="media-container" onclick="openLightbox('img/clinical_ch23_01.jpg', 'High-Quality CPR & Defibrillation: Resuscitation team delivering continuous chest compressions (100–120/min) and early defibrillation.')">
+            <img src="img/clinical_ch23_01.jpg" alt="High-Quality CPR & Defibrillation" loading="lazy">
+            <div class="media-caption">
+              <strong>High-Quality CPR & Defibrillation</strong>
+              Resuscitation team delivering continuous chest compressions (100–120/min) and early defibrillation.
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+    
+    <section class="topic-section" id="topic-302">
+      <div class="topic-banner">
+        <div class="banner-meta">
+          <span class="badge badge-page"><i class="fa-solid fa-book-open"></i> pp. 677–680</span>
+          <span class="badge badge-routine"><i class="fa-solid fa-circle-exclamation"></i> Life-Threatening Emergency</span>
+          <span class="badge badge-category"><i class="fa-solid fa-folder"></i> Emergency Resuscitation</span>
+          <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 302</span>
+        </div>
+        <h3 class="topic-title">Anaphylaxis Emergency Management & Adrenaline Protocol</h3>
+        <p class="topic-summary">Severe, sudden-onset multi-system type-I hypersensitivity reaction; airway compromise, bronchospasm, distributive shock, universal first-line Intramuscular Adrenaline (Epinephrine 1:1,000) 0.5 mg anterolateral thigh dosing, aggressive IV fluid resuscitation, and biphasic reaction prevention.</p>
+      </div>
+
+      <div class="condensed-grid">
+        <div class="column">
+          
+<div class="clinical-section">
+  <h4><i class="fa-solid fa-triangle-exclamation"></i> 1. Diagnostic Criteria & Triggers</h4>
+  <p>Anaphylaxis is a clinical diagnosis. <strong>Treatment must NEVER be delayed for laboratory tests or extensive history:</strong></p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="step-num">Trigger</span>
+      <strong>Common Triggers:</strong> Drugs (Penicillins, Cephalosporins, NSAIDs, IV radiocontrast), food (peanuts, seafood, eggs, milk), insect venoms (wasp/bee stings), latex.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Airway / Resp</span>
+      <strong>Respiratory Compromise:</strong> Laryngeal edema, stridor, hoarseness, globus sensation, severe bronchospasm, diffuse wheezing, intercostal retraction, SpO2 &lt; 92%.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Cardiovascular</span>
+      <strong>Hypotension / Collapse:</strong> Systolic BP &lt; 90 mmHg or &gt; 30% drop from baseline, reflex tachycardia, diaphoresis, syncope, cardiac arrest.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Cutaneous</span>
+      <strong>Skin / Mucosal Signs:</strong> Generalized pruritic urticaria (hives), widespread erythema, angioedema (swollen lips, tongue, uvula, periorbital tissues). <em>Note: Up to 20% of fatal cases lack cutaneous signs due to sudden vascular collapse!</em>
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-syringe"></i> 2. The Life-Saving Golden Drug: Intramuscular Adrenaline</h4>
+  <div class="alert alert-danger">
+    <strong><i class="fa-solid fa-bell"></i> ADRENALINE (EPINEPHRINE) IS THE FIRST AND ONLY LIFE-SAVING DRUG:</strong>
+    <p>Antihistamines and steroids do NOT save lives in acute anaphylaxis; they do not reverse bronchospasm or distributive shock. Intramuscular injection into the <strong>anterolateral aspect of the middle third of the thigh (vastus lateralis)</strong> achieves peak plasma concentrations within 8 minutes (vastly superior to deltoid or subcutaneous routes):</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">Adult Dose</span>
+        <strong>Adults (&gt; 12 years):</strong><br>
+        <strong>0.5 mg IM (0.5 mL of 1:1,000 [1 mg/mL] solution)</strong> stat into mid-outer thigh. Repeat every 5 to 15 minutes if symptoms persist or deteriorate!
+      </div>
+      <div class="step-card">
+        <span class="step-num">Child 6–12y</span>
+        <strong>Children 6 to 12 years:</strong><br>
+        <strong>0.3 mg IM (0.3 mL of 1:1,000 solution)</strong> stat into mid-outer thigh.
+      </div>
+      <div class="step-card">
+        <span class="step-num">Child &lt;6y</span>
+        <strong>Children &lt; 6 years:</strong><br>
+        <strong>0.15 mg IM (0.15 mL of 1:1,000 solution)</strong> stat into mid-outer thigh.
+      </div>
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-prescription-bottle-medical"></i> 3. Immediate Resuscitation & Secondary Therapies</h4>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Priority</th><th>Intervention & Drug Molecule</th><th>Brand Names (Pakistan)</th><th>Dosage & Clinical Pearls</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Positioning</strong></td>
+          <td>Lie patient flat; elevate legs (Trendelenburg).</td>
+          <td><em>Patient Position</em></td>
+          <td>Prevents the "empty heart syndrome" (sudden death upon standing due to massive venodilation and lack of venous return). If breathing is labored, allow sitting up slightly.</td>
+        </tr>
+        <tr>
+          <td><strong>2. High-Flow Oxygen</strong></td>
+          <td>Oxygen via non-rebreather mask at 15 L/min.</td>
+          <td><em>Medical Oxygen</em></td>
+          <td>Maintain SpO2 &gt; 94–98%. Prepare for emergency endotracheal intubation or surgical cricothyroidotomy if progressive laryngeal stridor occurs.</td>
+        </tr>
+        <tr>
+          <td><strong>3. Aggressive IV Fluid Resuscitation</strong></td>
+          <td>Crystalloids: Normal Saline 0.9% or Ringer's Lactate.</td>
+          <td><em>Infusion 0.9% Normal Saline</em></td>
+          <td><strong>1 to 2 Liters rapid IV pressure bolus in adults</strong> (20 mL/kg in children) via 2 wide-bore 16G cannulae. Up to 35% of circulating blood volume shifts into extravascular tissues within 10 minutes!</td>
+        </tr>
+        <tr>
+          <td><strong>4. Secondary Steroid (Prevents Biphasic)</strong></td>
+          <td>Hydrocortisone sodium succinate</td>
+          <td><em>Inj Solu-Cortef 100mg / 250mg</em></td>
+          <td><strong>200 mg IV slow bolus</strong> (Children: 4 mg/kg). Slow onset (takes 4–6 hrs); primarily indicated to prevent late <strong>biphasic anaphylactic recurrence</strong> (occurs in up to 20% within 8–72 hours).</td>
+        </tr>
+        <tr>
+          <td><strong>5. Secondary Antihistamine</strong></td>
+          <td>Chlorpheniramine maleate</td>
+          <td><em>Inj Piriton 10mg</em></td>
+          <td><strong>10 mg slow IV/IM</strong>. Relieves cutaneous itching and hives; does NOT reverse airway obstruction.</td>
+        </tr>
+        <tr>
+          <td><strong>6. Bronchospasm Adjuvant</strong></td>
+          <td>Salbutamol nebulization 5mg</td>
+          <td><em>Nebulizing Sol Ventolin</em></td>
+          <td>5mg nebulized with oxygen for persistent wheezing after adrenaline.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        </div>
+        <div class="column">
+          
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-camera"></i> Diagnostic / Clinical Imaging</span>
+          </div>
+          <div class="media-container" onclick="openLightbox('img/clinical_ch23_02.jpg', 'Emergency Intramuscular Epinephrine: Immediate 0.5 mg IM adrenaline administration into the anterolateral vastus lateralis muscle of the thigh.')">
+            <img src="img/clinical_ch23_02.jpg" alt="Emergency Intramuscular Epinephrine" loading="lazy">
+            <div class="media-caption">
+              <strong>Emergency Intramuscular Epinephrine</strong>
+              Immediate 0.5 mg IM adrenaline administration into the anterolateral vastus lateralis muscle of the thigh.
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+    
+    <section class="topic-section" id="topic-303">
+      <div class="topic-banner">
+        <div class="banner-meta">
+          <span class="badge badge-page"><i class="fa-solid fa-book-open"></i> pp. 681–685</span>
+          <span class="badge badge-routine"><i class="fa-solid fa-circle-exclamation"></i> Critical Care</span>
+          <span class="badge badge-category"><i class="fa-solid fa-folder"></i> Emergency Resuscitation</span>
+          <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 303</span>
+        </div>
+        <h3 class="topic-title">Sepsis & Septic Shock (Surviving Sepsis Hour-1 Bundle)</h3>
+        <p class="topic-summary">Life-threatening organ dysfunction caused by a dysregulated host response to infection (Sepsis-3); bedside qSOFA screening, Surviving Sepsis Campaign Hour-1 Bundle, blood cultures, 30 mL/kg crystalloid bolus, early Norepinephrine vasopressor support (MAP >= 65 mmHg), and empiric broad-spectrum IV antimicrobials.</p>
+      </div>
+
+      <div class="condensed-grid">
+        <div class="column">
+          
+<div class="clinical-section">
+  <h4><i class="fa-solid fa-viruses"></i> 1. Sepsis-3 Definitions & Bedside qSOFA Score</h4>
+  <p>According to international consensus (Sepsis-3), <strong>Sepsis</strong> is defined as life-threatening organ dysfunction caused by a dysregulated host response to infection (quantified by an acute increase in SOFA score &ge; 2). <strong>Septic Shock</strong> is a subset with persistent hypotension requiring vasopressors to maintain MAP &ge; 65 mmHg AND serum lactate &gt; 2 mmol/L despite adequate fluid resuscitation (hospital mortality &gt; 40%):</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="step-num">qSOFA Criteria</span>
+      <strong>Quick SOFA Bedside Screen (&ge; 2 of 3 indicates high mortality risk):</strong><br>
+      &bull; <strong>Respiratory Rate:</strong> &ge; 22 breaths/min.<br>
+      &bull; <strong>Altered Mentation:</strong> Glasgow Coma Scale (GCS) &lt; 15.<br>
+      &bull; <strong>Systolic Blood Pressure:</strong> &le; 100 mmHg.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Septic Shock Signs</span>
+      <strong>Clinical Shock Markers:</strong> Mottled skin, capillary refill time &gt; 3 seconds, oliguria (&lt; 0.5 mL/kg/hr), bounding pulses progressing to thready tachycardia, cool extremities, hyperlactatemia.
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-clock-rotate-left"></i> 2. The Surviving Sepsis Campaign "Hour-1 Bundle"</h4>
+  <div class="alert alert-danger">
+    <strong><i class="fa-solid fa-stopwatch"></i> EMERGENCY ACTIONS TO INITIATE WITHIN THE FIRST 60 MINUTES:</strong>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">Element 1</span>
+        <strong>Measure Serum Lactate:</strong> Immediate point-of-care venous/arterial lactate. Re-measure within 2–4 hours if initial lactate is &gt; 2.0 mmol/L to guide resuscitation.
+      </div>
+      <div class="step-card">
+        <span class="step-num">Element 2</span>
+        <strong>Obtain Blood Cultures:</strong> Draw 2 sets of peripheral blood cultures (aerobic & anaerobic) from separate venipuncture sites <em>prior to starting antibiotics</em> (without delaying antibiotic initiation &gt; 45 minutes).
+      </div>
+      <div class="step-card">
+        <span class="step-num">Element 3</span>
+        <strong>Administer Broad-Spectrum IV Antimicrobials:</strong> Infuse empiric IV antibiotics targeting likely source within the first hour. Mortality increases by 7.6% for every single hour of delay in septic shock!
+      </div>
+      <div class="step-card">
+        <span class="step-num">Element 4</span>
+        <strong>Rapid IV Crystalloid Bolus (30 mL/kg):</strong> Administer <strong>30 mL/kg of balanced crystalloid (Ringer's Lactate / Plasmalyte)</strong> IV within the first 3 hours for hypotension (MAP &lt; 65) or lactate &ge; 4.0 mmol/L. (Average 70 kg adult = 2,100 mL).
+      </div>
+      <div class="step-card">
+        <span class="step-num">Element 5</span>
+        <strong>Apply Vasopressors to Maintain MAP &ge; 65 mmHg:</strong> If blood pressure does not respond during or after fluid loading, start vasopressors immediately to restore perfusion.
+      </div>
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-prescription-bottle-medical"></i> 3. Pharmacotherapy & Critical Care Formularies</h4>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Role</th><th>Drug & Strength</th><th>Brand Names (Pakistan)</th><th>Regimen & Clinical Pearls</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>First-Line Vasopressor</strong></td>
+          <td><strong>Norepinephrine</strong> (Noradrenaline)</td>
+          <td><em>Inj Norad 4mg / 4mL</em><br><em>Inj Levophed</em></td>
+          <td><strong>Drug of Choice.</strong> Potent alpha-1 vasoconstrictor with modest beta-1 inotropy. Start at <strong>2 to 12 mcg/min</strong> via central line (or peripheral 18G while central access is prepared), titrated to maintain <strong>MAP &ge; 65 mmHg</strong>. Vastly superior to Dopamine (lower arrhythmia rate and lower mortality).</td>
+        </tr>
+        <tr>
+          <td><strong>Second-Line Vasopressor</strong></td>
+          <td>Vasopressin (ADH)</td>
+          <td><em>Inj Vasopressin 20 units</em></td>
+          <td>Fixed dose <strong>0.03 units/min</strong> IV infusion added to Norepinephrine to reduce catecholamine requirements.</td>
+        </tr>
+        <tr>
+          <td><strong>Empiric Antimicrobial Combination (Abdominal / Sepsis of Unknown Origin)</strong></td>
+          <td>Ceftriaxone 2g IV + Metronidazole 500mg IV<br>OR Piperacillin-Tazobactam 4.5g IV</td>
+          <td><em>Vial Rocephin 2g</em><br><em>Infusion Flagyl 500mg</em><br><em>Vial Tazocin 4.5g</em></td>
+          <td>Rocephin 2g IV OD + Flagyl 500mg IV TDS. For hospital-acquired sepsis / ICU: Tazocin 4.5g IV QDS or Meropenem (<em>Meronem 1g</em>) TDS + Vancomycin (<em>Vancocin 1g</em>) BD.</td>
+        </tr>
+        <tr>
+          <td><strong>Refractory Shock Corticosteroid</strong></td>
+          <td>Hydrocortisone</td>
+          <td><em>Inj Solu-Cortef 100mg</em></td>
+          <td><strong>200 mg/day IV</strong> (given as 50 mg IV q6h or continuous infusion). Indicated only if shock remains refractory despite escalating doses of Norepinephrine and adequate fluids.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        </div>
+        <div class="column">
+          
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-camera"></i> Diagnostic / Clinical Imaging</span>
+          </div>
+          <div class="media-container" onclick="openLightbox('img/clinical_ch23_03.jpg', 'ICU Sepsis Resuscitation Bundle: Hemodynamic invasive monitoring, rapid 30 mL/kg crystalloids, and early norepinephrine vasopressor titration.')">
+            <img src="img/clinical_ch23_03.jpg" alt="ICU Sepsis Resuscitation Bundle" loading="lazy">
+            <div class="media-caption">
+              <strong>ICU Sepsis Resuscitation Bundle</strong>
+              Hemodynamic invasive monitoring, rapid 30 mL/kg crystalloids, and early norepinephrine vasopressor titration.
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+    
+    <section class="topic-section" id="topic-304">
+      <div class="topic-banner">
+        <div class="banner-meta">
+          <span class="badge badge-page"><i class="fa-solid fa-book-open"></i> pp. 686–690</span>
+          <span class="badge badge-routine"><i class="fa-solid fa-circle-exclamation"></i> Agricultural Poisoning</span>
+          <span class="badge badge-category"><i class="fa-solid fa-folder"></i> Toxicology & Poisoning</span>
+          <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 304</span>
+        </div>
+        <h3 class="topic-title">Organophosphate & Carbamate Poisoning (Atropinization)</h3>
+        <p class="topic-summary">Irreversible acetylcholinesterase inhibition leading to massive acetylcholine storm; DUMBELS / SLUDGEM cholinergic toxidrome, lethal bronchorrhea and bronchospasm, aggressive emergency Atropine titration until target atropinization endpoints, Pralidoxime (PAM) enzyme reactivator, and decontamination.</p>
+      </div>
+
+      <div class="condensed-grid">
+        <div class="column">
+          
+<div class="clinical-section">
+  <h4><i class="fa-solid fa-skull"></i> 1. Mechanism & The DUMBELS Cholinergic Toxidrome</h4>
+  <p>Organophosphates (OP: Chlorpyrifos, Malathion, Diazinon, Parathion) and Carbamates are agricultural pesticides widely accessible in Pakistan, frequently ingested for intentional self-harm or absorbed transcutaneously during spraying. They phosphorylate and inactivate <strong>acetylcholinesterase (AChE)</strong>, causing uncontrolled accumulation of acetylcholine at muscarinic, nicotinic, and CNS synapses:</p>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Synaptic Receptor</th><th>Clinical Manifestations (Toxidrome)</th><th>Immediate Cause of Death</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Muscarinic Receptors (Parasympathetic Overdrive)</strong></td>
+          <td>Mnemonic <strong>DUMBELS</strong>:<br>
+          &bull; <strong>D</strong>iarrhea & Abdominal Cramps<br>
+          &bull; <strong>U</strong>rination (Incontinence)<br>
+          &bull; <strong>M</strong>iosis (Pinpoint non-reactive pupils)<br>
+          &bull; <strong>B</strong>radycardia, <strong>B</strong>ronchospasm, <strong>B</strong>ronchorrhea (Copious frothy pulmonary secretions)<br>
+          &bull; <strong>E</strong>mesis (Vomiting)<br>
+          &bull; <strong>L</strong>acrimation<br>
+          &bull; <strong>S</strong>alivation & Sweating (Diaphoresis)</td>
+          <td rowspan="3"><strong>"Drowning in secretions":</strong> Massive pulmonary bronchorrhea, intense bronchospasm, and central respiratory drive depression cause fatal asphyxia within hours!</td>
+        </tr>
+        <tr>
+          <td><strong>Nicotinic Receptors (Neuromuscular Junction)</strong></td>
+          <td>Mnemonic <strong>MTWTF</strong>:<br>
+          &bull; <strong>M</strong>ydriasis (early paradoxical)<br>
+          &bull; <strong>T</strong>achycardia<br>
+          &bull; <strong>W</strong>eakness & Flaccid paralysis<br>
+          &bull; <strong>T</strong>remors<br>
+          &bull; <strong>F</strong>asciculations (Tongue, facial, and diffuse muscle twitches; pathognomonic). Respiratory muscle diaphragm paralysis.</td>
+        </tr>
+        <tr>
+          <td><strong>Central Nervous System (CNS)</strong></td>
+          <td>Agitation, confusion, coma, seizures, central respiratory arrest.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><i class="fa-solid fa-syringe"></i> 2. The Emergency Atropine Titration Protocol</h4>
+  <div class="alert alert-danger">
+    <strong><i class="fa-solid fa-capsules"></i> ATROPINE IS THE PHYSIOLOGICAL ANTIDOTE:</strong>
+    <p>Atropine competitively blocks muscarinic receptors, clearing fatal bronchorrhea and reversing bronchospasm. <em>Pupil size and heart rate alone are unreliable markers; the primary goal is drying lung secretions:</em></p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">Step 1</span>
+        <strong>Initial Bolus:</strong> Administer <strong>Atropine 1.8 to 3.0 mg IV stat</strong> (3 to 5 ampoules of 0.6 mg).
+      </div>
+      <div class="step-card">
+        <span class="step-num">Step 2</span>
+        <strong>The Doubling Rule (Every 5 Minutes):</strong> If secretions remain moist and lungs rattling after 5 minutes, <strong>double the previous dose</strong> (e.g. 3 mg &rarr; 6 mg &rarr; 12 mg &rarr; 24 mg IV) every 5 minutes until complete atropinization is achieved!
+      </div>
+      <div class="step-card">
+        <span class="step-num">Endpoints</span>
+        <strong>Target Endpoints of Atropinization:</strong><br>
+        (1) <strong>Lungs completely clear on auscultation (no crackles/bronchorrhea)</strong><br>
+        (2) <strong>Dry mouth and axillae</strong><br>
+        (3) <strong>Heart Rate &gt; 80 beats/min</strong><br>
+        (4) <strong>Systolic BP &gt; 90 mmHg</strong><br>
+        (5) <strong>Pupils dilated &ge; 4mm</strong> (pupils may remain small; do not wait for mydriasis if lungs are dry!).
+      </div>
+      <div class="step-card">
+        <span class="step-num">Maintenance</span>
+        <strong>Continuous Atropine Infusion:</strong> Once atropinized, calculate <strong>10% to 20% of the total loading dose per hour</strong> as a continuous IV infusion in normal saline. Taper cautiously over 24 to 72 hours.
+      </div>
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-pills"></i> 3. Cholinesterase Reactivator & Decontamination</h4>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Intervention</th><th>Agent & Regimen</th><th>Clinical Rationale</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cholinesterase Reactivator (Oxime)</strong></td>
+          <td><strong>Pralidoxime (PAM / 2-PAM)</strong>: 1 to 2 g IV in 100 mL Normal Saline over 30 minutes, followed by 500 mg/hr infusion (or 1g q6h).</td>
+          <td>Cleaves the organophosphate-enzyme bond, regenerating active AChE at nicotinic neuromuscular junctions (reverses muscle weakness and fasciculations). <em>Must be given before "aging" (irreversible covalent bonding, occurs within 24–48 hours).</em></td>
+        </tr>
+        <tr>
+          <td><strong>Seizure Control</strong></td>
+          <td><strong>Diazepam (Valium)</strong>: 5 to 10 mg slow IV bolus, repeat q10-15min.</td>
+          <td>Suppresses central cholinergic seizures and mitigates excitotoxic neuronal injury.</td>
+        </tr>
+        <tr>
+          <td><strong>Dermal Decontamination</strong></td>
+          <td>Strip all clothes, place in sealed bag, wash body with soap and water twice.</td>
+          <td>Prevents continuous transdermal absorption. Healthcare providers must wear nitrile gloves and aprons (secondary poisoning risk).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        </div>
+        <div class="column">
+          
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-camera"></i> Diagnostic / Clinical Imaging</span>
+          </div>
+          <div class="media-container" onclick="openLightbox('img/clinical_ch23_04.jpg', 'Organophosphate Pesticide Toxicity: Agricultural pesticide exposure leading to acute cholinergic muscarinic receptor hyper-stimulation.')">
+            <img src="img/clinical_ch23_04.jpg" alt="Organophosphate Pesticide Toxicity" loading="lazy">
+            <div class="media-caption">
+              <strong>Organophosphate Pesticide Toxicity</strong>
+              Agricultural pesticide exposure leading to acute cholinergic muscarinic receptor hyper-stimulation.
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+    
+    <section class="topic-section" id="topic-305">
+      <div class="topic-banner">
+        <div class="banner-meta">
+          <span class="badge badge-page"><i class="fa-solid fa-book-open"></i> pp. 691–694</span>
+          <span class="badge badge-routine"><i class="fa-solid fa-circle-exclamation"></i> Hepatotoxicity</span>
+          <span class="badge badge-category"><i class="fa-solid fa-folder"></i> Toxicology & Poisoning</span>
+          <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 305</span>
+        </div>
+        <h3 class="topic-title">Paracetamol Toxicity & N-Acetylcysteine (NAC Protocol)</h3>
+        <p class="topic-summary">Dose-dependent toxic metabolite (NAPQI) accumulation depleting hepatic glutathione; Rumack-Matthew treatment nomogram, 4 clinical stages, and the definitive intravenous N-Acetylcysteine (NAC / Parvolex) 3-bag protocol preventing fulminant hepatic necrosis.</p>
+      </div>
+
+      <div class="condensed-grid">
+        <div class="column">
+          
+<div class="clinical-section">
+  <h4><i class="fa-solid fa-liver"></i> 1. Pathophysiology & Toxic Ingestion Thresholds</h4>
+  <p>Paracetamol (Acetaminophen) is safe at therapeutic doses (max 4 g/day in adults). Metabolism occurs primarily via glucuronidation and sulfation. A small fraction (5–10%) is metabolized by CYP2E1 into the highly reactive, electrophilic, toxic intermediate <strong>N-acetyl-p-benzoquinone imine (NAPQI)</strong>, normally neutralized by hepatic <strong>glutathione</strong>:</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="step-num">Toxicity</span>
+      <strong>Threshold Doses:</strong><br>
+      &bull; Acute single ingestion <strong>&ge; 150 mg/kg</strong> in children or <strong>&ge; 7.5 g (15 tablets of 500mg)</strong> in adults causes severe hepatic necrosis.<br>
+      &bull; Ingestion &gt; 250 mg/kg (or &gt; 12 g) carries a high risk of fatal fulminant hepatic failure.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Glutathione</span>
+      <strong>Glutathione Depletion:</strong> Once hepatic glutathione stores are depleted by &gt; 70%, free uncapped NAPQI binds covalently to cysteinyl sulfhydryl groups of hepatocyte proteins, causing centrilobular (Zone III) hepatic necrosis.
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-clock"></i> 2. The Four Clinical Stages of Poisoning</h4>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Stage</th><th>Time Post-Ingestion</th><th>Clinical Features & Laboratory Markers</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Stage I (Pre-injury)</strong></td>
+          <td>0.5 to 24 hours</td>
+          <td>Asymptomatic or mild non-specific symptoms: anorexia, nausea, vomiting, malaise, diaphoresis. Normal LFTs.</td>
+        </tr>
+        <tr>
+          <td><strong>Stage II (Hepatic Injury)</strong></td>
+          <td>24 to 72 hours</td>
+          <td>"Quiescent period": Subjective gastrointestinal symptoms improve, but right upper quadrant (RUQ) abdominal pain and liver tenderness appear. <strong>AST/ALT and Bilirubin begin to rise sharply; INR/PT prolongs.</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Stage III (Peak Toxicity)</strong></td>
+          <td>72 to 96 hours</td>
+          <td><strong>Peak fulminant hepatic failure:</strong> Jaundice, coagulopathy (INR &gt; 5.0), hypoglycemia, hepatic encephalopathy (asterixis, coma), metabolic lactic acidosis, acute renal failure (hepatorenal syndrome / tubular necrosis). AST/ALT frequently &gt; 10,000 U/L. Highest mortality.</td>
+        </tr>
+        <tr>
+          <td><strong>Stage IV (Recovery)</strong></td>
+          <td>4 days to 2 weeks</td>
+          <td>Survivors experience complete histological liver regeneration without permanent cirrhosis or fibrosis.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><i class="fa-solid fa-prescription-bottle-medical"></i> 3. N-Acetylcysteine (NAC) 3-Bag IV Infusion Protocol</h4>
+  <div class="alert alert-success">
+    <strong><i class="fa-solid fa-shield-virus"></i> N-ACETYLCYSTEINE (NAC / PARVOLEX) IS 100% PROTECTIVE WITHIN 8 HOURS:</strong>
+    <p>NAC replenishes hepatic glutathione and acts as an alternative substrate directly binding NAPQI. If initiated within 8 hours of ingestion, hepatotoxicity risk drops to &lt; 2%:</p>
+    <div class="table-responsive">
+      <table class="med-table">
+        <thead>
+          <tr><th>Infusion Bag</th><th>NAC Dosage</th><th>Diluent Volume (5% Dextrose)</th><th>Infusion Duration</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Bag 1 (Loading Dose)</strong></td>
+            <td><strong>150 mg/kg</strong></td>
+            <td>200 mL 5% Dextrose (or 0.9% Saline)</td>
+            <td>Over <strong>1 Hour</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Bag 2 (Second Dose)</strong></td>
+            <td><strong>50 mg/kg</strong></td>
+            <td>500 mL 5% Dextrose</td>
+            <td>Over <strong>4 Hours</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Bag 3 (Third Dose)</strong></td>
+            <td><strong>100 mg/kg</strong></td>
+            <td>1,000 mL 5% Dextrose</td>
+            <td>Over <strong>16 Hours</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><em>Total Dose: 300 mg/kg IV over 21 hours. (If AST/ALT remains elevated or INR &gt; 1.3 at end of Bag 3, continue Bag 3 rate continuously until LFTs improve).</em></p>
+  </div>
+</div>
+
+        </div>
+        <div class="column">
+          
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-camera"></i> Diagnostic / Clinical Imaging</span>
+          </div>
+          <div class="media-container" onclick="openLightbox('img/clinical_ch23_05.jpg', 'Paracetamol Hepatotoxicity: Centrilobular Zone-III hepatic necrosis mechanism preventable by early N-acetylcysteine (NAC) infusion.')">
+            <img src="img/clinical_ch23_05.jpg" alt="Paracetamol Hepatotoxicity" loading="lazy">
+            <div class="media-caption">
+              <strong>Paracetamol Hepatotoxicity</strong>
+              Centrilobular Zone-III hepatic necrosis mechanism preventable by early N-acetylcysteine (NAC) infusion.
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+    
+    <section class="topic-section" id="topic-306">
+      <div class="topic-banner">
+        <div class="banner-meta">
+          <span class="badge badge-page"><i class="fa-solid fa-book-open"></i> pp. 695–698</span>
+          <span class="badge badge-routine"><i class="fa-solid fa-circle-exclamation"></i> Envenomation Protocol</span>
+          <span class="badge badge-category"><i class="fa-solid fa-folder"></i> Toxicology & Poisoning</span>
+          <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 306</span>
+        </div>
+        <h3 class="topic-title">Snake Bite Envenomation (ASV & 20WBCT Protocol)</h3>
+        <p class="topic-summary">Emergency management of venomous snakebites in Pakistan; distinguishing Vasculotoxic/Hemotoxic (Viperidae: Russell's & Saw-scaled viper) from Neurotoxic (Elapidae: Cobra & Krait); the 20-Minute Whole Blood Clotting Test (20WBCT), prohibition of tourniquets, and Polyvalent Anti-Snake Venom (ASV) titration.</p>
+      </div>
+
+      <div class="condensed-grid">
+        <div class="column">
+          
+<div class="clinical-section">
+  <h4><i class="fa-solid fa-staff-snake"></i> 1. Venomous Families in Pakistan</h4>
+  <p>Over 20,000 venomous snakebite envenomations occur annually in Pakistan (especially during monsoons and harvest seasons in Punjab and Sindh):</p>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Venomous Family</th><th>Common Pakistani Species</th><th>Pathophysiology & Hallmark Signs</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Viperidae (Vipers - Vasculotoxic / Hemotoxic)</strong></td>
+          <td>&bull; <strong>Russell's Viper</strong> (<em>Daboia russelii</em>)<br>&bull; <strong>Saw-scaled Viper</strong> (<em>Echis carinatus / لونڈی سانپ</em>)</td>
+          <td>Procoagulant venom activates Factor X/prothrombin &rarr; Consumption Coagulopathy (DIC), severe local swelling, bleeding from puncture fang marks, spontaneous gum bleeding, hematuria, hemoptysis, and acute renal failure (AKI).</td>
+        </tr>
+        <tr>
+          <td><strong>Elapidae (Elapids - Neurotoxic)</strong></td>
+          <td>&bull; <strong>Common Krait</strong> (<em>Bungarus caeruleus / سنگچور</em>)<br>&bull; <strong>Black Cobra</strong> (<em>Naja naja / ناگ</em>)</td>
+          <td>Post-synaptic/pre-synaptic neurotoxins block ACh receptors: <strong>Bilateral ptosis</strong> (earliest sign), ophthalmoplegia, diplopia, bulbar palsy (dysphagia, pooling of secretions), respiratory muscle paralysis. Krait bites frequently occur at night while sleeping with minimal local swelling!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><i class="fa-solid fa-vial"></i> 2. The 20-Minute Whole Blood Clotting Test (20WBCT)</h4>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="step-num">Step 1</span>
+      Draw <strong>2 mL of fresh venous blood</strong> into a clean, dry, new glass test tube (never use plastic or tube with anticoagulant/heparin).
+    </div>
+    <div class="step-card">
+      <span class="step-num">Step 2</span>
+      Leave the tube standing undisturbed at room temperature for <strong>exactly 20 minutes</strong>.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Result</span>
+      Gently tip the tube to 90°. If blood is still liquid and flows out, <strong>20WBCT is POSITIVE (incoagulable blood)</strong>, confirming systemic viperid envenomation. Repeat q4h.
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-ban"></i> 3. Dangerous Harmful Practices to Strictly Avoid</h4>
+  <div class="alert alert-danger">
+    <ul class="bullet-list">
+      <li><strong>NO Tourniquets or Tight Bands:</strong> Causes ischemic gangrene, limb amputation, and massive toxin surge upon release.</li>
+      <li><strong>NO Incision, Slashing, or Sucking:</strong> Causes severe hemorrhage, tendon laceration, and introduces oral bacterial infection.</li>
+      <li><strong>NO Potassium Permanganate, Herbs, or Electric Shocks.</strong></li>
+      <li><strong>Correct First Aid:</strong> Reassure patient, immobilize entire bitten limb with a splint/crepe bandage at heart level, and transport immediately to hospital.</li>
+    </ul>
+  </div>
+
+  <h4><i class="fa-solid fa-syringe"></i> 4. Polyvalent Anti-Snake Venom (ASV) Protocol</h4>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="step-num">Initial Dose</span>
+      <strong>Standard Loading Dose (Adults & Children receive SAME dose):</strong><br>
+      Dilute <strong>10 vials of Polyvalent ASV (NIH Islamabad)</strong> in <strong>500 mL of 0.9% Normal Saline</strong> (100 mL in children). Infuse slowly at 2 mL/min for first 10 minutes (watch for anaphylaxis), then complete over <strong>1 hour</strong>.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Monitoring</span>
+      <strong>Response Criteria:</strong><br>
+      &bull; Systemic bleeding stops within 15–30 minutes.<br>
+      &bull; <strong>20WBCT normalizes (blood clots) within 6 hours.</strong> If blood remains incoagulable after 6 hours, repeat full dose of 10 vials of ASV.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Neurotoxic Trial</span>
+      <strong>Neostigmine Test (For Cobra/Krait Neurotoxicity):</strong><br>
+      Give <strong>Inj Atropine 0.6mg IV</strong>, followed immediately by <strong>Inj Neostigmine 1.5mg to 2.5mg IV/IM</strong>. If ptosis and respiratory effort improve within 30 minutes, maintain Neostigmine 0.5mg q30min with atropine until recovery.
+    </div>
+  </div>
+</div>
+
+        </div>
+        <div class="column">
+          
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-camera"></i> Diagnostic / Clinical Imaging</span>
+          </div>
+          <div class="media-container" onclick="openLightbox('img/clinical_ch23_06.jpg', 'Venomous Viperid Snakebite: Bitten lower limb displaying severe local edema, hemorrhagic blebs, and 20-Minute Clotting Test failure.')">
+            <img src="img/clinical_ch23_06.jpg" alt="Venomous Viperid Snakebite" loading="lazy">
+            <div class="media-caption">
+              <strong>Venomous Viperid Snakebite</strong>
+              Bitten lower limb displaying severe local edema, hemorrhagic blebs, and 20-Minute Clotting Test failure.
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+    
+    <section class="topic-section" id="topic-307">
+      <div class="topic-banner">
+        <div class="banner-meta">
+          <span class="badge badge-page"><i class="fa-solid fa-book-open"></i> pp. 699–702</span>
+          <span class="badge badge-routine"><i class="fa-solid fa-circle-exclamation"></i> Burn Resuscitation</span>
+          <span class="badge badge-category"><i class="fa-solid fa-folder"></i> Emergency Resuscitation</span>
+          <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 307</span>
+        </div>
+        <h3 class="topic-title">Thermal Burn Injury & Parkland Fluid Resuscitation</h3>
+        <p class="topic-summary">Acute major burn resuscitation; Wallace Rule of Nines Total Body Surface Area (TBSA) calculation, Parkland crystalloid formula (4 mL x kg x %TBSA), fluid titration targeting urine output (0.5–1 mL/kg/hr), inhalation injury airway alert, and silver sulfadiazine wound care.</p>
+      </div>
+
+      <div class="condensed-grid">
+        <div class="column">
+          
+<div class="clinical-section">
+  <h4><i class="fa-solid fa-fire"></i> 1. TBSA Estimation: The Wallace Rule of Nines</h4>
+  <p>In thermal, flame, and scald burns, accurate calculation of % Total Body Surface Area (% TBSA) of partial-thickness (2nd degree) and full-thickness (3rd degree) burns guides fluid therapy. (<em>Superficial 1st degree erythema is excluded from TBSA calculations!</em>):</p>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Anatomical Body Region</th><th>Adult % TBSA (Rule of Nines)</th><th>Infant / Child &lt; 1 Year</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Head & Neck</strong></td>
+          <td><strong>9%</strong> (4.5% anterior, 4.5% posterior)</td>
+          <td><strong>18%</strong> (Head is disproportionately larger)</td>
+        </tr>
+        <tr>
+          <td><strong>Anterior Torso (Chest & Abdomen)</strong></td>
+          <td><strong>18%</strong> (9% chest, 9% abdomen)</td>
+          <td><strong>18%</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Posterior Torso (Upper & Lower Back)</strong></td>
+          <td><strong>18%</strong> (9% upper back, 9% buttocks/lower back)</td>
+          <td><strong>18%</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Each Upper Extremity (Right & Left)</strong></td>
+          <td><strong>9% each</strong> (4.5% front, 4.5% back) = 18% total</td>
+          <td><strong>9% each</strong> = 18% total</td>
+        </tr>
+        <tr>
+          <td><strong>Each Lower Extremity (Right & Left)</strong></td>
+          <td><strong>18% each</strong> (9% front, 9% back) = 36% total</td>
+          <td><strong>14% each</strong> = 28% total</td>
+        </tr>
+        <tr>
+          <td><strong>Perineum & Genitalia</strong></td>
+          <td><strong>1%</strong></td>
+          <td><strong>1%</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Palmar Surface Rule</strong></td>
+          <td colspan="2">Patient's entire palm (including fingers) equals <strong>approximately 1% TBSA</strong> (ideal for patchy scattered burns).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><i class="fa-solid fa-faucet-drip"></i> 2. The Parkland Fluid Resuscitation Formula</h4>
+  <div class="alert alert-info">
+    <strong><i class="fa-solid fa-calculator"></i> THE PARKLAND (BAXTER) CRYSTALLOID FORMULA:</strong>
+    <p>Indicated for all burns &ge; 15% TBSA in adults (&ge; 10% TBSA in children):</p>
+    <p style="font-size:16px; font-weight:700; color:var(--teal);">Total 24-Hour Fluid (Ringer's Lactate) = 4 mL &times; Weight (kg) &times; % TBSA Burn</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num">First 8 Hours</span>
+        <strong>Give 50% of Total Volume in First 8 Hours:</strong><br>
+        <em>Calculated from the exact TIME OF BURN INJURY, NOT the time of hospital arrival!</em>
+      </div>
+      <div class="step-card">
+        <span class="step-num">Next 16 Hours</span>
+        <strong>Give Remaining 50% Volume over Next 16 Hours:</strong><br>
+        Infused at a steady rate over the remaining 16 hours of the first day.
+      </div>
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-gauge"></i> 3. Clinical Titration Target: Hourly Urine Output</h4>
+  <p>The Parkland formula is an initial starting estimate. <strong>The rate of fluid infusion must be adjusted hourly based on Foley catheter urine output:</strong></p>
+  <ul class="bullet-list">
+    <li><strong>Adult Target:</strong> <strong>0.5 to 1.0 mL/kg/hour</strong> (approx 30 to 50 mL/hr).</li>
+    <li><strong>Pediatric Target (&lt; 30 kg):</strong> <strong>1.0 to 1.5 mL/kg/hour</strong>.</li>
+    <li><strong>Electrical Burns / Rhabdomyolysis / Hemochromogenuria:</strong> Target <strong>1.5 to 2.0 mL/kg/hour</strong> (75–100 mL/hr) until urine clears to prevent myoglobinuric acute renal tubular necrosis.</li>
+  </ul>
+
+  <h4><i class="fa-solid fa-wind"></i> 4. Inhalation Injury & Topical Wound Care</h4>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="step-num">Inhalation</span>
+      <strong>Airway Red Flags (Early Intubation):</strong> Singed facial hair/eyebrows, carbonaceous sputum, soot in oropharynx, stridor, voice hoarseness, closed-space fire exposure. Prophylactic endotracheal intubation before laryngeal edema prevents intubation failure!
+    </div>
+    <div class="step-card">
+      <span class="step-num">Wound Care</span>
+      <strong>Topical Antimicrobial Dressings:</strong>
+      <ul class="sub-list">
+        <li><strong>Silver Sulfadiazine 1% cream</strong> (<em>Flamazine / Silvadene</em>): Broad-spectrum against Pseudomonas and MRSA. Apply 2–3 mm layer BD. (Avoid near eyes or in sulfa allergy).</li>
+        <li><strong>Polymyxin-Bacitracin Ointment</strong> (<em>Polyfax</em>): Preferred for facial burns.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        </div>
+        <div class="column">
+          
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-camera"></i> Diagnostic / Clinical Imaging</span>
+          </div>
+          <div class="media-container" onclick="openLightbox('img/clinical_ch23_07.jpg', 'Major Thermal Burn Resuscitation: Extensive partial and full-thickness burn requiring goal-directed Parkland Ringer's Lactate fluid infusion.')">
+            <img src="img/clinical_ch23_07.jpg" alt="Major Thermal Burn Resuscitation" loading="lazy">
+            <div class="media-caption">
+              <strong>Major Thermal Burn Resuscitation</strong>
+              Extensive partial and full-thickness burn requiring goal-directed Parkland Ringer's Lactate fluid infusion.
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-calculator"></i> Interactive Parkland Formula Calculator</span>
+          </div>
+          <div class="calc-box">
+            <div class="calc-row">
+              <label>Patient Weight (kg):</label>
+              <input type="number" id="burn-wt" value="70" min="5" max="150" oninput="calcBurn()" style="width:70px; background:var(--bg-elevated); color:var(--text-main); border:1px solid var(--border); border-radius:4px; padding:2px 6px;">
+            </div>
+            <div class="calc-row">
+              <label>% TBSA Burn (2nd/3rd Deg):</label>
+              <input type="number" id="burn-tbsa" value="25" min="1" max="95" oninput="calcBurn()" style="width:70px; background:var(--bg-elevated); color:var(--text-main); border:1px solid var(--border); border-radius:4px; padding:2px 6px;">
+            </div>
+            <div class="calc-score-display">
+              <span>Total 24-hr Fluid (RL):</span>
+              <span id="burn-total" class="score-num">7,000 mL</span>
+            </div>
+            <div class="calc-row" style="margin-top:6px;">
+              <span>First 8 Hours Rate (50%):</span>
+              <strong id="burn-rate-8" style="color:var(--rose-light);">438 mL/hr</strong>
+            </div>
+            <div class="calc-row">
+              <span>Next 16 Hours Rate (50%):</span>
+              <strong id="burn-rate-16" style="color:var(--teal-light);">219 mL/hr</strong>
+            </div>
+            <div style="margin-top:8px; font-size:11.5px; color:var(--text-muted);">Goal urine output: 0.5–1.0 mL/kg/hr. Titrate to hemodynamics.</div>
+          </div>
+        </div>
+        <script>
+        function calcBurn() {
+          let wt = parseFloat(document.getElementById('burn-wt').value) || 0;
+          let tbsa = parseFloat(document.getElementById('burn-tbsa').value) || 0;
+          let tot = 4 * wt * tbsa;
+          let r8 = (tot / 2) / 8;
+          let r16 = (tot / 2) / 16;
+          let bt = document.getElementById('burn-total');
+          let b8 = document.getElementById('burn-rate-8');
+          let b16 = document.getElementById('burn-rate-16');
+          if (bt) bt.innerText = Math.round(tot).toLocaleString() + ' mL';
+          if (b8) b8.innerText = Math.round(r8) + ' mL/hr';
+          if (b16) b16.innerText = Math.round(r16) + ' mL/hr';
+        }
+        </script>
+        
+        </div>
+      </div>
+    </section>
+    
+    <section class="topic-section" id="topic-308">
+      <div class="topic-banner">
+        <div class="banner-meta">
+          <span class="badge badge-page"><i class="fa-solid fa-book-open"></i> pp. 703–707</span>
+          <span class="badge badge-routine"><i class="fa-solid fa-circle-exclamation"></i> Toxidrome Matrix</span>
+          <span class="badge badge-category"><i class="fa-solid fa-folder"></i> Toxicology & Poisoning</span>
+          <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 308</span>
+        </div>
+        <h3 class="topic-title">General Approach to the Poisoned Patient (Toxidromes)</h3>
+        <p class="topic-summary">Master diagnostic matrix of acute clinical toxidromes (Anticholinergic, Cholinergic, Sympathomimetic, Sedative-Hypnotic, Opioid); emergency decontamination principles, activated charcoal indications, urine alkalinization, and definitive targeted antidotes.</p>
+      </div>
+
+      <div class="condensed-grid">
+        <div class="column">
+          
+<div class="clinical-section">
+  <h4><i class="fa-solid fa-table-cells"></i> 1. The 5 Major Clinical Toxidromes</h4>
+  <p>A "toxidrome" is a constellation of clinical signs and symptoms that points to a specific toxic class of drug or chemical, allowing immediate emergency recognition prior to toxicological lab confirmation:</p>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Toxidrome</th><th>Pupils</th><th>Vitals (HR, BP, Temp)</th><th>Skin & Mucosa</th><th>CNS & Hallmarks</th><th>Common Agents</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Anticholinergic</strong></td>
+          <td><strong>Mydriasis</strong> (Large dilated, sluggish)</td>
+          <td>Tachycardia, Hypertension, Hyperthermia</td>
+          <td><strong>Dry, hot, flushed skin</strong>, dry mouth, urinary retention</td>
+          <td>Agitation, delirium, hallucinations ("mad as a hatter, red as a beet, dry as a bone, hot as a hare, blind as a bat")</td>
+          <td>Atropine, Tricyclic antidepressants (Amitriptyline), Antihistamines, Scopolamine, Datura.</td>
+        </tr>
+        <tr>
+          <td><strong>Cholinergic</strong></td>
+          <td><strong>Miosis</strong> (Pinpoint pupils)</td>
+          <td>Bradycardia, Variable BP, Hypothermia</td>
+          <td><strong>Diaphoresis (Profuse sweating)</strong>, salivation, lacrimation</td>
+          <td>Fasciculations, muscle flaccidity, confusion, coma, bronchorrhea</td>
+          <td>Organophosphates, Carbamates, Nerve agents, Pilocarpine, Neostigmine.</td>
+        </tr>
+        <tr>
+          <td><strong>Sympathomimetic</strong></td>
+          <td><strong>Mydriasis</strong> (Large dilated)</td>
+          <td>Severe Tachycardia, Severe Hypertension, Hyperthermia</td>
+          <td><strong>Diaphoresis (Sweaty, wet skin)</strong> &rarr; Distinguishes from anticholinergic!</td>
+          <td>Extreme agitation, paranoia, tremors, seizures, cardiac arrhythmias</td>
+          <td>Cocaine, Amphetamines, Methamphetamine ("Ice"), MDMA/Ecstasy, Pseudoephedrine.</td>
+        </tr>
+        <tr>
+          <td><strong>Sedative-Hypnotic</strong></td>
+          <td>Normal / Mid-dilated</td>
+          <td>Bradycardia, Hypotension, Hypothermia, Bradypnea</td>
+          <td>Dry or normal, cool extremities</td>
+          <td>Stupor, coma, ataxia, slurred speech, hyporeflexia. Minimal respiratory depression alone.</td>
+          <td>Benzodiazepines (Valium, Xanax), Barbiturates, Alcohol, Zolpidem.</td>
+        </tr>
+        <tr>
+          <td><strong>Opioid</strong></td>
+          <td><strong>Pinpoint (Miosis)</strong></td>
+          <td>Severe Bradypnea, Bradycardia, Hypotension, Hypothermia</td>
+          <td>Cool, clammy, cyanotic skin</td>
+          <td><strong>The Opioid Triad:</strong> Coma, Pinpoint pupils, and severe <strong>Respiratory Depression (&lt; 8 breaths/min)</strong>.</td>
+          <td>Heroin, Morphine, Methadone, Fentanyl, Tramadol, Codeine.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4><i class="fa-solid fa-pills"></i> 2. Master Specific Antidote Reference Directory</h4>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Toxic Agent / Poison</th><th>Specific Antidote</th><th>Emergency Dosing Regimen</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Opioids (Heroin, Morphine, Fentanyl)</strong></td>
+          <td><strong>Naloxone (Narcan)</strong></td>
+          <td>0.4 mg to 2.0 mg IV/IM/SC/Intranasal. Repeat q2-3min until spontaneous breathing &ge; 10/min. (Caution: Shorter half-life than opioids; observe for rebound sedation).</td>
+        </tr>
+        <tr>
+          <td><strong>Benzodiazepines (Valium, Lexotanil)</strong></td>
+          <td><strong>Flumazenil (Anexate)</strong></td>
+          <td>0.2 mg IV over 30 sec, then 0.3 mg q1min (max 3 mg). <em>(Caution: Contraindicated in chronic benzo dependence or co-ingestion of TCAs due to lethal refractory seizures!).</em></td>
+        </tr>
+        <tr>
+          <td><strong>Paracetamol (Panadol)</strong></td>
+          <td><strong>N-Acetylcysteine (NAC)</strong></td>
+          <td>150 mg/kg loading dose over 1h &rarr; 50 mg/kg over 4h &rarr; 100 mg/kg over 16h IV.</td>
+        </tr>
+        <tr>
+          <td><strong>Organophosphates / Carbamates</strong></td>
+          <td><strong>Atropine + Pralidoxime</strong></td>
+          <td>Atropine 2–3 mg IV doubled q5min until dry lungs + PAM 1–2g IV over 30 min.</td>
+        </tr>
+        <tr>
+          <td><strong>Beta-Blockers (Propranolol, Atenolol)</strong></td>
+          <td><strong>Glucagon + High-Dose Insulin</strong></td>
+          <td>Glucagon 5–10 mg IV bolus + High-dose Insulin Euglycemia (1 unit/kg bolus + 1 unit/kg/hr infusion with 10% Dextrose).</td>
+        </tr>
+        <tr>
+          <td><strong>Tricyclic Antidepressants (TCAs)</strong></td>
+          <td><strong>Sodium Bicarbonate 8.4%</strong></td>
+          <td>1 to 2 mmol/kg (approx 50–100 mL of 8.4% NaHCO3) IV push for wide QRS &gt; 100 ms or ventricular dysrhythmias.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        </div>
+        <div class="column">
+          
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-camera"></i> Diagnostic / Clinical Imaging</span>
+          </div>
+          <div class="media-container" onclick="openLightbox('img/clinical_ch23_08.jpg', 'Acute Poisoning Toxidrome Matrix: Systematic clinical toxidrome differentiation based on pupil reactivity, skin moisture, and vital signs.')">
+            <img src="img/clinical_ch23_08.jpg" alt="Acute Poisoning Toxidrome Matrix" loading="lazy">
+            <div class="media-caption">
+              <strong>Acute Poisoning Toxidrome Matrix</strong>
+              Systematic clinical toxidrome differentiation based on pupil reactivity, skin moisture, and vital signs.
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+    
+    <section class="topic-section" id="topic-309">
+      <div class="topic-banner">
+        <div class="banner-meta">
+          <span class="badge badge-page"><i class="fa-solid fa-book-open"></i> pp. 708–712</span>
+          <span class="badge badge-routine"><i class="fa-solid fa-circle-exclamation"></i> Analgesia Protocol</span>
+          <span class="badge badge-category"><i class="fa-solid fa-folder"></i> Emergency Resuscitation</span>
+          <span class="badge badge-page"><i class="fa-solid fa-hashtag"></i> Topic 309</span>
+        </div>
+        <h3 class="topic-title">Emergency Acute Pain Management & WHO Ladder</h3>
+        <p class="topic-summary">Systematic acute pain assessment using Visual Analog Scale (VAS); WHO 3-step analgesic ladder adapted for acute emergency care, multimodal opioid-sparing analgesia, IV paracetamol/ketorolac protocols, and localized Pakistani analgesics (Provas, Toradol, Tramal, Kinz, Synflex).</p>
+      </div>
+
+      <div class="condensed-grid">
+        <div class="column">
+          
+<div class="clinical-section">
+  <h4><i class="fa-solid fa-chart-simple"></i> 1. Pain Assessment & The Visual Analog Scale (VAS)</h4>
+  <p>Pain is the "5th Vital Sign". Rapid, objective pain assessment dictates the immediate analgesic tier:</p>
+  <div class="steps-grid">
+    <div class="step-card">
+      <span class="step-num">Mild (1–3)</span>
+      <strong>VAS 1 to 3:</strong> Mild discomfort, pain is tolerable, does not disrupt conversation or sleep.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Moderate (4–6)</span>
+      <strong>VAS 4 to 6:</strong> Moderate pain, interferes with movement, concentration, and respiration. Patient is grimacing.
+    </div>
+    <div class="step-card">
+      <span class="step-num">Severe (7–10)</span>
+      <strong>VAS 7 to 10:</strong> Severe, excruciating, overwhelming pain. Inability to lie still, crying, writhing in agony, tachycardia, diaphoresis.
+    </div>
+  </div>
+
+  <h4><i class="fa-solid fa-stairs"></i> 2. The Emergency WHO Analgesic Ladder (Pakistani Brands)</h4>
+  <div class="table-responsive">
+    <table class="med-table">
+      <thead>
+        <tr><th>Pain Tier (VAS)</th><th>Analgesic Class & Drug</th><th>Pakistani Brand Names</th><th>Dosage & Route</th><th>Clinical Pearls</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2"><strong>Step 1: Mild Pain (VAS 1–3)</strong></td>
+          <td><strong>Paracetamol</strong></td>
+          <td><em>Infusion Provas 1g / 100mL</em><br><em>Tab Panadol 500mg</em></td>
+          <td>1 g IV infusion over 15 min or 1 g PO QDS (max 4 g/day).</td>
+          <td>Non-opioid foundation; excellent safety profile, zero gastrointestinal/renal toxicity.</td>
+        </tr>
+        <tr>
+          <td><strong>NSAIDs</strong></td>
+          <td><em>Tab Synflex 550mg (Naproxen)</em><br><em>Tab Brufen 400mg (Ibuprofen)</em></td>
+          <td>Synflex 550mg PO BD or Brufen 400mg TDS with meals.</td>
+          <td>Inhibits peripheral COX-1/COX-2. (Contraindicated in active peptic ulcer, CKD, or third-trimester pregnancy).</td>
+        </tr>
+        <tr>
+          <td rowspan="2"><strong>Step 2: Moderate Pain (VAS 4–6)</strong></td>
+          <td><strong>Weak Opioid + Non-Opioid</strong></td>
+          <td><em>Cap/Inj Tramal 50mg / 100mg</em> (Tramadol)</td>
+          <td>50 mg to 100 mg IV slow push / PO TDS (max 400 mg/day).</td>
+          <td>Dual action: mu-opioid agonist + SNRI reuptake inhibitor. Co-prescribe antiemetic (<em>Inj Maxolon 10mg</em>) due to nausea.</td>
+        </tr>
+        <tr>
+          <td><strong>IV NSAID (Short Course)</strong></td>
+          <td><em>Inj Toradol 30mg / 1mL</em> (Ketorolac)</td>
+          <td>30 mg IV/IM stat, then 15–30 mg q6h PRN (max 5 consecutive days).</td>
+          <td>Potent parenteral analgesia comparable to morphine in renal colic and musculoskeletal trauma.</td>
+        </tr>
+        <tr>
+          <td rowspan="2"><strong>Step 3: Severe Pain (VAS 7–10)</strong></td>
+          <td><strong>Strong Opioid (Nalbuphine)</strong></td>
+          <td><em>Inj Kinz 10mg / 20mg</em> (Nalbuphine HCl)</td>
+          <td><strong>10 mg to 20 mg IV slow push or deep IM</strong> q3-6h PRN.</td>
+          <td>Mixed kappa-agonist / mu-antagonist. <strong>Widely used in Pakistani emergency rooms</strong> because it produces potent analgesia with a plateau "ceiling effect" on respiratory depression.</td>
+        </tr>
+        <tr>
+          <td><strong>Pure Strong Opioid (Morphine)</strong></td>
+          <td><em>Inj Morphine 10mg / 1mL</em></td>
+          <td><strong>0.1 mg/kg IV titrated in 2–4 mg boluses q5-10min</strong> until pain score &lt; 4.</td>
+          <td>Gold standard for polytrauma and STEMI cardiac chest pain. Ensure Naloxone is immediately available at bedside.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+        </div>
+        <div class="column">
+          
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title"><i class="fa-solid fa-camera"></i> Diagnostic / Clinical Imaging</span>
+          </div>
+          <div class="media-container" onclick="openLightbox('img/clinical_ch23_09.jpg', 'Multimodal Acute Pain Management: Emergency analgesia algorithm integrating IV paracetamol, NSAIDs, and titrated opioids based on VAS score.')">
+            <img src="img/clinical_ch23_09.jpg" alt="Multimodal Acute Pain Management" loading="lazy">
+            <div class="media-caption">
+              <strong>Multimodal Acute Pain Management</strong>
+              Emergency analgesia algorithm integrating IV paracetamol, NSAIDs, and titrated opioids based on VAS score.
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+    
+      </div>
+    </main>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightboxImg" src="" alt="Clinical Preview">
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="topBtn" onclick="window.scrollTo({top:0, behavior:'smooth'})" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Theme Management
+    function initTheme() {
+      const saved = localStorage.getItem('dod_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      updateThemeIcon(saved);
+    }
+
+    function toggleTheme() {
+      const curr = document.documentElement.getAttribute('data-theme');
+      const next = curr === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('dod_theme', next);
+      updateThemeIcon(next);
+    }
+
+    function updateThemeIcon(t) {
+      const btn = document.getElementById('themeBtn');
+      if (btn) btn.innerHTML = t === 'dark' ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    }
+
+    // Mobile Sidebar Drawer
+    function toggleSidebar() {
+      const drawer = document.getElementById('sidebarDrawer');
+      const backdrop = document.getElementById('sidebarBackdrop');
+      if (drawer && backdrop) {
+        drawer.classList.toggle('open');
+        backdrop.classList.toggle('active');
+      }
+    }
+
+    // Filter topics within chapter sidebar
+    function filterSidebarTopics() {
+      const q = document.getElementById('sidebarSearch').value.toLowerCase().trim();
+      document.querySelectorAll('.sidebar-topic-link').forEach(link => {
+        const text = link.innerText.toLowerCase();
+        link.style.display = text.includes(q) ? 'flex' : 'none';
+      });
+    }
+
+    // Lightbox modal
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightboxModal');
+      const img = document.getElementById('lightboxImg');
+      const cap = document.getElementById('lightboxCaption');
+      if (modal && img) {
+        img.src = src;
+        cap.innerText = caption || '';
+        modal.classList.add('active');
+      }
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    // ScrollSpy & Top Button
+    window.addEventListener('scroll', () => {
+      const topBtn = document.getElementById('topBtn');
+      if (topBtn) topBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+
+      const sections = document.querySelectorAll('.topic-section');
+      let currentId = '';
+      sections.forEach(s => {
+        const rect = s.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          currentId = s.id;
+        }
+      });
+
+      if (currentId) {
+        document.querySelectorAll('.sidebar-topic-link').forEach(l => {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + currentId);
+        });
+      }
+    });
+
+    // Close mobile drawer when clicking a topic link
+    document.querySelectorAll('.sidebar-topic-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 1024) toggleSidebar();
+      });
+    });
+
+    initTheme();
+  </script>
+</body>
+</html>

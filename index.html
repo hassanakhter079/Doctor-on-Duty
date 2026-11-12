@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doctor on Duty | System-Wise Clinical Notes Portal</title>
+  <title>Doctor on Duty — System-Wise Clinical Notes Portal</title>
   
   <!-- Universal HTML Cloud Sync -->
   <script src="https://hassanakhter079.github.io/After-Salah-Zikr/cloud-sync.js" data-app="doctor-on-duty"></script>
@@ -48,47 +48,49 @@
   --emerald-light: #34d399;
   --emerald-glow: rgba(16, 185, 129, 0.15);
   
-  --purple: #8b5cf6;
-  
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-serif: 'Fraunces', Georgia, serif;
 }
 
 [data-theme="light"] {
-  --bg-body: #f4f6fb;
+  --bg-body: #f8fafc;
   --bg-card: #ffffff;
-  --bg-card-subtle: #f8fafc;
-  --bg-elevated: #edf2f7;
-  --border: #e2e8f0;
-  --border-subtle: #cbd5e1;
+  --bg-card-subtle: #f1f5f9;
+  --bg-elevated: #e2e8f0;
+  --border: #cbd5e1;
+  --border-subtle: #e2e8f0;
   
   --text-main: #0f172a;
   --text-muted: #475569;
-  --text-dim: #94a3b8;
+  --text-dim: #64748b;
   
   --teal: #0d9488;
   --teal-light: #0f766e;
-  --teal-glow: rgba(13, 148, 136, 0.1);
+  --teal-glow: rgba(13, 148, 136, 0.12);
   
   --blue: #2563eb;
   --blue-light: #1d4ed8;
-  --blue-glow: rgba(37, 99, 235, 0.1);
+  --blue-glow: rgba(37, 99, 235, 0.12);
   
   --amber: #d97706;
   --amber-light: #b45309;
-  --amber-glow: rgba(217, 119, 6, 0.1);
+  --amber-glow: rgba(217, 119, 6, 0.12);
   
   --rose: #e11d48;
   --rose-light: #be123c;
-  --rose-glow: rgba(225, 29, 72, 0.1);
+  --rose-glow: rgba(225, 29, 72, 0.12);
   
   --emerald: #059669;
   --emerald-light: #047857;
-  --emerald-glow: rgba(5, 150, 105, 0.1);
+  --emerald-glow: rgba(5, 150, 105, 0.12);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--font-sans);
@@ -99,7 +101,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Sticky Clinical Navigation Header */
+/* ── STICKY CLINICAL NAVBAR ── */
 .top-navbar {
   position: sticky;
   top: 0;
@@ -123,20 +125,20 @@ body {
 }
 
 .brand-logo {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   background: linear-gradient(135deg, var(--teal), var(--blue));
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
 }
 
 .brand-text h1 {
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: -0.2px;
   line-height: 1.2;
@@ -157,15 +159,14 @@ body {
   flex-wrap: wrap;
 }
 
-.topic-select {
+.chapter-switcher {
   background: var(--bg-card-subtle);
   border: 1px solid var(--border);
   color: var(--text-main);
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 6px;
   font-size: 13px;
   font-weight: 600;
-  max-width: 320px;
   outline: none;
   cursor: pointer;
 }
@@ -203,14 +204,177 @@ body {
   background: var(--teal-light);
 }
 
-/* Page Layout Container */
-.page-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 16px 20px 40px 20px;
+.sidebar-toggle-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+  cursor: pointer;
+  font-size: 15px;
 }
 
-/* Compact Banner */
+/* ── LAYOUT: SIDEBAR + CONTENT ── */
+.layout-wrapper {
+  display: flex;
+  min-height: calc(100vh - 51px);
+}
+
+.sidebar-drawer {
+  width: 320px;
+  background: var(--bg-card);
+  border-right: 1px solid var(--border);
+  height: calc(100vh - 51px);
+  position: sticky;
+  top: 51px;
+  overflow-y: auto;
+  padding: 16px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar-search-box {
+  position: sticky;
+  top: 0;
+  background: var(--bg-card);
+  padding-bottom: 8px;
+  z-index: 10;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sidebar-search-input {
+  width: 100%;
+  padding: 8px 12px 8px 32px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+  font-size: 13px;
+  outline: none;
+}
+
+.sidebar-search-input:focus {
+  border-color: var(--teal);
+}
+
+.sidebar-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.sidebar-topic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-topic-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  line-height: 1.35;
+  border-left: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.sidebar-topic-link:hover {
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+}
+
+.sidebar-topic-link.active {
+  background: var(--teal-glow);
+  color: var(--teal-light);
+  border-left-color: var(--teal);
+  font-weight: 700;
+}
+
+.sidebar-topic-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teal);
+  background: var(--bg-elevated);
+  padding: 2px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.content-area {
+  flex: 1;
+  padding: 24px 28px 60px 28px;
+  max-width: 1300px;
+  overflow-x: hidden;
+}
+
+/* ── CHAPTER HERO BANNER ── */
+.chapter-hero {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.chapter-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--teal), var(--blue));
+}
+
+.chapter-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.chapter-hero h2 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.chapter-hero p {
+  color: var(--text-muted);
+  font-size: 14px;
+  max-width: 900px;
+}
+
+/* ── INDIVIDUAL TOPIC CARD ── */
+.topic-section {
+  scroll-margin-top: 70px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 32px;
+}
+
+.topic-section:last-child {
+  border-bottom: none;
+}
+
 .topic-banner {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -268,7 +432,6 @@ body {
 .topic-summary {
   font-size: 13.5px;
   color: var(--text-muted);
-  max-width: 950px;
 }
 
 /* Two-Column Ultra-Condensed Clinical Grid */
@@ -277,11 +440,6 @@ body {
   grid-template-columns: 1.15fr 0.85fr;
   gap: 16px;
   align-items: start;
-}
-
-@media (max-width: 1024px) {
-  .condensed-grid { grid-template-columns: 1fr; }
-  .topic-select { max-width: 180px; }
 }
 
 .column {
@@ -323,6 +481,13 @@ body {
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.media-container:hover {
+  transform: translateY(-2px);
+  border-color: var(--teal);
 }
 
 .media-container img, .media-container svg {
@@ -338,126 +503,101 @@ body {
   padding: 10px 12px;
   font-size: 12px;
   color: var(--text-muted);
-  background: var(--bg-card);
   border-top: 1px solid var(--border-subtle);
-  line-height: 1.4;
 }
 
 .media-caption strong {
-  color: var(--teal-light);
+  color: var(--text-main);
   display: block;
   margin-bottom: 2px;
 }
 
-/* Clinical Content Formatting */
-.clinical-section { margin-bottom: 16px; }
-.clinical-section:last-child { margin-bottom: 0; }
-
-.clinical-section h4 {
-  font-size: 14.5px;
-  font-weight: 700;
-  color: var(--teal-light);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.clinical-section p {
-  font-size: 13.5px;
-  color: var(--text-main);
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-.med-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12.5px;
-  margin: 8px 0 12px 0;
-}
-
-.med-table th, .med-table td {
-  padding: 8px 10px;
-  text-align: left;
-  border: 1px solid var(--border);
-}
-
-.med-table th {
-  background: var(--bg-elevated);
-  color: var(--text-main);
-  font-weight: 700;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.med-table td { background: var(--bg-card); }
-.med-table tr:hover td { background: var(--bg-card-subtle); }
-
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-  margin-bottom: 10px;
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-  margin: 8px 0 12px 0;
-}
-
-.step-card {
-  background: var(--bg-card-subtle);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--teal);
-  border-radius: 6px;
-  padding: 8px 12px;
+/* Clinical Callout Boxes */
+.callout {
+  padding: 12px 14px;
+  border-radius: 8px;
   font-size: 13px;
-}
-
-.step-num {
-  display: inline-block;
-  background: var(--teal);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 800;
-  padding: 2px 6px;
-  border-radius: 4px;
-  margin-right: 6px;
-  vertical-align: middle;
-}
-
-.alert {
-  padding: 10px 14px;
-  border-radius: 6px;
-  font-size: 12.5px;
   line-height: 1.45;
-  margin: 10px 0;
+  margin-bottom: 12px;
   border-left: 4px solid;
 }
 
-.alert-danger { background: rgba(244, 63, 94, 0.1); border-color: var(--rose); color: var(--rose-light); }
-.alert-warning { background: rgba(245, 158, 11, 0.1); border-color: var(--amber); color: var(--amber-light); }
-.alert-info { background: rgba(59, 130, 246, 0.1); border-color: var(--blue); color: var(--blue-light); }
-.alert-success { background: rgba(16, 185, 129, 0.1); border-color: var(--emerald); color: var(--emerald-light); }
+.callout:last-child { margin-bottom: 0; }
+.callout-emergency { background: var(--rose-glow); border-color: var(--rose); color: var(--rose-light); }
+.callout-urgent { background: var(--amber-glow); border-color: var(--amber); color: var(--amber-light); }
+.callout-pearl { background: var(--teal-glow); border-color: var(--teal); color: var(--teal-light); }
+.callout-info { background: var(--blue-glow); border-color: var(--blue); color: var(--blue-light); }
 
-.bullet-list, .sub-list {
-  padding-left: 18px;
-  margin: 6px 0;
+.callout-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  margin-bottom: 4px;
   font-size: 13px;
 }
 
-.bullet-list li, .sub-list li { margin-bottom: 4px; }
+/* Clinical Lists & Steps */
+.clinical-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
-/* Interactive Clinical Calculators */
+.clinical-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 13.5px;
+}
+
+.clinical-list li::before {
+  content: '•';
+  position: absolute;
+  left: 4px;
+  color: var(--teal);
+  font-weight: bold;
+}
+
+/* Treatment Tables & Brand Rx */
+.rx-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  margin-top: 8px;
+}
+
+.rx-table th, .rx-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.rx-table th {
+  background: var(--bg-card-subtle);
+  color: var(--text-muted);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.brand-pill {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--teal-glow);
+  color: var(--teal-light);
+  font-weight: 600;
+  font-size: 11.5px;
+}
+
+/* Interactive Calculators */
 .calc-box {
   background: var(--bg-card-subtle);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 14px;
-  margin-top: 10px;
+  padding: 12px;
 }
 
 .calc-row {
@@ -465,1734 +605,726 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 6px 0;
-  border-bottom: 1px solid var(--border-subtle);
-  font-size: 13px;
+  border-bottom: 1px dashed var(--border-subtle);
+  font-size: 12.5px;
 }
 
-.calc-row:last-child { border-bottom: none; }
+.calc-row label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 .calc-score-display {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 8px 12px;
   margin-top: 10px;
+  padding-top: 8px;
+  border-top: 2px solid var(--border);
   font-weight: 700;
+  font-size: 14px;
 }
 
 .score-num {
-  font-size: 18px;
-  color: var(--teal);
   font-family: var(--font-mono);
-}
-
-.bottom-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  flex-wrap: wrap;
-}
-
-@media print {
-  .top-navbar, .bottom-nav, .nav-actions { display: none !important; }
-  body { background: #fff !important; color: #000 !important; }
-  .card, .topic-banner { border: 1px solid #ccc !important; background: #fff !important; color: #000 !important; }
-}
-
-
-/* Portal Specific Styles */
-.portal-hero {
-  background: linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(59, 130, 246, 0.12));
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 24px;
-  margin-bottom: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.portal-hero h2 {
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  margin-bottom: 6px;
-}
-
-.portal-hero p {
-  color: var(--text-muted);
-  max-width: 750px;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.stats-grid {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.stat-chip {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 8px 14px;
-  text-align: center;
-}
-
-.stat-chip strong {
-  display: block;
-  font-size: 20px;
+  font-size: 16px;
   color: var(--teal-light);
-  font-family: var(--font-mono);
+  background: var(--bg-elevated);
+  padding: 2px 8px;
+  border-radius: 4px;
 }
 
-.stat-chip span {
-  font-size: 11px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-/* Chapter Navigation Filter Bar */
-.chapter-nav-bar {
+.steps-grid {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid var(--border);
 }
 
-.chapter-filter-btn {
-  padding: 8px 16px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  color: var(--text-muted);
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.15s ease;
-}
-
-.chapter-filter-btn:hover {
-  border-color: var(--teal);
-  color: var(--teal-light);
+.step-card {
+  display: flex;
+  gap: 10px;
   background: var(--bg-card-subtle);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  align-items: flex-start;
 }
 
-.chapter-filter-btn.active {
+.step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
   background: var(--teal);
   color: #fff;
-  border-color: var(--teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 11px;
+  flex-shrink: 0;
 }
 
-.search-box-wrapper {
-  margin-bottom: 24px;
+/* Modal Lightbox */
+.lightbox-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightbox-modal.active { display: flex; }
+
+.lightbox-content {
+  max-width: 900px;
+  max-height: 90vh;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
 
-.search-input {
+.lightbox-content img {
   width: 100%;
-  background: var(--bg-card);
-  border: 2px solid var(--border);
-  border-radius: 10px;
-  padding: 12px 16px 12px 42px;
-  color: var(--text-main);
-  font-size: 15px;
-  outline: none;
-  transition: all 0.2s;
+  max-height: 70vh;
+  object-fit: contain;
+  background: #000;
 }
 
-.search-input:focus {
-  border-color: var(--teal);
-  box-shadow: 0 0 0 3px var(--teal-glow);
-}
-
-.search-icon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
+.lightbox-caption {
+  padding: 14px 18px;
+  font-size: 13px;
   color: var(--text-muted);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
   font-size: 16px;
 }
 
-/* Category Section Blocks */
-.category-block, .chapter-block {
-  margin-bottom: 32px;
+/* Back to top */
+#topBtn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 100;
+  transition: all 0.2s;
 }
 
-.category-header {
-  padding: 6px 12px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+#topBtn:hover { transform: translateY(-3px); }
+
+/* Backdrop for Mobile Sidebar */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .condensed-grid { grid-template-columns: 1fr; }
+  .sidebar-toggle-btn { display: flex; }
+  .sidebar-drawer {
+    position: fixed;
+    left: -330px;
+    top: 0;
+    height: 100vh;
+    z-index: 2000;
+    transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 4px 0 24px rgba(0,0,0,0.3);
+  }
+  .sidebar-drawer.open {
+    left: 0;
+  }
+  .sidebar-backdrop.active {
+    display: block;
+  }
+  .content-area {
+    padding: 16px;
+  }
+  .chapter-switcher {
+    max-width: 150px;
+  }
+}
+
+
+.portal-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px 60px 20px;
+}
+
+.portal-hero {
+  text-align: center;
+  padding: 40px 20px 30px 20px;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--teal-glow);
+  color: var(--teal-light);
+  border: 1px solid var(--teal);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   margin-bottom: 16px;
 }
 
-.category-header h3 {
-  font-size: 17px;
+.portal-hero h1 {
+  font-size: 34px;
   font-weight: 800;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+  margin-bottom: 12px;
 }
 
-/* Cards Grid */
-.topic-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 16px;
-}
-
-.topic-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.topic-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--teal);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-}
-
-.card-thumb {
-  position: relative;
-  width: 100%;
-  height: 150px;
-  background: #000;
-  overflow: hidden;
-}
-
-.card-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.topic-card:hover .card-thumb img {
-  transform: scale(1.05);
-}
-
-.thumb-badge {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-}
-
-.thumb-page {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  font-size: 10.5px;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 4px;
-  backdrop-filter: blur(4px);
-}
-
-.card-body {
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.card-topic-num {
-  font-size: 11px;
-  color: var(--teal-light);
-  font-weight: 800;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-  letter-spacing: 0.5px;
-}
-
-.card-topic-title {
+.portal-hero p {
   font-size: 15px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  line-height: 1.3;
-  color: var(--text-main);
-}
-
-.card-topic-summary {
-  font-size: 12.5px;
   color: var(--text-muted);
-  line-height: 1.45;
-  margin-bottom: 14px;
-  flex-grow: 1;
+  max-width: 750px;
+  margin: 0 auto 28px auto;
 }
 
-.card-footer-cta {
+.global-search-wrapper {
+  max-width: 650px;
+  margin: 0 auto 40px auto;
+  position: relative;
+}
+
+.global-search-box {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 10px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--teal);
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transition: all 0.2s ease;
 }
 
-.topic-card:hover .card-footer-cta {
-  color: var(--teal-light);
+.global-search-box:focus-within {
+  border-color: var(--teal);
+  box-shadow: 0 4px 24px var(--teal-glow);
 }
 
-/* Upcoming Chapters Roadmap Section */
-.roadmap-section {
+.global-search-box i {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-right: 12px;
+}
+
+.global-search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-main);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.search-results-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 20px;
-  margin-top: 40px;
+  margin-top: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: none;
 }
 
-.roadmap-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+.search-results-popup.active { display: block; }
+
+.search-result-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 12px;
-  margin-top: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
 }
 
-.roadmap-item {
+.search-result-item:hover {
   background: var(--bg-card-subtle);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-size: 12.5px;
 }
 
-.roadmap-item strong {
+.search-result-item:last-child { border-bottom: none; }
+
+.chap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.chap-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chap-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--teal);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+}
+
+.chap-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.chap-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.stat-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 22px;
+  font-weight: 800;
   color: var(--teal-light);
-  display: block;
-  margin-bottom: 2px;
+  font-family: var(--font-mono);
 }
 
-.roadmap-item span {
+.stat-lbl {
+  font-size: 11.5px;
   color: var(--text-muted);
-  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
 }
-</style>
+  </style>
 </head>
 <body>
 
-  <!-- Top Header Navigation -->
-  <header class="top-navbar">
+  <!-- Top Sticky Navigation -->
+  <nav class="top-navbar">
     <a href="index.html" class="brand-section">
-      <div class="brand-logo">DoD</div>
+      <div class="brand-logo"><i class="fa-solid fa-stethoscope"></i></div>
       <div class="brand-text">
         <h1>Doctor on Duty</h1>
-        <span>System-Wise Clinical Reference Guide</span>
+        <span>Chapter Directory & Portal</span>
       </div>
     </a>
 
     <div class="nav-actions">
-      <button onclick="toggleTheme()" class="nav-btn" title="Toggle Dark/Light Mode">
-        <i id="theme-icon" class="fa-solid fa-moon"></i>
-      </button>
-      <a href="https://github.com/hassanakhter079/Doctor-on-Duty" target="_blank" class="nav-btn">
-        <i class="fa-brands fa-github"></i> Repository
-      </a>
+      <button class="nav-btn" onclick="toggleTheme()" id="themeBtn"><i class="fa-solid fa-moon"></i> Theme</button>
     </div>
-  </header>
+  </nav>
 
-  <!-- Main Portal Body -->
-  <main class="page-container">
-
-    <!-- Hero Portal Banner -->
+  <!-- Portal Container -->
+  <div class="portal-container">
     <div class="portal-hero">
-      <div>
-        <h2>Doctor on Duty (3rd Edition)</h2>
-        <p>Condensed system-by-system clinical reference guide. Complete with evidence-based diagnostics, stepwise emergency/inpatient management protocols, authentic Pakistani brand formularies, and clinical images for every single topic.</p>
+      <div class="hero-pill">
+        <i class="fa-solid fa-book-medical"></i> Doctor on Duty (3rd Edition)
       </div>
-      <div class="stats-grid">
-        <div class="stat-chip">
-          <strong>62</strong>
-          <span>Live Notes</span>
-        </div>
-        <div class="stat-chip">
-          <strong>4</strong>
-          <span>Active Systems</span>
-        </div>
-        <div class="stat-chip">
-          <strong>100%</strong>
-          <span>Data Density</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Chapter Navigation Filter Bar -->
-    <div class="chapter-nav-bar">
-      <button class="chapter-filter-btn active" onclick="filterChapter('all', this)"><i class="fa-solid fa-layer-group"></i> All Chapters (62)</button>
-      <button class="chapter-filter-btn" onclick="filterChapter('17', this)"><i class="fa-solid fa-scalpel"></i> Ch 17: Surgery (29)</button>
-      <button class="chapter-filter-btn" onclick="filterChapter('18', this)"><i class="fa-solid fa-eye"></i> Ch 18: Ophthalmology (12)</button>
-      <button class="chapter-filter-btn" onclick="filterChapter('19', this)"><i class="fa-solid fa-head-side-cough"></i> Ch 19: ENT (12)</button>
-      <button class="chapter-filter-btn" onclick="filterChapter('23', this)"><i class="fa-solid fa-truck-medical"></i> Ch 23: Emergency (9)</button>
-    </div>
-
-    <!-- Live Search Input -->
-    <div class="search-box-wrapper">
-      <i class="fa-solid fa-magnifying-glass search-icon"></i>
-      <input type="text" id="live-search" class="search-input" placeholder="Search across all 62 clinical notes by topic, symptom, sign, drug (Rocephin, Flagyl, Diamox...), or guideline...">
-    </div>
-
-    <!-- Cards Section -->
-    <div id="cards-container">
-
-        <div class="chapter-block" data-chapter="17">
-          <div class="category-header" style="border-left: 4px solid var(--rose);">
-            <h3><i class="fa-solid fa-scalpel" style="color: var(--rose);"></i> Chapter 17: General Surgery (29 Topics)</h3>
-          </div>
-          <div class="topic-cards-grid">
-        
-
-            <a href="01-approach-to-acute-abdomen.html" class="topic-card" data-title="approach to the management of acute abdomen" data-num="1" data-summary="systematic bedside evaluation of acute abdominal pain: socrates history, review of systems, pain character, diagnostic gestures, physical exam, and ruling out the 8 critical life-threatening etiologies." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_01.jpg" alt="Approach to the Management of Acute Abdomen" loading="lazy">
-                <span class="badge badge-Clinical Approach thumb-badge">CLINICAL APPROACH</span>
-                <span class="thumb-page">pp. 409–414</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #01 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Approach to the Management of Acute Abdomen</h4>
-                <p class="card-topic-summary">Systematic bedside evaluation of acute abdominal pain: SOCRATES history, review of systems, pain character, diagnostic g...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="02-differential-diagnosis-acute-abdomen.html" class="topic-card" data-title="differential diagnosis and causes of acute abdomen" data-num="2" data-summary="master diagnostic differential matrix categorizing acute abdomen into gastrointestinal vs non-gastrointestinal causes across all anatomical abdominal quadrants." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_02.jpg" alt="Differential Diagnosis and Causes of Acute Abdomen" loading="lazy">
-                <span class="badge badge-Anatomical Matrix thumb-badge">ANATOMICAL MATRIX</span>
-                <span class="thumb-page">p. 415</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #02 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Differential Diagnosis and Causes of Acute Abdomen</h4>
-                <p class="card-topic-summary">Master diagnostic differential matrix categorizing acute abdomen into gastrointestinal vs non-gastrointestinal causes ac...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="03-diagnostic-approach-acute-abdomen.html" class="topic-card" data-title="diagnostic approach of acute abdomen" data-num="3" data-summary="evidence-guided laboratory investigations for acute abdomen, test interpretations, sensitivity/specificity, and pre-test probability management." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_03.jpg" alt="Diagnostic Approach of Acute Abdomen" loading="lazy">
-                <span class="badge badge-Laboratory Workup thumb-badge">LABORATORY WORKUP</span>
-                <span class="thumb-page">p. 416</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #03 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Diagnostic Approach of Acute Abdomen</h4>
-                <p class="card-topic-summary">Evidence-guided laboratory investigations for acute abdomen, test interpretations, sensitivity/specificity, and pre-test...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="04-radiological-approach-acute-abdomen.html" class="topic-card" data-title="radiological approach of acute abdomen" data-num="4" data-summary="selection criteria, sensitivity, specific signs, and diagnostic hierarchy for plain radiography, ultrasonography, contrast ct, and mri/mrcp." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_04.jpg" alt="Radiological Approach of Acute Abdomen" loading="lazy">
-                <span class="badge badge-Imaging Modalities thumb-badge">IMAGING MODALITIES</span>
-                <span class="thumb-page">p. 417</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #04 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Radiological Approach of Acute Abdomen</h4>
-                <p class="card-topic-summary">Selection criteria, sensitivity, specific signs, and diagnostic hierarchy for plain radiography, ultrasonography, contra...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="05-stepwise-management-acute-abdomen.html" class="topic-card" data-title="stepwise management of acute abdomen" data-num="5" data-summary="11-step emergency resuscitation protocol: abcd&e, venous access, goal-directed fluid resuscitation, analgesia, empiric antibiotics, decompression, and emergency surgical decision making." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_05.jpg" alt="Stepwise Management of Acute Abdomen" loading="lazy">
-                <span class="badge badge-Resuscitation Protocol thumb-badge">RESUSCITATION PROTOCOL</span>
-                <span class="thumb-page">p. 418</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #05 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Stepwise Management of Acute Abdomen</h4>
-                <p class="card-topic-summary">11-step emergency resuscitation protocol: ABCD&E, venous access, goal-directed fluid resuscitation, analgesia, empiric a...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="06-acute-appendicitis.html" class="topic-card" data-title="acute appendicitis" data-num="6" data-summary="pathophysiology, classical periumbilical-to-rlq pain migration, physical exam signs (mcburney, rovsing, psoas, obturator), alvarado score (mantrels), ultrasound/ct, and definitive medical-surgical protocol." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_06.jpg" alt="Acute Appendicitis" loading="lazy">
-                <span class="badge badge-High Yield Surgical Emergency thumb-badge">HIGH YIELD SURGICAL EMERGENCY</span>
-                <span class="thumb-page">p. 419</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #06 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Acute Appendicitis</h4>
-                <p class="card-topic-summary">Pathophysiology, classical periumbilical-to-RLQ pain migration, physical exam signs (McBurney, Rovsing, Psoas, Obturator...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="07-acute-cholecystitis.html" class="topic-card" data-title="acute cholecystitis" data-num="7" data-summary="pathophysiology, 6 fs risk factors, murphy & boas signs, tokyo guidelines diagnostic criteria and severity grading (grades i–iii), critical ceftriaxone avoidance warning, and emergency cholecystostomy." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_07.jpg" alt="Acute Cholecystitis" loading="lazy">
-                <span class="badge badge-Tokyo Guidelines 2018 thumb-badge">TOKYO GUIDELINES 2018</span>
-                <span class="thumb-page">pp. 420–421</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #07 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Acute Cholecystitis</h4>
-                <p class="card-topic-summary">Pathophysiology, 6 Fs risk factors, Murphy & Boas signs, Tokyo Guidelines diagnostic criteria and severity grading (Grad...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="08-cholelithiasis-gallstones.html" class="topic-card" data-title="cholelithiasis (gallstones)" data-num="8" data-summary="pathogenesis, types of gallstones (cholesterol vs black/brown pigment), biliary colic features, ultrasound acoustic shadowing, and elective laparoscopic cholecystectomy." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_08.jpg" alt="Cholelithiasis (Gallstones)" loading="lazy">
-                <span class="badge badge-Calculous Disease thumb-badge">CALCULOUS DISEASE</span>
-                <span class="thumb-page">p. 422</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #08 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Cholelithiasis (Gallstones)</h4>
-                <p class="card-topic-summary">Pathogenesis, types of gallstones (cholesterol vs black/brown pigment), biliary colic features, ultrasound acoustic shad...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="09-choledocholithiasis.html" class="topic-card" data-title="choledocholithiasis" data-num="9" data-summary="common bile duct stones, cholestatic jaundice, mrcp vs ercp diagnostics, laparoscopic bile duct exploration, and full antibiotic/analgesic regimens." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_09.jpg" alt="Choledocholithiasis" loading="lazy">
-                <span class="badge badge-CBD Calculi thumb-badge">CBD CALCULI</span>
-                <span class="thumb-page">p. 423</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #09 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Choledocholithiasis</h4>
-                <p class="card-topic-summary">Common bile duct stones, cholestatic jaundice, MRCP vs ERCP diagnostics, laparoscopic bile duct exploration, and full an...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="10-acute-cholangitis.html" class="topic-card" data-title="acute cholangitis" data-num="10" data-summary="ascending biliary infection, charcot's triad, reynolds' pentad, tokyo guidelines diagnostic criteria and severity grading (grades i–iii), emergency ercp biliary drainage, and critical resuscitation." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_10.jpg" alt="Acute Cholangitis" loading="lazy">
-                <span class="badge badge-Life-Threatening Emergency thumb-badge">LIFE-THREATENING EMERGENCY</span>
-                <span class="thumb-page">pp. 424–425</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #10 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Acute Cholangitis</h4>
-                <p class="card-topic-summary">Ascending biliary infection, Charcot's Triad, Reynolds' Pentad, Tokyo Guidelines diagnostic criteria and severity gradin...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="15-acute-pancreatitis.html" class="topic-card" data-title="acute pancreatitis" data-num="15" data-summary="i get smashed etiologies, revised atlanta classification, ctsi/mctsi scoring, ranson and bisap criteria, goal-directed fluid therapy, enteral nutrition, and sterile vs infected necrosis management." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_15.jpg" alt="Acute Pancreatitis" loading="lazy">
-                <span class="badge badge-Prognostic Scoring & Critical Care thumb-badge">PROGNOSTIC SCORING & CRITICAL CARE</span>
-                <span class="thumb-page">pp. 429–431</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #15 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Acute Pancreatitis</h4>
-                <p class="card-topic-summary">I GET SMASHED etiologies, Revised Atlanta classification, CTSI/MCTSI scoring, Ranson and BISAP criteria, goal-directed f...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="11-anal-fissure.html" class="topic-card" data-title="anal fissure" data-num="11" data-summary="pathogenesis, posterior midline tears, severe pain on defecation, sentinel skin tag, conservative care, gtn/diltiazem chemical sphincterotomy, sitz bath technique, and surgical lis." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_11.jpg" alt="Anal Fissure" loading="lazy">
-                <span class="badge badge-Proctology Reference thumb-badge">PROCTOLOGY REFERENCE</span>
-                <span class="thumb-page">p. 426</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #11 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Anal Fissure</h4>
-                <p class="card-topic-summary">Pathogenesis, posterior midline tears, severe pain on defecation, sentinel skin tag, conservative care, GTN/diltiazem ch...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="12-hemorrhoids-piles.html" class="topic-card" data-title="hemorrhoids (piles / بواسیر)" data-num="12" data-summary="internal vs external hemorrhoids, 1st to 4th degree classification, non-operative treatments (rubber band ligation, sclerotherapy), daflon (mpff) flavonoid therapy, and excisional hemorrhoidectomy." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_12.jpg" alt="Hemorrhoids (Piles / بواسیر)" loading="lazy">
-                <span class="badge badge-Clinical Proctology thumb-badge">CLINICAL PROCTOLOGY</span>
-                <span class="thumb-page">p. 427</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #12 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Hemorrhoids (Piles / بواسیر)</h4>
-                <p class="card-topic-summary">Internal vs external hemorrhoids, 1st to 4th degree classification, non-operative treatments (rubber band ligation, scle...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="13-ano-rectal-abscess.html" class="topic-card" data-title="ano-rectal abscess" data-num="13" data-summary="cryptoglandular infection, anatomical classification (perianal, ischiorectal, submucous, pelvirectal), the fundamental rule of surgical i&d, perioperative antibiotics, and fistula sequelae." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_13.jpg" alt="Ano-Rectal Abscess" loading="lazy">
-                <span class="badge badge-Surgical Sepsis thumb-badge">SURGICAL SEPSIS</span>
-                <span class="thumb-page">p. 428</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #13 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Ano-Rectal Abscess</h4>
-                <p class="card-topic-summary">Cryptoglandular infection, anatomical classification (perianal, ischiorectal, submucous, pelvirectal), the fundamental r...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="14-pilonidal-sinus.html" class="topic-card" data-title="pilonidal sinus" data-num="14" data-summary="acquired natal cleft disease, jeep disease, hair foreign body granuloma, acute abscess drainage, conservative shaving/hygiene, bascom's procedure, and limberg/karydakis flap reconstructions." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_14.jpg" alt="Pilonidal Sinus" loading="lazy">
-                <span class="badge badge-Sacrococcygeal Pathology thumb-badge">SACROCOCCYGEAL PATHOLOGY</span>
-                <span class="thumb-page">p. 428</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #14 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Pilonidal Sinus</h4>
-                <p class="card-topic-summary">Acquired natal cleft disease, jeep disease, hair foreign body granuloma, acute abscess drainage, conservative shaving/hy...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="16-intestinal-bowel-obstruction.html" class="topic-card" data-title="intestinal (bowel) obstruction" data-num="16" data-summary="small vs large bowel obstruction, four cardinal symptoms, keyboard sign on ultrasound, air-fluid levels on x-ray, ct transition points, nasogastric decompression, and surgical laparotomy." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_16.jpg" alt="Intestinal (Bowel) Obstruction" loading="lazy">
-                <span class="badge badge-Mechanical GI Crisis thumb-badge">MECHANICAL GI CRISIS</span>
-                <span class="thumb-page">p. 432</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #16 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Intestinal (Bowel) Obstruction</h4>
-                <p class="card-topic-summary">Small vs large bowel obstruction, four cardinal symptoms, keyboard sign on ultrasound, air-fluid levels on X-ray, CT tra...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="17-spontaneous-bacterial-peritonitis-sbp.html" class="topic-card" data-title="spontaneous bacterial peritonitis (sbp)" data-num="17" data-summary="pathogenesis in decompensated cirrhosis, subtle presentation, diagnostic paracentesis (pmn >= 250/mm3), critical iv albumin prophylaxis for hepatorenal syndrome, iv ceftriaxone, and lifetime secondary prophylaxis." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_17.jpg" alt="Spontaneous Bacterial Peritonitis (SBP)" loading="lazy">
-                <span class="badge badge-Hepatology / Surgical Interface thumb-badge">HEPATOLOGY / SURGICAL INTERFACE</span>
-                <span class="thumb-page">p. 433</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #17 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Spontaneous Bacterial Peritonitis (SBP)</h4>
-                <p class="card-topic-summary">Pathogenesis in decompensated cirrhosis, subtle presentation, diagnostic paracentesis (PMN >= 250/mm3), critical IV albu...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="18-secondary-bacterial-peritonitis.html" class="topic-card" data-title="secondary bacterial peritonitis" data-num="18" data-summary="peritoneal contamination from hollow viscus perforation, board-like abdominal rigidity, distinguishing criteria from sbp, pneumoperitoneum on erect cxr, and emergency exploratory laparotomy." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_18.jpg" alt="Secondary Bacterial Peritonitis" loading="lazy">
-                <span class="badge badge-Acute Surgical Peritoneum thumb-badge">ACUTE SURGICAL PERITONEUM</span>
-                <span class="thumb-page">p. 434</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #18 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Secondary Bacterial Peritonitis</h4>
-                <p class="card-topic-summary">Peritoneal contamination from hollow viscus perforation, board-like abdominal rigidity, distinguishing criteria from SBP...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="19-pressure-ulcer-bed-sore.html" class="topic-card" data-title="pressure ulcer (decubitus ulcer / bed sore)" data-num="19" data-summary="pathogenesis (capillary occlusion pressure > 32 mmhg), neurological causes, anatomical predilection, npuap 4-stage classification, wound dressings, debridement modalities, vacuum-assisted closure (npwt), and reconstructive flap surgery." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_19.jpg" alt="Pressure Ulcer (Decubitus Ulcer / Bed Sore)" loading="lazy">
-                <span class="badge badge-Tissue Viability & Wound Care thumb-badge">TISSUE VIABILITY & WOUND CARE</span>
-                <span class="thumb-page">pp. 435–436</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #19 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Pressure Ulcer (Decubitus Ulcer / Bed Sore)</h4>
-                <p class="card-topic-summary">Pathogenesis (capillary occlusion pressure > 32 mmHg), neurological causes, anatomical predilection, NPUAP 4-stage class...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="20-diabetic-foot-infections.html" class="topic-card" data-title="diabetic foot infections" data-num="20" data-summary="neuropathy and vasculopathy pathophysiology, idsa/iwgdf severity grades (mild, moderate, severe), probe-to-bone test, deep tissue cultures, specialized mcr offloading footwear, empirical antibiotics, and amputation guidelines." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_20.jpg" alt="Diabetic Foot Infections" loading="lazy">
-                <span class="badge badge-Limb Preservation Protocol thumb-badge">LIMB PRESERVATION PROTOCOL</span>
-                <span class="thumb-page">p. 437</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #20 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Diabetic Foot Infections</h4>
-                <p class="card-topic-summary">Neuropathy and vasculopathy pathophysiology, IDSA/IWGDF severity grades (mild, moderate, severe), probe-to-bone test, de...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="21-hypertrophic-scar.html" class="topic-card" data-title="hypertrophic scar" data-num="21" data-summary="high fibroblast proliferation with parallel type iii collagen, remaining strictly within original wound boundaries, silicone gel, intralesional triamcinolone (k-cort), pressure garments, and surgical revision." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_21.jpg" alt="Hypertrophic Scar" loading="lazy">
-                <span class="badge badge-Scar Management thumb-badge">SCAR MANAGEMENT</span>
-                <span class="thumb-page">p. 438</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #21 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Hypertrophic Scar</h4>
-                <p class="card-topic-summary">High fibroblast proliferation with parallel type III collagen, remaining strictly within original wound boundaries, sili...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="22-keloids.html" class="topic-card" data-title="keloids" data-num="22" data-summary="disorganized collagen deposition extending beyond wound margins, presternal triangle predilection, claw-like borders, silicone/intralesional steroids, adjuvant radiation, and surgical recurrence warnings." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_22.jpg" alt="Keloids" loading="lazy">
-                <span class="badge badge-Fibroproliferative Lesion thumb-badge">FIBROPROLIFERATIVE LESION</span>
-                <span class="thumb-page">p. 439</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #22 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Keloids</h4>
-                <p class="card-topic-summary">Disorganized collagen deposition extending beyond wound margins, presternal triangle predilection, claw-like borders, si...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="23-lipoma.html" class="topic-card" data-title="lipoma" data-num="23" data-summary="universal subcutaneous tumor, mature lobulated adipocytes, classical slipping sign, differential diagnosis with liposarcoma, and elective minor surgical enucleation." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_23.jpg" alt="Lipoma" loading="lazy">
-                <span class="badge badge-Benign Subcutaneous Tumor thumb-badge">BENIGN SUBCUTANEOUS TUMOR</span>
-                <span class="thumb-page">p. 440</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #23 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Lipoma</h4>
-                <p class="card-topic-summary">Universal subcutaneous tumor, mature lobulated adipocytes, classical slipping sign, differential diagnosis with liposarc...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="24-skin-tag-acrochordon.html" class="topic-card" data-title="skin tag (acrochordon)" data-num="24" data-summary="small pedunculated fibroepithelial polyps in friction creases, metabolic syndrome and diabetes associations, differential diagnosis, and office removal (snip excision, cryotherapy, electrodesiccation)." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_24.jpg" alt="Skin Tag (Acrochordon)" loading="lazy">
-                <span class="badge badge-Minor Cutaneous Lesion thumb-badge">MINOR CUTANEOUS LESION</span>
-                <span class="thumb-page">p. 440</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #24 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Skin Tag (Acrochordon)</h4>
-                <p class="card-topic-summary">Small pedunculated fibroepithelial polyps in friction creases, metabolic syndrome and diabetes associations, differentia...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="25-ganglion-cyst.html" class="topic-card" data-title="ganglion cyst" data-num="25" data-summary="most common benign mass of hand/wrist, transillumination test, dorsal vs volar cysts (radial artery warning), conservative reassurance, aspiration with kenacort, and surgical excision." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_25.jpg" alt="Ganglion Cyst" loading="lazy">
-                <span class="badge badge-Hand & Wrist Pathology thumb-badge">HAND & WRIST PATHOLOGY</span>
-                <span class="thumb-page">p. 441</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #25 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Ganglion Cyst</h4>
-                <p class="card-topic-summary">Most common benign mass of hand/wrist, transillumination test, dorsal vs volar cysts (radial artery warning), conservati...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="26-ingrown-toenail-onychocryptosis.html" class="topic-card" data-title="ingrown toe-nail (onychocryptosis)" data-num="26" data-summary="pathogenesis (curved trimming), hallux predilection, foreign body granulation, conservative gutter splints, digital ring block (no adrenaline!), partial nail avulsion, and chemical phenol matrixectomy." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_26.jpg" alt="Ingrown Toe-Nail (Onychocryptosis)" loading="lazy">
-                <span class="badge badge-Podiatric Surgery thumb-badge">PODIATRIC SURGERY</span>
-                <span class="thumb-page">p. 442</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #26 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Ingrown Toe-Nail (Onychocryptosis)</h4>
-                <p class="card-topic-summary">Pathogenesis (curved trimming), hallux predilection, foreign body granulation, conservative gutter splints, digital ring...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="27-felon-finger-infection.html" class="topic-card" data-title="felon finger infection" data-num="27" data-summary="closed-space infection of the distal digital pulp, vertical fibrous septa, ischemic pulp necrosis risk, terminal phalanx osteomyelitis, lateral incision & drainage, and oral s. aureus antibiotics." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_27.jpg" alt="Felon Finger Infection" loading="lazy">
-                <span class="badge badge-Digital Closed-Space Sepsis thumb-badge">DIGITAL CLOSED-SPACE SEPSIS</span>
-                <span class="thumb-page">p. 442</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #27 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Felon Finger Infection</h4>
-                <p class="card-topic-summary">Closed-space infection of the distal digital pulp, vertical fibrous septa, ischemic pulp necrosis risk, terminal phalanx...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="28-acute-paronychia.html" class="topic-card" data-title="acute paronychia" data-num="28" data-summary="infection of proximal/lateral nail folds (< 6 weeks), s. aureus etiology, hangnail/manicure triggers, warm soaks, eponychium elevation technique without cutting, topical bactroban/fucidin, and oral augmentin." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_28.jpg" alt="Acute Paronychia" loading="lazy">
-                <span class="badge badge-Periungual Sepsis thumb-badge">PERIUNGUAL SEPSIS</span>
-                <span class="thumb-page">p. 443</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #28 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Acute Paronychia</h4>
-                <p class="card-topic-summary">Infection of proximal/lateral nail folds (< 6 weeks), S. aureus etiology, hangnail/manicure triggers, warm soaks, eponyc...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="29-chronic-paronychia.html" class="topic-card" data-title="chronic paronychia" data-num="29" data-summary="inflammatory dermatosis lasting > 6 weeks, wet work occupations (dishwashers, bartenders), cuticle loss, candida as colonizer vs primary irritant dermatitis, topical steroids vs tacrolimus, and eponychial marsupialization." data-chapter="17">
-              <div class="card-thumb">
-                <img src="img/clinical_topic_29.jpg" alt="Chronic Paronychia" loading="lazy">
-                <span class="badge badge-Occupational Inflammatory Dermatosis thumb-badge">OCCUPATIONAL INFLAMMATORY DERMATOSIS</span>
-                <span class="thumb-page">pp. 443–444</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #29 &bull; Ch. 17</div>
-                <h4 class="card-topic-title">Chronic Paronychia</h4>
-                <p class="card-topic-summary">Inflammatory dermatosis lasting > 6 weeks, wet work occupations (dishwashers, bartenders), cuticle loss, Candida as colo...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-          </div>
-        </div>
-        
-
-        <div class="chapter-block" data-chapter="18">
-          <div class="category-header" style="border-left: 4px solid var(--teal);">
-            <h3><i class="fa-solid fa-eye" style="color: var(--teal);"></i> Chapter 18: Ophthalmology (12 Topics)</h3>
-          </div>
-          <div class="topic-cards-grid">
-        
-
-            <a href="ch18-01-hordeolum-chalazion.html" class="topic-card" data-title="hordeolum (stye) & chalazion (meibomian cyst)" data-num="101" data-summary="acute localized staphylococcal abscess of eyelid glands (zeis/moll/meibomian) vs chronic non-infectious lipogranuloma of meibomian gland; clinical distinction, warm compresses, topical tobradex/maxidex, and surgical incision & curettage." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_01.jpg" alt="Hordeolum (Stye) & Chalazion (Meibomian Cyst)" loading="lazy">
-                <span class="badge badge-Ophthalmic Infection thumb-badge">OPHTHALMIC INFECTION</span>
-                <span class="thumb-page">pp. 444–445</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #101 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Hordeolum (Stye) & Chalazion (Meibomian Cyst)</h4>
-                <p class="card-topic-summary">Acute localized staphylococcal abscess of eyelid glands (Zeis/Moll/Meibomian) vs chronic non-infectious lipogranuloma of...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-02-blepharitis.html" class="topic-card" data-title="blepharitis (anterior & posterior mgd)" data-num="102" data-summary="chronic inflammatory condition of the eyelid margins divided into anterior (staphylococcal/seborrheic) and posterior (meibomian gland dysfunction); eyelid hygiene regimen, baby shampoo scrubs, topical antibiotics, and low-dose systemic tetracyclines." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_02.jpg" alt="Blepharitis (Anterior & Posterior MGD)" loading="lazy">
-                <span class="badge badge-Lid Margin Disease thumb-badge">LID MARGIN DISEASE</span>
-                <span class="thumb-page">pp. 446–447</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #102 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Blepharitis (Anterior & Posterior MGD)</h4>
-                <p class="card-topic-summary">Chronic inflammatory condition of the eyelid margins divided into anterior (staphylococcal/seborrheic) and posterior (me...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-03-bacterial-conjunctivitis.html" class="topic-card" data-title="acute bacterial conjunctivitis" data-num="103" data-summary="acute onset ocular redness with copious mucopurulent discharge and matting of eyelids; causative organisms (s. aureus, s. pneumoniae, h. influenzae), hyperacute gonococcal warning (corneal perforation risk), and first-line topical fluoroquinolones." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_03.jpg" alt="Acute Bacterial Conjunctivitis" loading="lazy">
-                <span class="badge badge-Red Eye Emergency thumb-badge">RED EYE EMERGENCY</span>
-                <span class="thumb-page">p. 448</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #103 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Acute Bacterial Conjunctivitis</h4>
-                <p class="card-topic-summary">Acute onset ocular redness with copious mucopurulent discharge and matting of eyelids; causative organisms (S. aureus, S...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-04-viral-conjunctivitis.html" class="topic-card" data-title="viral conjunctivitis (epidemic keratoconjunctivitis)" data-num="104" data-summary="highly communicable adenoviral infection presenting with watery serous discharge, prominent palpebral conjunctival follicles, and tender preauricular lymphadenopathy; strict contact isolation, supportive cold compresses, and strict prohibition of unindicated topical steroids." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_04.jpg" alt="Viral Conjunctivitis (Epidemic Keratoconjunctivitis)" loading="lazy">
-                <span class="badge badge-Highly Contagious thumb-badge">HIGHLY CONTAGIOUS</span>
-                <span class="thumb-page">p. 449</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #104 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Viral Conjunctivitis (Epidemic Keratoconjunctivitis)</h4>
-                <p class="card-topic-summary">Highly communicable adenoviral infection presenting with watery serous discharge, prominent palpebral conjunctival folli...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-05-allergic-conjunctivitis.html" class="topic-card" data-title="allergic conjunctivitis & vernal keratoconjunctivitis" data-num="105" data-summary="type i ige-mediated ocular hypersensitivity ranging from seasonal allergic conjunctivitis to severe vernal keratoconjunctivitis (vkc); hallmark itching, stringy mucoid ropiness, giant cobblestone papillae, horner-trantas dots, and dual-action mast cell stabilizers." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_05.jpg" alt="Allergic Conjunctivitis & Vernal Keratoconjunctivitis" loading="lazy">
-                <span class="badge badge-Hypersensitivity thumb-badge">HYPERSENSITIVITY</span>
-                <span class="thumb-page">p. 450</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #105 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Allergic Conjunctivitis & Vernal Keratoconjunctivitis</h4>
-                <p class="card-topic-summary">Type I IgE-mediated ocular hypersensitivity ranging from seasonal allergic conjunctivitis to severe vernal keratoconjunc...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-06-chlamydial-conjunctivitis.html" class="topic-card" data-title="chlamydial conjunctivitis & trachoma" data-num="106" data-summary="adult inclusion conjunctivitis (chlamydia trachomatis serovars d–k) sexually transmitted ocular infection vs endemic trachoma (serovars a–c); prominent inferior fornix follicles, peripheral corneal pannus, mandatory single-dose oral azithromycin, and the who safe strategy." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_06.jpg" alt="Chlamydial Conjunctivitis & Trachoma" loading="lazy">
-                <span class="badge badge-Systemic STI & Endemic thumb-badge">SYSTEMIC STI & ENDEMIC</span>
-                <span class="thumb-page">p. 451</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #106 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Chlamydial Conjunctivitis & Trachoma</h4>
-                <p class="card-topic-summary">Adult inclusion conjunctivitis (Chlamydia trachomatis serovars D–K) sexually transmitted ocular infection vs endemic tra...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-07-corneal-abrasion.html" class="topic-card" data-title="corneal abrasion & traumatic epithelial defect" data-num="107" data-summary="mechanical disruption of corneal epithelium; extreme pain, photophobia, blepharospasm, diagnosis via slit-lamp fluorescein dye examination under cobalt blue filter, strict contraindication of home topical anesthetics, and prophylactic antibiotic coverage." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_07.jpg" alt="Corneal Abrasion & Traumatic Epithelial Defect" loading="lazy">
-                <span class="badge badge-Trauma & Fluorescein thumb-badge">TRAUMA & FLUORESCEIN</span>
-                <span class="thumb-page">p. 452</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #107 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Corneal Abrasion & Traumatic Epithelial Defect</h4>
-                <p class="card-topic-summary">Mechanical disruption of corneal epithelium; extreme pain, photophobia, blepharospasm, diagnosis via slit-lamp fluoresce...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-08-chemical-burns.html" class="topic-card" data-title="ocular chemical burns (acid vs alkali emergency)" data-num="108" data-summary="true ophthalmic emergency requiring immediate copius lavage prior to history or examination; alkali (liquefactive necrosis, rapid stromal penetration) vs acid (coagulative necrosis); morgan lens irrigation until ph neutralizes (7.0–7.4), roper-hall grading, and limbal ischemia management." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_08.jpg" alt="Ocular Chemical Burns (Acid vs Alkali Emergency)" loading="lazy">
-                <span class="badge badge-Immediate Resuscitation thumb-badge">IMMEDIATE RESUSCITATION</span>
-                <span class="thumb-page">p. 453</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #108 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Ocular Chemical Burns (Acid vs Alkali Emergency)</h4>
-                <p class="card-topic-summary">True ophthalmic emergency requiring immediate copius lavage prior to history or examination; alkali (liquefactive necros...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-09-corneal-foreign-body.html" class="topic-card" data-title="corneal & subtarsal foreign bodies" data-num="109" data-summary="evaluation and safe removal of superficial metallic, organic, and mineral corneal foreign bodies; subtarsal lid eversion, bevel-up needle/burr extraction, rust ring removal, seidel test, and secondary keratitis prevention." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_09.jpg" alt="Corneal & Subtarsal Foreign Bodies" loading="lazy">
-                <span class="badge badge-Minor Procedure thumb-badge">MINOR PROCEDURE</span>
-                <span class="thumb-page">p. 454</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #109 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Corneal & Subtarsal Foreign Bodies</h4>
-                <p class="card-topic-summary">Evaluation and safe removal of superficial metallic, organic, and mineral corneal foreign bodies; subtarsal lid eversion...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-10-acute-angle-closure-glaucoma.html" class="topic-card" data-title="acute angle-closure glaucoma (aacg emergency)" data-num="110" data-summary="ophthalmic hyper-emergency caused by pupillary block and acute occlusion of the iridocorneal drainage angle; sudden severe ocular/hemicranial pain, colored haloes around lights, steamy cornea, fixed mid-dilated pupil, stony-hard globe (iop > 40–70 mmhg), immediate medical quadri-therapy, and definitive laser peripheral iridotomy (lpi)." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_10.jpg" alt="Acute Angle-Closure Glaucoma (AACG Emergency)" loading="lazy">
-                <span class="badge badge-Sight-Threatening Emergency thumb-badge">SIGHT-THREATENING EMERGENCY</span>
-                <span class="thumb-page">pp. 454–456</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #110 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Acute Angle-Closure Glaucoma (AACG Emergency)</h4>
-                <p class="card-topic-summary">Ophthalmic hyper-emergency caused by pupillary block and acute occlusion of the iridocorneal drainage angle; sudden seve...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-11-anterior-uveitis-iritis.html" class="topic-card" data-title="anterior uveitis (acute iritis)" data-num="111" data-summary="inflammation of the iris and anterior ciliary body; deep aching ocular pain, photophobia, circumcorneal ciliary injection, keratic precipitates (kps), anterior chamber cell and flare, association with hla-b27 and seronegative spondyloarthropathies, intensive topical pred forte, and therapeutic cycloplegia." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_11.jpg" alt="Anterior Uveitis (Acute Iritis)" loading="lazy">
-                <span class="badge badge-Systemic Autoimmune thumb-badge">SYSTEMIC AUTOIMMUNE</span>
-                <span class="thumb-page">p. 457</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #111 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Anterior Uveitis (Acute Iritis)</h4>
-                <p class="card-topic-summary">Inflammation of the iris and anterior ciliary body; deep aching ocular pain, photophobia, circumcorneal ciliary injectio...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch18-12-ophthalmic-drug-formulary.html" class="topic-card" data-title="comprehensive ophthalmic drug formulary & eye drops" data-num="112" data-summary="master clinical reference directory of all ophthalmic classes, formulations, and authentic pakistani brand names: topical antibiotics, steroids, combination drops, glaucoma therapeutics, mydriatics/cycloplegics, artificial tears, and anti-allergic agents with strengths and clinical rules." data-chapter="18">
-              <div class="card-thumb">
-                <img src="img/clinical_ch18_12.jpg" alt="Comprehensive Ophthalmic Drug Formulary & Eye Drops" loading="lazy">
-                <span class="badge badge-Master Reference Table thumb-badge">MASTER REFERENCE TABLE</span>
-                <span class="thumb-page">p. 458</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #112 &bull; Ch. 18</div>
-                <h4 class="card-topic-title">Comprehensive Ophthalmic Drug Formulary & Eye Drops</h4>
-                <p class="card-topic-summary">Master clinical reference directory of all ophthalmic classes, formulations, and authentic Pakistani brand names: topica...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-          </div>
-        </div>
-        
-
-        <div class="chapter-block" data-chapter="19">
-          <div class="category-header" style="border-left: 4px solid var(--amber);">
-            <h3><i class="fa-solid fa-head-side-cough" style="color: var(--amber);"></i> Chapter 19: Ear, Nose & Throat (ENT) (12 Topics)</h3>
-          </div>
-          <div class="topic-cards-grid">
-        
-
-            <a href="ch19-01-chronic-rhinosinusitis.html" class="topic-card" data-title="chronic rhinosinusitis (crs with/without polyps)" data-num="201" data-summary="sinonasal inflammation persisting > 12 weeks; cardinal criteria (nasal obstruction, facial pressure/fullness, mucopurulent discharge, anosmia), ct osteomeatal complex patency, high-volume saline irrigation, intranasal corticosteroids, and fess indications." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_01.jpg" alt="Chronic Rhinosinusitis (CRS with/without Polyps)" loading="lazy">
-                <span class="badge badge-Chronic Inflammatory thumb-badge">CHRONIC INFLAMMATORY</span>
-                <span class="thumb-page">pp. 459–463</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #201 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">Chronic Rhinosinusitis (CRS with/without Polyps)</h4>
-                <p class="card-topic-summary">Sinonasal inflammation persisting > 12 weeks; cardinal criteria (nasal obstruction, facial pressure/fullness, mucopurule...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-02-deviated-nasal-septum.html" class="topic-card" data-title="deviated nasal septum (dns) & turbinate hypertrophy" data-num="202" data-summary="anatomical deviation of the osseocartilaginous nasal septum producing unilateral or bilateral airflow resistance; cottle's test, compensatory inferior turbinate hypertrophy, mucosal crusting/epistaxis, and indications for septoplasty vs smr." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_02.jpg" alt="Deviated Nasal Septum (DNS) & Turbinate Hypertrophy" loading="lazy">
-                <span class="badge badge-Structural Obstruction thumb-badge">STRUCTURAL OBSTRUCTION</span>
-                <span class="thumb-page">pp. 464–466</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #202 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">Deviated Nasal Septum (DNS) & Turbinate Hypertrophy</h4>
-                <p class="card-topic-summary">Anatomical deviation of the osseocartilaginous nasal septum producing unilateral or bilateral airflow resistance; Cottle...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-03-epistaxis-management.html" class="topic-card" data-title="epistaxis (anterior vs posterior nasal bleeding)" data-num="203" data-summary="acute nasal hemorrhage differentiated into anterior (little's area / kiesselbach's plexus - 90%) vs posterior (woodruff's plexus / sphenopalatine artery); trotter's maneuver, chemical silver nitrate cautery, merocel pneumatic packing, and foley catheter posterior tamponade." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_03.jpg" alt="Epistaxis (Anterior vs Posterior Nasal Bleeding)" loading="lazy">
-                <span class="badge badge-ENT Emergency thumb-badge">ENT EMERGENCY</span>
-                <span class="thumb-page">pp. 467–468</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #203 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">Epistaxis (Anterior vs Posterior Nasal Bleeding)</h4>
-                <p class="card-topic-summary">Acute nasal hemorrhage differentiated into anterior (Little's area / Kiesselbach's plexus - 90%) vs posterior (Woodruff'...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-04-acute-tonsillitis-pharyngitis.html" class="topic-card" data-title="acute tonsillitis & pharyngitis (centor score)" data-num="204" data-summary="acute pharyngeal and palatine tonsillar infection; differentiating viral etiologies from group a beta-hemolytic streptococcus (gabhs / s. pyogenes); modified centor (mcisaac) score risk stratification, penicillin pharmacotherapy to prevent acute rheumatic fever, and analgesia." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_04.jpg" alt="Acute Tonsillitis & Pharyngitis (Centor Score)" loading="lazy">
-                <span class="badge badge-Streptococcal Infection thumb-badge">STREPTOCOCCAL INFECTION</span>
-                <span class="thumb-page">pp. 469–470</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #204 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">Acute Tonsillitis & Pharyngitis (Centor Score)</h4>
-                <p class="card-topic-summary">Acute pharyngeal and palatine tonsillar infection; differentiating viral etiologies from Group A Beta-Hemolytic Streptoc...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-05-peritonsillar-abscess-quinsy.html" class="topic-card" data-title="peritonsillar abscess (quinsy)" data-num="205" data-summary="suppurative purulent collection in the peritonsillar space between tonsillar capsule and superior constrictor muscle; severe unilateral odynophagia, trismus, hot potato voice, contralateral uvular deviation, guarded needle aspiration, and iv antimicrobial therapy." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_05.jpg" alt="Peritonsillar Abscess (Quinsy)" loading="lazy">
-                <span class="badge badge-Deep Neck Infection thumb-badge">DEEP NECK INFECTION</span>
-                <span class="thumb-page">p. 471</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #205 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">Peritonsillar Abscess (Quinsy)</h4>
-                <p class="card-topic-summary">Suppurative purulent collection in the peritonsillar space between tonsillar capsule and superior constrictor muscle; se...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-06-acute-otitis-media.html" class="topic-card" data-title="acute otitis media (aom)" data-num="206" data-summary="acute bacterial infection of the middle ear cleft following eustachian tube dysfunction; severe otalgia, fever, distinct stages of aom, pathognomonic bulging hyperemic tympanic membrane with loss of cone of light, oral high-dose amoxicillin, and mastoiditis red flags." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_06.jpg" alt="Acute Otitis Media (AOM)" loading="lazy">
-                <span class="badge badge-Middle Ear Sepsis thumb-badge">MIDDLE EAR SEPSIS</span>
-                <span class="thumb-page">pp. 472–473</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #206 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">Acute Otitis Media (AOM)</h4>
-                <p class="card-topic-summary">Acute bacterial infection of the middle ear cleft following Eustachian tube dysfunction; severe otalgia, fever, distinct...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-07-csom-tubotympanic-atticoantral.html" class="topic-card" data-title="csom: tubotympanic (safe) vs atticoantral (unsafe)" data-num="207" data-summary="longstanding chronic inflammation of the middle ear and mastoid cavity with recurrent otorrhea (> 2–6 weeks) through a persistent tympanic membrane perforation; master comparison table of tubotympanic ('safe' central) vs atticoantral ('unsafe' marginal with cholesteatoma), dry ear protocols, and surgical reconstruction." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_07.jpg" alt="CSOM: Tubotympanic (Safe) vs Atticoantral (Unsafe)" loading="lazy">
-                <span class="badge badge-Chronic Otology thumb-badge">CHRONIC OTOLOGY</span>
-                <span class="thumb-page">pp. 474–475</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #207 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">CSOM: Tubotympanic (Safe) vs Atticoantral (Unsafe)</h4>
-                <p class="card-topic-summary">Longstanding chronic inflammation of the middle ear and mastoid cavity with recurrent otorrhea (> 2–6 weeks) through a p...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-08-otomycosis.html" class="topic-card" data-title="otomycosis (fungal otitis externa)" data-num="208" data-summary="superficial fungal infection of the external auditory canal; characteristic intense pruritus, pathognomonic 'wet blotting paper' appearance with black spores (aspergillus niger) or creamy white curd (candida albicans), microscopic debridement, and topical clotrimazole therapy." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_08.jpg" alt="Otomycosis (Fungal Otitis Externa)" loading="lazy">
-                <span class="badge badge-Fungal Infection thumb-badge">FUNGAL INFECTION</span>
-                <span class="thumb-page">p. 476</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #208 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">Otomycosis (Fungal Otitis Externa)</h4>
-                <p class="card-topic-summary">Superficial fungal infection of the external auditory canal; characteristic intense pruritus, pathognomonic 'wet blottin...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-09-otitis-externa.html" class="topic-card" data-title="diffuse otitis externa & malignant otitis externa" data-num="209" data-summary="diffuse acute inflammation of the external auditory canal skin (swimmer's ear); exquisite tragal pain, canal stenosis, pope ear wick stenting, topical ciprofloxacin-dexamethasone, and the life-threatening skull base osteomyelitis alert (malignant otitis externa) in elderly diabetic patients." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_09.jpg" alt="Diffuse Otitis Externa & Malignant Otitis Externa" loading="lazy">
-                <span class="badge badge-Severe Tragal Tenderness thumb-badge">SEVERE TRAGAL TENDERNESS</span>
-                <span class="thumb-page">p. 477</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #209 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">Diffuse Otitis Externa & Malignant Otitis Externa</h4>
-                <p class="card-topic-summary">Diffuse acute inflammation of the external auditory canal skin (Swimmer's Ear); exquisite tragal pain, canal stenosis, P...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-10-bppv-vertigo-epley.html" class="topic-card" data-title="bppv: benign paroxysmal positional vertigo & epley" data-num="210" data-summary="most common peripheral vestibular cause of vertigo; canalithiasis of the posterior semicircular canal, brief violent rotational spinning (< 60s) provoked by head tilts, diagnostic dix-hallpike maneuver, and curative bedside epley canalith repositioning maneuver (> 85% success)." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_10.jpg" alt="BPPV: Benign Paroxysmal Positional Vertigo & Epley" loading="lazy">
-                <span class="badge badge-Repositioning Maneuver thumb-badge">REPOSITIONING MANEUVER</span>
-                <span class="thumb-page">pp. 478–480</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #210 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">BPPV: Benign Paroxysmal Positional Vertigo & Epley</h4>
-                <p class="card-topic-summary">Most common peripheral vestibular cause of vertigo; canalithiasis of the posterior semicircular canal, brief violent rot...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-11-menieres-disease.html" class="topic-card" data-title="ménière's disease (endolymphatic hydrops)" data-num="211" data-summary="inner ear disorder characterized by endolymphatic hydrops; diagnostic tetrad (spontaneous episodic vertigo lasting 20 min to 12 hrs, fluctuating low-frequency sensorineural hearing loss, roaring tinnitus, aural fullness), low-salt diet, and betahistine prophylaxis." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_11.jpg" alt="Ménière's Disease (Endolymphatic Hydrops)" loading="lazy">
-                <span class="badge badge-Fluctuating Hearing Loss thumb-badge">FLUCTUATING HEARING LOSS</span>
-                <span class="thumb-page">p. 481</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #211 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">Ménière's Disease (Endolymphatic Hydrops)</h4>
-                <p class="card-topic-summary">Inner ear disorder characterized by endolymphatic hydrops; diagnostic tetrad (spontaneous episodic vertigo lasting 20 mi...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch19-12-bells-palsy-facial-paralysis.html" class="topic-card" data-title="bell's palsy (acute lower motor neuron facial paralysis)" data-num="212" data-summary="acute idiopathic unilateral lower motor neuron facial nerve (cn vii) palsy; distinguishing lmn from umn stroke via forehead sparing, bell's phenomenon, house-brackmann grading, mandatory early high-dose oral prednisolone, and aggressive corneal eye protection." data-chapter="19">
-              <div class="card-thumb">
-                <img src="img/clinical_ch19_12.jpg" alt="Bell's Palsy (Acute Lower Motor Neuron Facial Paralysis)" loading="lazy">
-                <span class="badge badge-LMN Facial Paralysis thumb-badge">LMN FACIAL PARALYSIS</span>
-                <span class="thumb-page">p. 482</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #212 &bull; Ch. 19</div>
-                <h4 class="card-topic-title">Bell's Palsy (Acute Lower Motor Neuron Facial Paralysis)</h4>
-                <p class="card-topic-summary">Acute idiopathic unilateral lower motor neuron facial nerve (CN VII) palsy; distinguishing LMN from UMN stroke via foreh...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-          </div>
-        </div>
-        
-
-        <div class="chapter-block" data-chapter="23">
-          <div class="category-header" style="border-left: 4px solid var(--blue);">
-            <h3><i class="fa-solid fa-truck-medical" style="color: var(--blue);"></i> Chapter 23: Emergency Medicine & Poisoning (9 Topics)</h3>
-          </div>
-          <div class="topic-cards-grid">
-        
-
-            <a href="ch23-01-acls-cardiac-arrest.html" class="topic-card" data-title="acls cardiac arrest algorithm & resuscitation" data-num="301" data-summary="advanced cardiovascular life support (acls) algorithmic management of adult cardiac arrest; shockable (vf / pvt) vs non-shockable (pea / asystole) pathways, high-quality chest compressions, early defibrillation, adrenaline & amiodarone protocols, and reversing the 5hs and 5ts." data-chapter="23">
-              <div class="card-thumb">
-                <img src="img/clinical_ch23_01.jpg" alt="ACLS Cardiac Arrest Algorithm & Resuscitation" loading="lazy">
-                <span class="badge badge-Life Support thumb-badge">LIFE SUPPORT</span>
-                <span class="thumb-page">pp. 673–676</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #301 &bull; Ch. 23</div>
-                <h4 class="card-topic-title">ACLS Cardiac Arrest Algorithm & Resuscitation</h4>
-                <p class="card-topic-summary">Advanced Cardiovascular Life Support (ACLS) algorithmic management of adult cardiac arrest; shockable (VF / pVT) vs non-...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch23-02-anaphylaxis-emergency.html" class="topic-card" data-title="anaphylaxis emergency management & adrenaline protocol" data-num="302" data-summary="severe, sudden-onset multi-system type-i hypersensitivity reaction; airway compromise, bronchospasm, distributive shock, universal first-line intramuscular adrenaline (epinephrine 1:1,000) 0.5 mg anterolateral thigh dosing, aggressive iv fluid resuscitation, and biphasic reaction prevention." data-chapter="23">
-              <div class="card-thumb">
-                <img src="img/clinical_ch23_02.jpg" alt="Anaphylaxis Emergency Management & Adrenaline Protocol" loading="lazy">
-                <span class="badge badge-Life-Threatening Emergency thumb-badge">LIFE-THREATENING EMERGENCY</span>
-                <span class="thumb-page">pp. 677–680</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #302 &bull; Ch. 23</div>
-                <h4 class="card-topic-title">Anaphylaxis Emergency Management & Adrenaline Protocol</h4>
-                <p class="card-topic-summary">Severe, sudden-onset multi-system type-I hypersensitivity reaction; airway compromise, bronchospasm, distributive shock,...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch23-03-sepsis-septic-shock.html" class="topic-card" data-title="sepsis & septic shock (surviving sepsis hour-1 bundle)" data-num="303" data-summary="life-threatening organ dysfunction caused by a dysregulated host response to infection (sepsis-3); bedside qsofa screening, surviving sepsis campaign hour-1 bundle, blood cultures, 30 ml/kg crystalloid bolus, early norepinephrine vasopressor support (map >= 65 mmhg), and empiric broad-spectrum iv antimicrobials." data-chapter="23">
-              <div class="card-thumb">
-                <img src="img/clinical_ch23_03.jpg" alt="Sepsis & Septic Shock (Surviving Sepsis Hour-1 Bundle)" loading="lazy">
-                <span class="badge badge-Critical Care thumb-badge">CRITICAL CARE</span>
-                <span class="thumb-page">pp. 681–685</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #303 &bull; Ch. 23</div>
-                <h4 class="card-topic-title">Sepsis & Septic Shock (Surviving Sepsis Hour-1 Bundle)</h4>
-                <p class="card-topic-summary">Life-threatening organ dysfunction caused by a dysregulated host response to infection (Sepsis-3); bedside qSOFA screeni...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch23-04-organophosphate-poisoning.html" class="topic-card" data-title="organophosphate & carbamate poisoning (atropinization)" data-num="304" data-summary="irreversible acetylcholinesterase inhibition leading to massive acetylcholine storm; dumbels / sludgem cholinergic toxidrome, lethal bronchorrhea and bronchospasm, aggressive emergency atropine titration until target atropinization endpoints, pralidoxime (pam) enzyme reactivator, and decontamination." data-chapter="23">
-              <div class="card-thumb">
-                <img src="img/clinical_ch23_04.jpg" alt="Organophosphate & Carbamate Poisoning (Atropinization)" loading="lazy">
-                <span class="badge badge-Agricultural Poisoning thumb-badge">AGRICULTURAL POISONING</span>
-                <span class="thumb-page">pp. 686–690</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #304 &bull; Ch. 23</div>
-                <h4 class="card-topic-title">Organophosphate & Carbamate Poisoning (Atropinization)</h4>
-                <p class="card-topic-summary">Irreversible acetylcholinesterase inhibition leading to massive acetylcholine storm; DUMBELS / SLUDGEM cholinergic toxid...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch23-05-paracetamol-toxicity.html" class="topic-card" data-title="paracetamol toxicity & n-acetylcysteine (nac protocol)" data-num="305" data-summary="dose-dependent toxic metabolite (napqi) accumulation depleting hepatic glutathione; rumack-matthew treatment nomogram, 4 clinical stages, and the definitive intravenous n-acetylcysteine (nac / parvolex) 3-bag protocol preventing fulminant hepatic necrosis." data-chapter="23">
-              <div class="card-thumb">
-                <img src="img/clinical_ch23_05.jpg" alt="Paracetamol Toxicity & N-Acetylcysteine (NAC Protocol)" loading="lazy">
-                <span class="badge badge-Hepatotoxicity thumb-badge">HEPATOTOXICITY</span>
-                <span class="thumb-page">pp. 691–694</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #305 &bull; Ch. 23</div>
-                <h4 class="card-topic-title">Paracetamol Toxicity & N-Acetylcysteine (NAC Protocol)</h4>
-                <p class="card-topic-summary">Dose-dependent toxic metabolite (NAPQI) accumulation depleting hepatic glutathione; Rumack-Matthew treatment nomogram, 4...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch23-06-snake-bite-envenomation.html" class="topic-card" data-title="snake bite envenomation (asv & 20wbct protocol)" data-num="306" data-summary="emergency management of venomous snakebites in pakistan; distinguishing vasculotoxic/hemotoxic (viperidae: russell's & saw-scaled viper) from neurotoxic (elapidae: cobra & krait); the 20-minute whole blood clotting test (20wbct), prohibition of tourniquets, and polyvalent anti-snake venom (asv) titration." data-chapter="23">
-              <div class="card-thumb">
-                <img src="img/clinical_ch23_06.jpg" alt="Snake Bite Envenomation (ASV & 20WBCT Protocol)" loading="lazy">
-                <span class="badge badge-Envenomation Protocol thumb-badge">ENVENOMATION PROTOCOL</span>
-                <span class="thumb-page">pp. 695–698</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #306 &bull; Ch. 23</div>
-                <h4 class="card-topic-title">Snake Bite Envenomation (ASV & 20WBCT Protocol)</h4>
-                <p class="card-topic-summary">Emergency management of venomous snakebites in Pakistan; distinguishing Vasculotoxic/Hemotoxic (Viperidae: Russell's & S...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch23-07-burn-injury-parkland.html" class="topic-card" data-title="thermal burn injury & parkland fluid resuscitation" data-num="307" data-summary="acute major burn resuscitation; wallace rule of nines total body surface area (tbsa) calculation, parkland crystalloid formula (4 ml x kg x %tbsa), fluid titration targeting urine output (0.5–1 ml/kg/hr), inhalation injury airway alert, and silver sulfadiazine wound care." data-chapter="23">
-              <div class="card-thumb">
-                <img src="img/clinical_ch23_07.jpg" alt="Thermal Burn Injury & Parkland Fluid Resuscitation" loading="lazy">
-                <span class="badge badge-Burn Resuscitation thumb-badge">BURN RESUSCITATION</span>
-                <span class="thumb-page">pp. 699–702</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #307 &bull; Ch. 23</div>
-                <h4 class="card-topic-title">Thermal Burn Injury & Parkland Fluid Resuscitation</h4>
-                <p class="card-topic-summary">Acute major burn resuscitation; Wallace Rule of Nines Total Body Surface Area (TBSA) calculation, Parkland crystalloid f...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch23-08-acute-poisoning-approach.html" class="topic-card" data-title="general approach to the poisoned patient (toxidromes)" data-num="308" data-summary="master diagnostic matrix of acute clinical toxidromes (anticholinergic, cholinergic, sympathomimetic, sedative-hypnotic, opioid); emergency decontamination principles, activated charcoal indications, urine alkalinization, and definitive targeted antidotes." data-chapter="23">
-              <div class="card-thumb">
-                <img src="img/clinical_ch23_08.jpg" alt="General Approach to the Poisoned Patient (Toxidromes)" loading="lazy">
-                <span class="badge badge-Toxidrome Matrix thumb-badge">TOXIDROME MATRIX</span>
-                <span class="thumb-page">pp. 703–707</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #308 &bull; Ch. 23</div>
-                <h4 class="card-topic-title">General Approach to the Poisoned Patient (Toxidromes)</h4>
-                <p class="card-topic-summary">Master diagnostic matrix of acute clinical toxidromes (Anticholinergic, Cholinergic, Sympathomimetic, Sedative-Hypnotic,...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-            <a href="ch23-09-acute-pain-management.html" class="topic-card" data-title="emergency acute pain management & who ladder" data-num="309" data-summary="systematic acute pain assessment using visual analog scale (vas); who 3-step analgesic ladder adapted for acute emergency care, multimodal opioid-sparing analgesia, iv paracetamol/ketorolac protocols, and localized pakistani analgesics (provas, toradol, tramal, kinz, synflex)." data-chapter="23">
-              <div class="card-thumb">
-                <img src="img/clinical_ch23_09.jpg" alt="Emergency Acute Pain Management & WHO Ladder" loading="lazy">
-                <span class="badge badge-Analgesia Protocol thumb-badge">ANALGESIA PROTOCOL</span>
-                <span class="thumb-page">pp. 708–712</span>
-              </div>
-              <div class="card-body">
-                <div class="card-topic-num">Topic #309 &bull; Ch. 23</div>
-                <h4 class="card-topic-title">Emergency Acute Pain Management & WHO Ladder</h4>
-                <p class="card-topic-summary">Systematic acute pain assessment using Visual Analog Scale (VAS); WHO 3-step analgesic ladder adapted for acute emergenc...</p>
-                <div class="card-footer-cta">
-                  <span>Open Clinical Note</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </div>
-              </div>
-            </a>
-            
-
-          </div>
-        </div>
-        
-    </div>
-
-    <!-- Roadmap of Full Book Chapters -->
-    <div class="roadmap-section">
-      <h3 style="font-size:16px; font-weight:800; display:flex; align-items:center; gap:8px;">
-        <i class="fa-solid fa-map-location-dot" style="color:var(--teal);"></i> Doctor on Duty Master System Roadmap
-      </h3>
-      <p style="font-size:13px; color:var(--text-muted); margin-top:4px;">
-        Full system-by-system chapters of Doctor on Duty (3rd Edition, 695 pages):
+      <h1>System-Wise Clinical Reference Chapters</h1>
+      <p>
+        Condensed, standalone clinical reference chapters. Each chapter is an independent, high-density HTML guide equipped with verified diagnostic algorithms, authentic Pakistani brand pharmacotherapy, and real clinical photos.
       </p>
-      <div class="roadmap-grid">
-        <div class="roadmap-item" style="border-left:3px solid var(--emerald);">
-          <strong>Ch 17: General Surgery</strong>
-          <span>29 Notes &bull; Complete &bull; pp. 409–444</span>
+
+      <!-- Global Search -->
+      <div class="global-search-wrapper">
+        <div class="global-search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" class="global-search-input" id="globalSearch" placeholder="Search across all 62 topics (e.g. Appendicitis, Glaucoma, Epistaxis, Burns, Rocephin)..." oninput="handleGlobalSearch()" autocomplete="off">
         </div>
-        <div class="roadmap-item" style="border-left:3px solid var(--emerald);">
-          <strong>Ch 18: Ophthalmology</strong>
-          <span>12 Notes &bull; Complete &bull; pp. 445–458</span>
+        <div class="search-results-popup" id="searchResults"></div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-num">62</div>
+          <div class="stat-lbl">Clinical Topics</div>
         </div>
-        <div class="roadmap-item" style="border-left:3px solid var(--emerald);">
-          <strong>Ch 19: ENT (Otolaryngology)</strong>
-          <span>12 Notes &bull; Complete &bull; pp. 459–482</span>
+        <div class="stat-item">
+          <div class="stat-num">4</div>
+          <div class="stat-lbl">Completed Chapters</div>
         </div>
-        <div class="roadmap-item" style="border-left:3px solid var(--emerald);">
-          <strong>Ch 23: Emergency & Poisoning</strong>
-          <span>9 Notes &bull; Complete &bull; pp. 673–712</span>
+        <div class="stat-item">
+          <div class="stat-num">62</div>
+          <div class="stat-lbl">Real Clinical Images</div>
         </div>
-        <div class="roadmap-item">
-          <strong>Ch 05: Infectious Diseases</strong>
-          <span>Malaria, Dengue, Typhoid &bull; pp. 64–96</span>
+        <div class="stat-item">
+          <div class="stat-num">4</div>
+          <div class="stat-lbl">Interactive Calculators</div>
         </div>
-        <div class="roadmap-item">
-          <strong>Ch 06: Pulmonology</strong>
-          <span>Pneumonia, Asthma, COPD &bull; pp. 97–127</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 07: Cardiology (CVS)</strong>
-          <span>HTN, ACS, Heart Failure &bull; pp. 128–174</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 08: Gastroenterology</strong>
-          <span>PUD, IBD, Cirrhosis &bull; pp. 175–224</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 10: Endocrinology</strong>
-          <span>DKA, HHS, Diabetes OPD &bull; pp. 225–259</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 11: Nephrology & Urology</strong>
-          <span>AKI, CKD, Stones, BPH &bull; pp. 260–303</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 13: Rheumatology</strong>
-          <span>RA, SLE, Gout &bull; pp. 304–338</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 14: Neurology</strong>
-          <span>Stroke, Meningitis, Epilepsy &bull; pp. 339–363</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 15: Psychiatry</strong>
-          <span>Depression, Psychosis &bull; pp. 364–384</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 16: Dermatology</strong>
-          <span>Eczema, Psoriasis, Scabies &bull; pp. 385–408</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 20: Spine & Orthopedics</strong>
-          <span>Radiculopathy, Fractures &bull; pp. 483–515</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 21: Gynaecology & Obs</strong>
-          <span>Ectopic, PPH, Eclampsia &bull; pp. 516–593</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 22: Pediatrics</strong>
-          <span>APGAR, WHO Fluids, Croup &bull; pp. 594–672</span>
-        </div>
-        <div class="roadmap-item">
-          <strong>Ch 24: Drug Formularies</strong>
-          <span>Pakistani Adult Dosages &bull; pp. 752–767</span>
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-lbl">Pakistani Brand Rx</div>
         </div>
       </div>
     </div>
 
-  </main>
+    <!-- Chapter Cards Grid -->
+    <h2 style="font-size:20px; font-weight:800; margin-bottom:16px; display:flex; align-items:center; gap:8px;">
+      <i class="fa-solid fa-layer-group" style="color:var(--teal);"></i> Available Clinical Chapters
+    </h2>
+    <div class="chap-grid">
+      
+        <div class="chap-card" onclick="location.href='chapter-17-general-surgery.html'">
+          <div class="chap-card-top">
+            <div class="chap-icon-box" style="background:#14b8a622; color:#14b8a6; border:1px solid #14b8a6;">
+              <i class="fa-solid fa-scalpel"></i>
+            </div>
+            <div>
+              <span class="badge badge-emergency" style="background:#14b8a622; color:#14b8a6; border-color:#14b8a6;">Chapter 17</span>
+              <h3 style="font-size:18px; font-weight:800; margin-top:4px;">General Surgery</h3>
+            </div>
+          </div>
+          
+          <p style="font-size:13px; color:var(--text-muted); margin:12px 0 14px 0; line-height:1.45;">
+            Acute abdomen algorithms, Tokyo Guidelines (TG18), biliary sepsis, pancreatitis Atlanta criteria, anorectal pathology, chronic pressure ulcers, soft tissue surgery, and digital pulp whitlows.
+          </p>
+
+          <div style="background:var(--bg-card-subtle); padding:10px 12px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:14px;">
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-dim); margin-bottom:4px;">Sample Topics Included</div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">1</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Approach to the Management of Acute Abdomen</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">2</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Differential Diagnosis and Causes of Acute Abdomen</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">3</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Diagnostic Approach of Acute Abdomen</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">4</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Radiological Approach of Acute Abdomen</span>
+            </div>
+            
+            <div style="font-size:11.5px; color:var(--teal-light); padding-top:6px; font-weight:600;">
+              + 25 more topics in this chapter...
+            </div>
+            
+          </div>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; padding-top:8px; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:12px; color:var(--text-muted);"><i class="fa-solid fa-book-open"></i> pp. 409–444</span>
+            <a href="chapter-17-general-surgery.html" class="nav-btn primary" style="font-size:12.5px; padding:6px 14px;">
+              Open Chapter (29) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="chap-card" onclick="location.href='chapter-18-ophthalmology.html'">
+          <div class="chap-card-top">
+            <div class="chap-icon-box" style="background:#3b82f622; color:#3b82f6; border:1px solid #3b82f6;">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <div>
+              <span class="badge badge-emergency" style="background:#3b82f622; color:#3b82f6; border-color:#3b82f6;">Chapter 18</span>
+              <h3 style="font-size:18px; font-weight:800; margin-top:4px;">Ophthalmology</h3>
+            </div>
+          </div>
+          
+          <p style="font-size:13px; color:var(--text-muted); margin:12px 0 14px 0; line-height:1.45;">
+            Red eye differential, infectious and allergic conjunctivitis, corneal abrasions and rust rings, ocular chemical emergencies, acute angle-closure glaucoma decompression, anterior uveitis, and ophthalmic formulary.
+          </p>
+
+          <div style="background:var(--bg-card-subtle); padding:10px 12px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:14px;">
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-dim); margin-bottom:4px;">Sample Topics Included</div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">101</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Hordeolum (Stye) & Chalazion (Meibomian Cyst)</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">102</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Blepharitis (Anterior & Posterior MGD)</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">103</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Acute Bacterial Conjunctivitis</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">104</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Viral Conjunctivitis (Epidemic Keratoconjunctivitis)</span>
+            </div>
+            
+            <div style="font-size:11.5px; color:var(--teal-light); padding-top:6px; font-weight:600;">
+              + 8 more topics in this chapter...
+            </div>
+            
+          </div>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; padding-top:8px; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:12px; color:var(--text-muted);"><i class="fa-solid fa-book-open"></i> pp. 445–458</span>
+            <a href="chapter-18-ophthalmology.html" class="nav-btn primary" style="font-size:12.5px; padding:6px 14px;">
+              Open Chapter (12) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="chap-card" onclick="location.href='chapter-19-ent.html'">
+          <div class="chap-card-top">
+            <div class="chap-icon-box" style="background:#f59e0b22; color:#f59e0b; border:1px solid #f59e0b;">
+              <i class="fa-solid fa-head-side-cough"></i>
+            </div>
+            <div>
+              <span class="badge badge-emergency" style="background:#f59e0b22; color:#f59e0b; border-color:#f59e0b;">Chapter 19</span>
+              <h3 style="font-size:18px; font-weight:800; margin-top:4px;">Ear, Nose & Throat (ENT)</h3>
+            </div>
+          </div>
+          
+          <p style="font-size:13px; color:var(--text-muted); margin:12px 0 14px 0; line-height:1.45;">
+            Chronic rhinosinusitis EPOS criteria, deviated septum, anterior & posterior epistaxis packing, tonsillitis Centor score, quinsy drainage, AOM, CSOM safe vs unsafe cholesteatoma, otomycosis, BPPV Epley, and Bell's palsy.
+          </p>
+
+          <div style="background:var(--bg-card-subtle); padding:10px 12px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:14px;">
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-dim); margin-bottom:4px;">Sample Topics Included</div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">201</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Chronic Rhinosinusitis (CRS with/without Polyps)</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">202</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Deviated Nasal Septum (DNS) & Turbinate Hypertrophy</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">203</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Epistaxis (Anterior vs Posterior Nasal Bleeding)</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">204</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Acute Tonsillitis & Pharyngitis (Centor Score)</span>
+            </div>
+            
+            <div style="font-size:11.5px; color:var(--teal-light); padding-top:6px; font-weight:600;">
+              + 8 more topics in this chapter...
+            </div>
+            
+          </div>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; padding-top:8px; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:12px; color:var(--text-muted);"><i class="fa-solid fa-book-open"></i> pp. 459–482</span>
+            <a href="chapter-19-ent.html" class="nav-btn primary" style="font-size:12.5px; padding:6px 14px;">
+              Open Chapter (12) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="chap-card" onclick="location.href='chapter-23-emergency-medicine.html'">
+          <div class="chap-card-top">
+            <div class="chap-icon-box" style="background:#f43f5e22; color:#f43f5e; border:1px solid #f43f5e;">
+              <i class="fa-solid fa-truck-medical"></i>
+            </div>
+            <div>
+              <span class="badge badge-emergency" style="background:#f43f5e22; color:#f43f5e; border-color:#f43f5e;">Chapter 23</span>
+              <h3 style="font-size:18px; font-weight:800; margin-top:4px;">Emergency Medicine & Poisoning</h3>
+            </div>
+          </div>
+          
+          <p style="font-size:13px; color:var(--text-muted); margin:12px 0 14px 0; line-height:1.45;">
+            ACLS 2023 resuscitation protocols, anaphylaxis adrenaline dosing, Surviving Sepsis Hour-1 bundle, organophosphate atropinization endpoints, paracetamol NAC 3-bag protocol, snakebite ASV, Parkland burn fluid, toxidromes, and WHO pain ladder.
+          </p>
+
+          <div style="background:var(--bg-card-subtle); padding:10px 12px; border-radius:8px; border:1px solid var(--border-subtle); margin-bottom:14px;">
+            <div style="font-size:11px; font-weight:700; text-transform:uppercase; color:var(--text-dim); margin-bottom:4px;">Sample Topics Included</div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">301</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">ACLS Cardiac Arrest Algorithm & Resuscitation</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">302</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Anaphylaxis Emergency Management & Adrenaline Protocol</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">303</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Sepsis & Septic Shock (Surviving Sepsis Hour-1 Bundle)</span>
+            </div>
+            
+            <div style="font-size:12.5px; padding:4px 0; border-bottom:1px dashed var(--border-subtle); display:flex; gap:6px; align-items:center;">
+              <span style="font-family:var(--font-mono); font-size:10.5px; color:var(--teal); background:var(--bg-elevated); padding:1px 5px; border-radius:3px;">304</span>
+              <span style="color:var(--text-main); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Organophosphate & Carbamate Poisoning (Atropinization)</span>
+            </div>
+            
+            <div style="font-size:11.5px; color:var(--teal-light); padding-top:6px; font-weight:600;">
+              + 5 more topics in this chapter...
+            </div>
+            
+          </div>
+
+          <div style="display:flex; align-items:center; justify-content:space-between; padding-top:8px; border-top:1px solid var(--border-subtle);">
+            <span style="font-size:12px; color:var(--text-muted);"><i class="fa-solid fa-book-open"></i> pp. 673–712</span>
+            <a href="chapter-23-emergency-medicine.html" class="nav-btn primary" style="font-size:12.5px; padding:6px 14px;">
+              Open Chapter (9) <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+    </div>
+  </div>
 
   <script>
+    const TOPICS_INDEX = [{"num": 1, "title": "Approach to the Management of Acute Abdomen", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-1", "summary": "Systematic bedside evaluation of acute abdominal pain: SOCRATES history, review of systems, pain character, diagnostic gestures, physical exam, and ruling out the 8 critical life-threatening etiologies.", "badge": "Clinical Approach", "page": "pp. 409\u2013414"}, {"num": 2, "title": "Differential Diagnosis and Causes of Acute Abdomen", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-2", "summary": "Master diagnostic differential matrix categorizing acute abdomen into gastrointestinal vs non-gastrointestinal causes across all anatomical abdominal quadrants.", "badge": "Anatomical Matrix", "page": "p. 415"}, {"num": 3, "title": "Diagnostic Approach of Acute Abdomen", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-3", "summary": "Evidence-guided laboratory investigations for acute abdomen, test interpretations, sensitivity/specificity, and pre-test probability management.", "badge": "Laboratory Workup", "page": "p. 416"}, {"num": 4, "title": "Radiological Approach of Acute Abdomen", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-4", "summary": "Selection criteria, sensitivity, specific signs, and diagnostic hierarchy for plain radiography, ultrasonography, contrast CT, and MRI/MRCP.", "badge": "Imaging Modalities", "page": "p. 417"}, {"num": 5, "title": "Stepwise Management of Acute Abdomen", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-5", "summary": "11-step emergency resuscitation protocol: ABCD&E, venous access, goal-directed fluid resuscitation, analgesia, empiric antibiotics, decompression, and emergency surgical decision making.", "badge": "Resuscitation Protocol", "page": "p. 418"}, {"num": 6, "title": "Acute Appendicitis", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-6", "summary": "Pathophysiology, classical periumbilical-to-RLQ pain migration, physical exam signs (McBurney, Rovsing, Psoas, Obturator), Alvarado Score (MANTRELS), ultrasound/CT, and definitive medical-surgical protocol.", "badge": "High Yield Surgical Emergency", "page": "p. 419"}, {"num": 7, "title": "Acute Cholecystitis", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-7", "summary": "Pathophysiology, 6 Fs risk factors, Murphy & Boas signs, Tokyo Guidelines diagnostic criteria and severity grading (Grades I\u2013III), critical Ceftriaxone avoidance warning, and emergency cholecystostomy.", "badge": "Tokyo Guidelines 2018", "page": "pp. 420\u2013421"}, {"num": 8, "title": "Cholelithiasis (Gallstones)", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-8", "summary": "Pathogenesis, types of gallstones (cholesterol vs black/brown pigment), biliary colic features, ultrasound acoustic shadowing, and elective laparoscopic cholecystectomy.", "badge": "Calculous Disease", "page": "p. 422"}, {"num": 9, "title": "Choledocholithiasis", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-9", "summary": "Common bile duct stones, cholestatic jaundice, MRCP vs ERCP diagnostics, laparoscopic bile duct exploration, and full antibiotic/analgesic regimens.", "badge": "CBD Calculi", "page": "p. 423"}, {"num": 10, "title": "Acute Cholangitis", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-10", "summary": "Ascending biliary infection, Charcot's Triad, Reynolds' Pentad, Tokyo Guidelines diagnostic criteria and severity grading (Grades I\u2013III), emergency ERCP biliary drainage, and critical resuscitation.", "badge": "Life-Threatening Emergency", "page": "pp. 424\u2013425"}, {"num": 15, "title": "Acute Pancreatitis", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-15", "summary": "I GET SMASHED etiologies, Revised Atlanta classification, CTSI/MCTSI scoring, Ranson and BISAP criteria, goal-directed fluid therapy, enteral nutrition, and sterile vs infected necrosis management.", "badge": "Prognostic Scoring & Critical Care", "page": "pp. 429\u2013431"}, {"num": 11, "title": "Anal Fissure", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-11", "summary": "Pathogenesis, posterior midline tears, severe pain on defecation, sentinel skin tag, conservative care, GTN/diltiazem chemical sphincterotomy, Sitz bath technique, and surgical LIS.", "badge": "Proctology Reference", "page": "p. 426"}, {"num": 12, "title": "Hemorrhoids (Piles / \u0628\u0648\u0627\u0633\u06cc\u0631)", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-12", "summary": "Internal vs external hemorrhoids, 1st to 4th degree classification, non-operative treatments (rubber band ligation, sclerotherapy), Daflon (MPFF) flavonoid therapy, and excisional hemorrhoidectomy.", "badge": "Clinical Proctology", "page": "p. 427"}, {"num": 13, "title": "Ano-Rectal Abscess", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-13", "summary": "Cryptoglandular infection, anatomical classification (perianal, ischiorectal, submucous, pelvirectal), the fundamental rule of surgical I&D, perioperative antibiotics, and fistula sequelae.", "badge": "Surgical Sepsis", "page": "p. 428"}, {"num": 14, "title": "Pilonidal Sinus", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-14", "summary": "Acquired natal cleft disease, jeep disease, hair foreign body granuloma, acute abscess drainage, conservative shaving/hygiene, Bascom's procedure, and Limberg/Karydakis flap reconstructions.", "badge": "Sacrococcygeal Pathology", "page": "p. 428"}, {"num": 16, "title": "Intestinal (Bowel) Obstruction", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-16", "summary": "Small vs large bowel obstruction, four cardinal symptoms, keyboard sign on ultrasound, air-fluid levels on X-ray, CT transition points, nasogastric decompression, and surgical laparotomy.", "badge": "Mechanical GI Crisis", "page": "p. 432"}, {"num": 17, "title": "Spontaneous Bacterial Peritonitis (SBP)", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-17", "summary": "Pathogenesis in decompensated cirrhosis, subtle presentation, diagnostic paracentesis (PMN >= 250/mm3), critical IV albumin prophylaxis for hepatorenal syndrome, IV Ceftriaxone, and lifetime secondary prophylaxis.", "badge": "Hepatology / Surgical Interface", "page": "p. 433"}, {"num": 18, "title": "Secondary Bacterial Peritonitis", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-18", "summary": "Peritoneal contamination from hollow viscus perforation, board-like abdominal rigidity, distinguishing criteria from SBP, pneumoperitoneum on erect CXR, and emergency exploratory laparotomy.", "badge": "Acute Surgical Peritoneum", "page": "p. 434"}, {"num": 19, "title": "Pressure Ulcer (Decubitus Ulcer / Bed Sore)", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-19", "summary": "Pathogenesis (capillary occlusion pressure > 32 mmHg), neurological causes, anatomical predilection, NPUAP 4-stage classification, wound dressings, debridement modalities, vacuum-assisted closure (NPWT), and reconstructive flap surgery.", "badge": "Tissue Viability & Wound Care", "page": "pp. 435\u2013436"}, {"num": 20, "title": "Diabetic Foot Infections", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-20", "summary": "Neuropathy and vasculopathy pathophysiology, IDSA/IWGDF severity grades (mild, moderate, severe), probe-to-bone test, deep tissue cultures, specialized MCR offloading footwear, empirical antibiotics, and amputation guidelines.", "badge": "Limb Preservation Protocol", "page": "p. 437"}, {"num": 21, "title": "Hypertrophic Scar", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-21", "summary": "High fibroblast proliferation with parallel type III collagen, remaining strictly within original wound boundaries, silicone gel, intralesional triamcinolone (K-Cort), pressure garments, and surgical revision.", "badge": "Scar Management", "page": "p. 438"}, {"num": 22, "title": "Keloids", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-22", "summary": "Disorganized collagen deposition extending beyond wound margins, presternal triangle predilection, claw-like borders, silicone/intralesional steroids, adjuvant radiation, and surgical recurrence warnings.", "badge": "Fibroproliferative Lesion", "page": "p. 439"}, {"num": 23, "title": "Lipoma", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-23", "summary": "Universal subcutaneous tumor, mature lobulated adipocytes, classical slipping sign, differential diagnosis with liposarcoma, and elective minor surgical enucleation.", "badge": "Benign Subcutaneous Tumor", "page": "p. 440"}, {"num": 24, "title": "Skin Tag (Acrochordon)", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-24", "summary": "Small pedunculated fibroepithelial polyps in friction creases, metabolic syndrome and diabetes associations, differential diagnosis, and office removal (snip excision, cryotherapy, electrodesiccation).", "badge": "Minor Cutaneous Lesion", "page": "p. 440"}, {"num": 25, "title": "Ganglion Cyst", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-25", "summary": "Most common benign mass of hand/wrist, transillumination test, dorsal vs volar cysts (radial artery warning), conservative reassurance, aspiration with Kenacort, and surgical excision.", "badge": "Hand & Wrist Pathology", "page": "p. 441"}, {"num": 26, "title": "Ingrown Toe-Nail (Onychocryptosis)", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-26", "summary": "Pathogenesis (curved trimming), hallux predilection, foreign body granulation, conservative gutter splints, digital ring block (no adrenaline!), partial nail avulsion, and chemical phenol matrixectomy.", "badge": "Podiatric Surgery", "page": "p. 442"}, {"num": 27, "title": "Felon Finger Infection", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-27", "summary": "Closed-space infection of the distal digital pulp, vertical fibrous septa, ischemic pulp necrosis risk, terminal phalanx osteomyelitis, lateral incision & drainage, and oral S. aureus antibiotics.", "badge": "Digital Closed-Space Sepsis", "page": "p. 442"}, {"num": 28, "title": "Acute Paronychia", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-28", "summary": "Infection of proximal/lateral nail folds (< 6 weeks), S. aureus etiology, hangnail/manicure triggers, warm soaks, eponychium elevation technique without cutting, topical Bactroban/Fucidin, and oral Augmentin.", "badge": "Periungual Sepsis", "page": "p. 443"}, {"num": 29, "title": "Chronic Paronychia", "chapter_num": 17, "chapter_name": "General Surgery", "url": "chapter-17-general-surgery.html#topic-29", "summary": "Inflammatory dermatosis lasting > 6 weeks, wet work occupations (dishwashers, bartenders), cuticle loss, Candida as colonizer vs primary irritant dermatitis, topical steroids vs tacrolimus, and eponychial marsupialization.", "badge": "Occupational Inflammatory Dermatosis", "page": "pp. 443\u2013444"}, {"num": 101, "title": "Hordeolum (Stye) & Chalazion (Meibomian Cyst)", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-101", "summary": "Acute localized staphylococcal abscess of eyelid glands (Zeis/Moll/Meibomian) vs chronic non-infectious lipogranuloma of meibomian gland; clinical distinction, warm compresses, topical Tobradex/Maxidex, and surgical incision & curettage.", "badge": "Ophthalmic Infection", "page": "pp. 444\u2013445"}, {"num": 102, "title": "Blepharitis (Anterior & Posterior MGD)", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-102", "summary": "Chronic inflammatory condition of the eyelid margins divided into anterior (staphylococcal/seborrheic) and posterior (meibomian gland dysfunction); eyelid hygiene regimen, baby shampoo scrubs, topical antibiotics, and low-dose systemic tetracyclines.", "badge": "Lid Margin Disease", "page": "pp. 446\u2013447"}, {"num": 103, "title": "Acute Bacterial Conjunctivitis", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-103", "summary": "Acute onset ocular redness with copious mucopurulent discharge and matting of eyelids; causative organisms (S. aureus, S. pneumoniae, H. influenzae), hyperacute gonococcal warning (corneal perforation risk), and first-line topical fluoroquinolones.", "badge": "Red Eye Emergency", "page": "p. 448"}, {"num": 104, "title": "Viral Conjunctivitis (Epidemic Keratoconjunctivitis)", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-104", "summary": "Highly communicable adenoviral infection presenting with watery serous discharge, prominent palpebral conjunctival follicles, and tender preauricular lymphadenopathy; strict contact isolation, supportive cold compresses, and strict prohibition of unindicated topical steroids.", "badge": "Highly Contagious", "page": "p. 449"}, {"num": 105, "title": "Allergic Conjunctivitis & Vernal Keratoconjunctivitis", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-105", "summary": "Type I IgE-mediated ocular hypersensitivity ranging from seasonal allergic conjunctivitis to severe vernal keratoconjunctivitis (VKC); hallmark itching, stringy mucoid ropiness, giant cobblestone papillae, Horner-Trantas dots, and dual-action mast cell stabilizers.", "badge": "Hypersensitivity", "page": "p. 450"}, {"num": 106, "title": "Chlamydial Conjunctivitis & Trachoma", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-106", "summary": "Adult inclusion conjunctivitis (Chlamydia trachomatis serovars D\u2013K) sexually transmitted ocular infection vs endemic trachoma (serovars A\u2013C); prominent inferior fornix follicles, peripheral corneal pannus, mandatory single-dose oral Azithromycin, and the WHO SAFE strategy.", "badge": "Systemic STI & Endemic", "page": "p. 451"}, {"num": 107, "title": "Corneal Abrasion & Traumatic Epithelial Defect", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-107", "summary": "Mechanical disruption of corneal epithelium; extreme pain, photophobia, blepharospasm, diagnosis via slit-lamp fluorescein dye examination under cobalt blue filter, strict contraindication of home topical anesthetics, and prophylactic antibiotic coverage.", "badge": "Trauma & Fluorescein", "page": "p. 452"}, {"num": 108, "title": "Ocular Chemical Burns (Acid vs Alkali Emergency)", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-108", "summary": "True ophthalmic emergency requiring immediate copius lavage prior to history or examination; alkali (liquefactive necrosis, rapid stromal penetration) vs acid (coagulative necrosis); Morgan lens irrigation until pH neutralizes (7.0\u20137.4), Roper-Hall grading, and limbal ischemia management.", "badge": "Immediate Resuscitation", "page": "p. 453"}, {"num": 109, "title": "Corneal & Subtarsal Foreign Bodies", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-109", "summary": "Evaluation and safe removal of superficial metallic, organic, and mineral corneal foreign bodies; subtarsal lid eversion, bevel-up needle/burr extraction, rust ring removal, Seidel test, and secondary keratitis prevention.", "badge": "Minor Procedure", "page": "p. 454"}, {"num": 110, "title": "Acute Angle-Closure Glaucoma (AACG Emergency)", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-110", "summary": "Ophthalmic hyper-emergency caused by pupillary block and acute occlusion of the iridocorneal drainage angle; sudden severe ocular/hemicranial pain, colored haloes around lights, steamy cornea, fixed mid-dilated pupil, stony-hard globe (IOP > 40\u201370 mmHg), immediate medical quadri-therapy, and definitive Laser Peripheral Iridotomy (LPI).", "badge": "Sight-Threatening Emergency", "page": "pp. 454\u2013456"}, {"num": 111, "title": "Anterior Uveitis (Acute Iritis)", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-111", "summary": "Inflammation of the iris and anterior ciliary body; deep aching ocular pain, photophobia, circumcorneal ciliary injection, keratic precipitates (KPs), anterior chamber cell and flare, association with HLA-B27 and seronegative spondyloarthropathies, intensive topical Pred Forte, and therapeutic cycloplegia.", "badge": "Systemic Autoimmune", "page": "p. 457"}, {"num": 112, "title": "Comprehensive Ophthalmic Drug Formulary & Eye Drops", "chapter_num": 18, "chapter_name": "Ophthalmology", "url": "chapter-18-ophthalmology.html#topic-112", "summary": "Master clinical reference directory of all ophthalmic classes, formulations, and authentic Pakistani brand names: topical antibiotics, steroids, combination drops, glaucoma therapeutics, mydriatics/cycloplegics, artificial tears, and anti-allergic agents with strengths and clinical rules.", "badge": "Master Reference Table", "page": "p. 458"}, {"num": 201, "title": "Chronic Rhinosinusitis (CRS with/without Polyps)", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-201", "summary": "Sinonasal inflammation persisting > 12 weeks; cardinal criteria (nasal obstruction, facial pressure/fullness, mucopurulent discharge, anosmia), CT osteomeatal complex patency, high-volume saline irrigation, intranasal corticosteroids, and FESS indications.", "badge": "Chronic Inflammatory", "page": "pp. 459\u2013463"}, {"num": 202, "title": "Deviated Nasal Septum (DNS) & Turbinate Hypertrophy", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-202", "summary": "Anatomical deviation of the osseocartilaginous nasal septum producing unilateral or bilateral airflow resistance; Cottle's test, compensatory inferior turbinate hypertrophy, mucosal crusting/epistaxis, and indications for Septoplasty vs SMR.", "badge": "Structural Obstruction", "page": "pp. 464\u2013466"}, {"num": 203, "title": "Epistaxis (Anterior vs Posterior Nasal Bleeding)", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-203", "summary": "Acute nasal hemorrhage differentiated into anterior (Little's area / Kiesselbach's plexus - 90%) vs posterior (Woodruff's plexus / sphenopalatine artery); Trotter's maneuver, chemical silver nitrate cautery, Merocel pneumatic packing, and Foley catheter posterior tamponade.", "badge": "ENT Emergency", "page": "pp. 467\u2013468"}, {"num": 204, "title": "Acute Tonsillitis & Pharyngitis (Centor Score)", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-204", "summary": "Acute pharyngeal and palatine tonsillar infection; differentiating viral etiologies from Group A Beta-Hemolytic Streptococcus (GABHS / S. pyogenes); Modified Centor (McIsaac) score risk stratification, penicillin pharmacotherapy to prevent acute rheumatic fever, and analgesia.", "badge": "Streptococcal Infection", "page": "pp. 469\u2013470"}, {"num": 205, "title": "Peritonsillar Abscess (Quinsy)", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-205", "summary": "Suppurative purulent collection in the peritonsillar space between tonsillar capsule and superior constrictor muscle; severe unilateral odynophagia, trismus, hot potato voice, contralateral uvular deviation, guarded needle aspiration, and IV antimicrobial therapy.", "badge": "Deep Neck Infection", "page": "p. 471"}, {"num": 206, "title": "Acute Otitis Media (AOM)", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-206", "summary": "Acute bacterial infection of the middle ear cleft following Eustachian tube dysfunction; severe otalgia, fever, distinct stages of AOM, pathognomonic bulging hyperemic tympanic membrane with loss of cone of light, oral high-dose Amoxicillin, and mastoiditis red flags.", "badge": "Middle Ear Sepsis", "page": "pp. 472\u2013473"}, {"num": 207, "title": "CSOM: Tubotympanic (Safe) vs Atticoantral (Unsafe)", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-207", "summary": "Longstanding chronic inflammation of the middle ear and mastoid cavity with recurrent otorrhea (> 2\u20136 weeks) through a persistent tympanic membrane perforation; master comparison table of Tubotympanic ('Safe' central) vs Atticoantral ('Unsafe' marginal with cholesteatoma), dry ear protocols, and surgical reconstruction.", "badge": "Chronic Otology", "page": "pp. 474\u2013475"}, {"num": 208, "title": "Otomycosis (Fungal Otitis Externa)", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-208", "summary": "Superficial fungal infection of the external auditory canal; characteristic intense pruritus, pathognomonic 'wet blotting paper' appearance with black spores (Aspergillus niger) or creamy white curd (Candida albicans), microscopic debridement, and topical Clotrimazole therapy.", "badge": "Fungal Infection", "page": "p. 476"}, {"num": 209, "title": "Diffuse Otitis Externa & Malignant Otitis Externa", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-209", "summary": "Diffuse acute inflammation of the external auditory canal skin (Swimmer's Ear); exquisite tragal pain, canal stenosis, Pope ear wick stenting, topical Ciprofloxacin-Dexamethasone, and the life-threatening skull base osteomyelitis alert (Malignant Otitis Externa) in elderly diabetic patients.", "badge": "Severe Tragal Tenderness", "page": "p. 477"}, {"num": 210, "title": "BPPV: Benign Paroxysmal Positional Vertigo & Epley", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-210", "summary": "Most common peripheral vestibular cause of vertigo; canalithiasis of the posterior semicircular canal, brief violent rotational spinning (< 60s) provoked by head tilts, diagnostic Dix-Hallpike maneuver, and curative bedside Epley canalith repositioning maneuver (> 85% success).", "badge": "Repositioning Maneuver", "page": "pp. 478\u2013480"}, {"num": 211, "title": "M\u00e9ni\u00e8re's Disease (Endolymphatic Hydrops)", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-211", "summary": "Inner ear disorder characterized by endolymphatic hydrops; diagnostic tetrad (spontaneous episodic vertigo lasting 20 min to 12 hrs, fluctuating low-frequency sensorineural hearing loss, roaring tinnitus, aural fullness), low-salt diet, and Betahistine prophylaxis.", "badge": "Fluctuating Hearing Loss", "page": "p. 481"}, {"num": 212, "title": "Bell's Palsy (Acute Lower Motor Neuron Facial Paralysis)", "chapter_num": 19, "chapter_name": "Ear, Nose & Throat (ENT)", "url": "chapter-19-ent.html#topic-212", "summary": "Acute idiopathic unilateral lower motor neuron facial nerve (CN VII) palsy; distinguishing LMN from UMN stroke via forehead sparing, Bell's phenomenon, House-Brackmann grading, mandatory early high-dose oral Prednisolone, and aggressive corneal eye protection.", "badge": "LMN Facial Paralysis", "page": "p. 482"}, {"num": 301, "title": "ACLS Cardiac Arrest Algorithm & Resuscitation", "chapter_num": 23, "chapter_name": "Emergency Medicine & Poisoning", "url": "chapter-23-emergency-medicine.html#topic-301", "summary": "Advanced Cardiovascular Life Support (ACLS) algorithmic management of adult cardiac arrest; shockable (VF / pVT) vs non-shockable (PEA / Asystole) pathways, high-quality chest compressions, early defibrillation, adrenaline & amiodarone protocols, and reversing the 5Hs and 5Ts.", "badge": "Life Support", "page": "pp. 673\u2013676"}, {"num": 302, "title": "Anaphylaxis Emergency Management & Adrenaline Protocol", "chapter_num": 23, "chapter_name": "Emergency Medicine & Poisoning", "url": "chapter-23-emergency-medicine.html#topic-302", "summary": "Severe, sudden-onset multi-system type-I hypersensitivity reaction; airway compromise, bronchospasm, distributive shock, universal first-line Intramuscular Adrenaline (Epinephrine 1:1,000) 0.5 mg anterolateral thigh dosing, aggressive IV fluid resuscitation, and biphasic reaction prevention.", "badge": "Life-Threatening Emergency", "page": "pp. 677\u2013680"}, {"num": 303, "title": "Sepsis & Septic Shock (Surviving Sepsis Hour-1 Bundle)", "chapter_num": 23, "chapter_name": "Emergency Medicine & Poisoning", "url": "chapter-23-emergency-medicine.html#topic-303", "summary": "Life-threatening organ dysfunction caused by a dysregulated host response to infection (Sepsis-3); bedside qSOFA screening, Surviving Sepsis Campaign Hour-1 Bundle, blood cultures, 30 mL/kg crystalloid bolus, early Norepinephrine vasopressor support (MAP >= 65 mmHg), and empiric broad-spectrum IV antimicrobials.", "badge": "Critical Care", "page": "pp. 681\u2013685"}, {"num": 304, "title": "Organophosphate & Carbamate Poisoning (Atropinization)", "chapter_num": 23, "chapter_name": "Emergency Medicine & Poisoning", "url": "chapter-23-emergency-medicine.html#topic-304", "summary": "Irreversible acetylcholinesterase inhibition leading to massive acetylcholine storm; DUMBELS / SLUDGEM cholinergic toxidrome, lethal bronchorrhea and bronchospasm, aggressive emergency Atropine titration until target atropinization endpoints, Pralidoxime (PAM) enzyme reactivator, and decontamination.", "badge": "Agricultural Poisoning", "page": "pp. 686\u2013690"}, {"num": 305, "title": "Paracetamol Toxicity & N-Acetylcysteine (NAC Protocol)", "chapter_num": 23, "chapter_name": "Emergency Medicine & Poisoning", "url": "chapter-23-emergency-medicine.html#topic-305", "summary": "Dose-dependent toxic metabolite (NAPQI) accumulation depleting hepatic glutathione; Rumack-Matthew treatment nomogram, 4 clinical stages, and the definitive intravenous N-Acetylcysteine (NAC / Parvolex) 3-bag protocol preventing fulminant hepatic necrosis.", "badge": "Hepatotoxicity", "page": "pp. 691\u2013694"}, {"num": 306, "title": "Snake Bite Envenomation (ASV & 20WBCT Protocol)", "chapter_num": 23, "chapter_name": "Emergency Medicine & Poisoning", "url": "chapter-23-emergency-medicine.html#topic-306", "summary": "Emergency management of venomous snakebites in Pakistan; distinguishing Vasculotoxic/Hemotoxic (Viperidae: Russell's & Saw-scaled viper) from Neurotoxic (Elapidae: Cobra & Krait); the 20-Minute Whole Blood Clotting Test (20WBCT), prohibition of tourniquets, and Polyvalent Anti-Snake Venom (ASV) titration.", "badge": "Envenomation Protocol", "page": "pp. 695\u2013698"}, {"num": 307, "title": "Thermal Burn Injury & Parkland Fluid Resuscitation", "chapter_num": 23, "chapter_name": "Emergency Medicine & Poisoning", "url": "chapter-23-emergency-medicine.html#topic-307", "summary": "Acute major burn resuscitation; Wallace Rule of Nines Total Body Surface Area (TBSA) calculation, Parkland crystalloid formula (4 mL x kg x %TBSA), fluid titration targeting urine output (0.5\u20131 mL/kg/hr), inhalation injury airway alert, and silver sulfadiazine wound care.", "badge": "Burn Resuscitation", "page": "pp. 699\u2013702"}, {"num": 308, "title": "General Approach to the Poisoned Patient (Toxidromes)", "chapter_num": 23, "chapter_name": "Emergency Medicine & Poisoning", "url": "chapter-23-emergency-medicine.html#topic-308", "summary": "Master diagnostic matrix of acute clinical toxidromes (Anticholinergic, Cholinergic, Sympathomimetic, Sedative-Hypnotic, Opioid); emergency decontamination principles, activated charcoal indications, urine alkalinization, and definitive targeted antidotes.", "badge": "Toxidrome Matrix", "page": "pp. 703\u2013707"}, {"num": 309, "title": "Emergency Acute Pain Management & WHO Ladder", "chapter_num": 23, "chapter_name": "Emergency Medicine & Poisoning", "url": "chapter-23-emergency-medicine.html#topic-309", "summary": "Systematic acute pain assessment using Visual Analog Scale (VAS); WHO 3-step analgesic ladder adapted for acute emergency care, multimodal opioid-sparing analgesia, IV paracetamol/ketorolac protocols, and localized Pakistani analgesics (Provas, Toradol, Tramal, Kinz, Synflex).", "badge": "Analgesia Protocol", "page": "pp. 708\u2013712"}];
 
-function initTheme() {
-  const saved = localStorage.getItem('dod_theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', saved);
-  updateThemeIcon(saved);
-}
-
-function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('dod_theme', next);
-  updateThemeIcon(next);
-}
-
-function updateThemeIcon(theme) {
-  const icon = document.getElementById('theme-icon');
-  if (icon) {
-    icon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
-  }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
-  
-  const select = document.getElementById('topic-quick-jump');
-  if (select) {
-    select.addEventListener('change', (e) => {
-      if (e.target.value) {
-        window.location.href = e.target.value;
-      }
-    });
-  }
-});
-
-
-// Chapter Filtering
-function filterChapter(ch, btn) {
-  document.querySelectorAll('.chapter-filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  
-  const blocks = document.querySelectorAll('.chapter-block');
-  blocks.forEach(block => {
-    if (ch === 'all' || block.dataset.chapter === ch) {
-      block.style.display = 'block';
-    } else {
-      block.style.display = 'none';
+    function initTheme() {
+      const saved = localStorage.getItem('dod_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      updateThemeIcon(saved);
     }
-  });
-}
 
-// Live Real-Time Search
-document.getElementById('live-search').addEventListener('input', (e) => {
-  const query = e.target.value.toLowerCase().trim();
-  const cards = document.querySelectorAll('.topic-card');
-  const blocks = document.querySelectorAll('.chapter-block');
-  
-  if (!query) {
-    cards.forEach(c => c.style.display = 'flex');
-    blocks.forEach(b => b.style.display = 'block');
-    return;
-  }
-  
-  blocks.forEach(block => {
-    let visibleInBlock = 0;
-    const blockCards = block.querySelectorAll('.topic-card');
-    blockCards.forEach(card => {
-      const title = card.dataset.title || '';
-      const summary = card.dataset.summary || '';
-      if (title.includes(query) || summary.includes(query)) {
-        card.style.display = 'flex';
-        visibleInBlock++;
-      } else {
-        card.style.display = 'none';
+    function toggleTheme() {
+      const curr = document.documentElement.getAttribute('data-theme');
+      const next = curr === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('dod_theme', next);
+      updateThemeIcon(next);
+    }
+
+    function updateThemeIcon(t) {
+      const btn = document.getElementById('themeBtn');
+      if (btn) btn.innerHTML = t === 'dark' ? '<i class="fa-solid fa-sun"></i> Theme' : '<i class="fa-solid fa-moon"></i> Theme';
+    }
+
+    function handleGlobalSearch() {
+      const input = document.getElementById('globalSearch');
+      const box = document.getElementById('searchResults');
+      const q = input.value.toLowerCase().trim();
+      
+      if (!q) {
+        box.classList.remove('active');
+        box.innerHTML = '';
+        return;
+      }
+
+      const matches = TOPICS_INDEX.filter(t => 
+        t.title.toLowerCase().includes(q) || 
+        t.summary.toLowerCase().includes(q) ||
+        t.chapter_name.toLowerCase().includes(q)
+      );
+
+      if (matches.length === 0) {
+        box.innerHTML = '<div style="padding:16px; text-align:center; color:var(--text-muted); font-size:13px;">No topics matched your search.</div>';
+        box.classList.add('active');
+        return;
+      }
+
+      let html = '';
+      matches.slice(0, 10).forEach(m => {
+        html += `
+        <a href="${m.url}" class="search-result-item">
+          <div>
+            <div style="font-weight:700; font-size:13.5px; color:var(--text-main);">${m.title}</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-top:2px;">${m.summary.substring(0, 85)}...</div>
+          </div>
+          <div style="text-align:right; flex-shrink:0;">
+            <span class="badge badge-category" style="font-size:10px;">Ch ${m.chapter_num}</span>
+            <div style="font-size:10.5px; color:var(--text-dim); margin-top:3px;">Topic ${m.num}</div>
+          </div>
+        </a>
+        `;
+      });
+
+      box.innerHTML = html;
+      box.classList.add('active');
+    }
+
+    // Close search on click outside
+    document.addEventListener('click', (e) => {
+      const wrapper = document.querySelector('.global-search-wrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        const box = document.getElementById('searchResults');
+        if (box) box.classList.remove('active');
       }
     });
-    block.style.display = visibleInBlock > 0 ? 'block' : 'none';
-  });
-});
+
+    initTheme();
   </script>
 </body>
 </html>

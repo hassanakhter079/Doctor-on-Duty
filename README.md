@@ -11,17 +11,26 @@
 
 ## 📖 Project Overview
 
-This repository hosts interactive, high-fidelity HTML clinical notes organized system-by-system from the medical handbook **Doctor on Duty (3rd Edition)**. Each standalone page provides:
+This repository hosts interactive, high-fidelity standalone HTML clinical reference guides organized by chapter from the medical handbook **Doctor on Duty (3rd Edition)**. Each chapter is an independent, complete HTML single-page application containing:
 - **Comprehensive Clinical Presentations:** Key symptoms, pathognomonic physical signs, red flags, and diagnostic thresholds.
 - **Evidence-Based Diagnostic Workups:** Laboratory markers, imaging hierarchy (Plain X-ray, Ultrasound, CT, MRCP, Tonometry, Pure-Tone Audiometry), and pre-test probability.
 - **Standardized Emergency & Ward Protocols:** Stepwise resuscitation (ABCD&E, ACLS 2023, Surviving Sepsis Hour-1 bundle, Parkland formula), goal-directed fluid therapy, and definitive surgical/medical decision pathways.
 - **Authentic Localized Pharmacotherapy (Rx):** Exact dosages, administration routes, infusion schedules, and localized Pakistani brand names (*Rocephin, Flagyl, Novidate, Risek, Provas, Toradol, Kinz, Gravinate, Daflon, Nospa, Augmentin, Maxidex, Tobradex, Ciprotic, Otosporin, Canesten, Serc, Sibelium, PAM, Atropine, NAC, ASV*).
 - **Interactive Clinical Calculators:** Dynamic Alvarado score for appendicitis, Centor criteria for sore throat, Parkland burn fluid resuscitator, and Acute Angle-Closure Glaucoma emergency protocol.
 - **Embedded Clinical Photos:** Real clinical photographs and diagnostic scans embedded locally for every single topic (all 62 topics).
+- **Responsive Navigation:** Interactive left sidebar with active scrollspy tracking, real-time chapter search, quick chapter switcher dropdown, and dark/light mode.
 
 ---
 
-## 🗂️ Completed Chapters & Clinical Systems (62 Standalone Topics)
+## 🗂️ Completed Chapters & Files (62 Topics Across 4 Standalone Chapter HTMLs)
+
+| Chapter | Dedicated File | Short Alias | Topics | Page Span | Key Highlights |
+|---|---|---|:---:|:---:|---|
+| **Ch 17: General Surgery** | [`chapter-17-general-surgery.html`](chapter-17-general-surgery.html) | [`surgery.html`](surgery.html) | **29** | pp. 409–444 | Acute Abdomen, Tokyo Guidelines (TG18), Alvarado appendicitis calculator, Pancreatitis, Anorectal, Pressure Ulcers, Minor Surgery, Digital infections |
+| **Ch 18: Ophthalmology** | [`chapter-18-ophthalmology.html`](chapter-18-ophthalmology.html) | [`ophthalmology.html`](ophthalmology.html) | **12** | pp. 445–458 | Red eye differential, Conjunctivitis subtypes, Corneal abrasions & rust rings, Ocular chemical burns, AACG emergency glaucoma decompression, Anterior uveitis, Ophthalmic formulary |
+| **Ch 19: Ear, Nose & Throat** | [`chapter-19-ent.html`](chapter-19-ent.html) | [`ent.html`](ent.html) | **12** | pp. 459–482 | Chronic rhinosinusitis, DNS, Epistaxis anterior/posterior packing, Centor strep pharyngitis calculator, Quinsy drainage, AOM, CSOM safe vs unsafe cholesteatoma, Otomycosis, BPPV Epley, Bell's palsy |
+| **Ch 23: Emergency Medicine** | [`chapter-23-emergency-medicine.html`](chapter-23-emergency-medicine.html) | [`emergency.html`](emergency.html) | **9** | pp. 673–712 | ACLS 2023 Cardiac Arrest, Anaphylaxis Adrenaline Protocol, Surviving Sepsis Hour-1, Organophosphate Atropinization, Paracetamol NAC 3-Bag Infusion, Snakebite ASV & 20WBCT, Parkland burn fluid calculator, Toxidromes, WHO pain ladder |
+| **Master Portal** | [`index.html`](index.html) | — | **62** | Full Book | Global real-time search across all 62 topics, interactive chapter cards, overview statistics, and cross-device universal cloud sync |
 
 ### 🔪 Chapter 17: General Surgery (29 Topics)
 Spans pp. 409–444 of *Doctor on Duty*:
